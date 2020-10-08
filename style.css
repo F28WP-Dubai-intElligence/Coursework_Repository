@@ -47,5 +47,8 @@ h1 {
     top: 10cm;
 }
 
-
+.heading a:hover {
+    background-color: white;
+    color: black;
+    transition: 0.6s;
 }
