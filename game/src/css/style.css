@@ -5,7 +5,7 @@
 }
 
 header {
-    background-image: url('../Coursework_Repository/game/src/css/spacebg.jpeg');
+    background-image: url('../../assets/images/spacebg.jpeg');
     height: 100vh;
 }
 
