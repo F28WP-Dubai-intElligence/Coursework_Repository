@@ -12,6 +12,4 @@ class Score {
     textSize(60);
   	text(score, this.x, this.y);
   }
-  
-
 }

@@ -50,6 +50,4 @@ class Ship {
     this.isUp = false
     this.isDown = false;
   }
-  
-
 }

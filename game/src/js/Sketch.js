@@ -11,16 +11,14 @@ let rightScore;
 
 let spaceshipImage; // this is gonna have our gorgeous ship
 
-function preload() {
-  spaceshipImage = loadImage("spaceship.jpg");
-}
 
 let timer;
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(window.innerWidth, window.innerHeight);
   
   // get the spaceship image from your project-folder
-preload();  
+  spaceshipImage = loadImage("spaceship.jpg");
+
   // pass the image into the ship object
   leftShip = new Ship(width * 0.33, spaceshipImage);
   rightShip = new Ship(width * 0.66, spaceshipImage);
