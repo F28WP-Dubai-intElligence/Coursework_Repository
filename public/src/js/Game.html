@@ -8,43 +8,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="./game.js"></script>
 
-    <!--
-   Page first created by Ben Kenwright as part of the Web programming course.
-   Modified with different style of programming and different concept for the game by
-   Hadj Batatia as part of the Web programming course.
-    -->
-
-    <noscript>
-      Warning - JavaScript is Disabled. For full functionality of this page, it
-      is necessary to enable JavaScript.
-    </noscript>
     <script>
-        var ship;
+      var myTime;
 
-        var ship_place;
+      var ship;
+      var rock;
 
-        var board;
-        var boardHeight;
-        var boardWidth;
+      var ship_place;
+      var rock_place;
+      var hits;
 
-        var X_MAX;
-        var X_MIN;
-        var Y_MIN;
-        var Y_MAX;
+      var board;
+      var boardHeight;
+      var boardWidth;
 
-        var ship_X_STEP;
-        var ship_Y_STEP;
+      var X_MAX;
+      var X_MIN;
+      var Y_MIN;
+      var Y_MAX;
 
-        var X_ship_Direction;
-        var Y_ship_Direction;
+      var ship_X_STEP;
+      var ship_Y_STEP;
+      var rock_X_STEP;
+      var rock_Y_STEP;
 
-        var ship_Move_X;
-        var ship_Move_Y;
+      var X_ship_Direction;
+      var Y_ship_Direction;
+      var X_rock_Direction;
+      var Y_rock_Direction;
 
-        var KEYUP;
-        var KEYDOWN;
-        var KEYLEFT;
-        var KEYRIGHT;
+      var ship_Move_X;
+      var ship_Move_Y;
+      var rock_Move;
+
+      var KEYUP;
+      var KEYDOWN;
+      var KEYLEFT;
+      var KEYRIGHT;
     </script>
 </head>
 
@@ -53,20 +53,22 @@
         <button onclick="restart();">Start</button>
     </div>
     <div id="scores">
-        <table>
-            <tr>
-                <td>
-                    <p>
-                        Ship Coordinates (<span id="ship_location" class="location">
-                ... </span
-              >)
+      <table>
+        <tr>
+          <td>
+            <p>
+              Ship Coordinates (<span id="ship_location" class="location">... </span>)
             </p>
+          </td>
+          <td>
+            <p>Hits: [<span id="hits">0</span>]</p>
           </td>
         </tr>
       </table>
     </div>
     <div id="board">
       <img src="../assets/images/rocket1.png" id="ship" />
+      <img id="rock" src="../assets/images/meteor1.png" class="rock">
     </div>
   </body>
 </html>

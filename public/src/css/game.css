@@ -5,6 +5,13 @@
     overflow-x: hidden;
 }
 
+#rock{
+    position: absolute;
+    left: -200px;
+    /*top: 240px;*/
+    width: 100px;
+}
+
 #ship {
     position: absolute;
     height: 100px;
