@@ -72,6 +72,17 @@ function keyDownHandler(e) {
         Y_ship_Direction = 1;
         ship_Move_Y = 1;
     } // up key
+    switch (e.keyCode) {
+        case 37:
+        case 39:
+        case 38:
+        case 40: // Arrow keys
+        case 32:
+            e.preventDefault();
+            break; // Space
+        default:
+            break; // do not block other keys
+    }
 
 };
 
