@@ -7,15 +7,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Space Race</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./game.js"></script>
 
     <noscript>
       Warning - JavaScript is Disabled. For full functionality of this page, it
       is necessary to enable JavaScript.
     </noscript>
     <script>
+        var myTime;
+
         var ship;
+        var rock;
 
         var ship_place;
+        var rock_place;
+        var hits;
 
         var board;
         var boardHeight;
@@ -28,12 +34,17 @@
 
         var ship_X_STEP;
         var ship_Y_STEP;
+        var rock_X_STEP;
+        var rock_Y_STEP;
 
         var X_ship_Direction;
         var Y_ship_Direction;
+        var X_rock_Direction;
+        var Y_rock_Direction;
 
         var ship_Move_X;
         var ship_Move_Y;
+        var rock_Move;
 
         var KEYUP;
         var KEYDOWN;
@@ -51,19 +62,28 @@
             <tr>
                 <td>
                     <p>
-                        Ship Coordinates (<span id="ship_location" class="location">
-                ... </span
+                        Ship Coordinates (<span id="ship_location" class="location">... </span
               >)
             </p>
           </td>
-        </tr>
-      </table>
+          <td>
+            <p>
+              Rock Coordinates (<span id="rock_location" class="location"
+                >... </span
+              >)
+            </p>
+          </td>
+          <td>
+            <p>Hits: [<span id="hits">0</span>]</p>
+                </td>
+            </tr>
+        </table>
     </div>
     <div id="board">
-      <img
-        src="./public/src/assets/images/rocket4-removebg-preview.png"
-        id="ship"
-      />
+        <img src="../assets/images/rocket2-removebg-preview.png" id="ship" />
+        <img id="rock" src="../assets/images/obj2.png" class="rock" />
+        <img src="./public/src/assets/images/rocket4-removebg-preview.png" id="ship" />
     </div>
-  </body>
+</body>
+
 </html>
