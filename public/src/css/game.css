@@ -1,6 +1,8 @@
 #ship {
     position: absolute;
     left: 500px;
+    height: 80px;
+    width: 30px;
     /*top: 240px;*/
 }
 
