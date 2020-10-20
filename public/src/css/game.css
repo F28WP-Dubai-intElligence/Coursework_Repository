@@ -2,10 +2,10 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-#rock{
+#rock {
     position: absolute;
     left: -200px;
     /*top: 240px;*/
@@ -14,8 +14,8 @@
 
 #ship {
     position: absolute;
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
     /*top: 240px;*/
 }
 
