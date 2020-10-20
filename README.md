@@ -27,7 +27,7 @@
      Winner of the game is the player who has got most points (has the most passes)
      
      
-     
+     Game GIF added below:
    ![Game Image](https://user-images.githubusercontent.com/71345917/96571397-92cdd480-12dc-11eb-8a06-db8477779727.gif)
      
      
