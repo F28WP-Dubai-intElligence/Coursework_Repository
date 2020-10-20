@@ -5,6 +5,7 @@ function init() {
     rock = document.getElementById("rock");
 
     ship_place = document.getElementById("ship_location");
+    rock_place = document.getElementById("rock_location");
     hits = document.getElementById("hits");
 
     board = document.getElementById("board");
@@ -57,6 +58,7 @@ function gameLoop() // update loop for game
     myTime = setTimeout('gameLoop()', 10);
 
     ship_place.innerHTML = "x: " + ship.offsetLeft + "  y: " + ship.offsetTop;
+    rock_place.innerHTML = "x: " + rock.offsetLeft + "  y: " + rock.offsetTop;
 
     if (cross(rock, ship)) {
         let thisDuration = new Date() - startTime;
@@ -64,7 +66,7 @@ function gameLoop() // update loop for game
         let score = hits.innerHTML;
         score = Number(score) + 1;
         hits.innerHTML = score;
-        //window.log("Game Over!");
+        window.log("Game Over!");
         let currentDuration = duration.innerHTML;
         if (currentDuration !== "?") {
             currentDuration = Number(duration.innerHTML);
@@ -141,6 +143,7 @@ function restart() {
     rock.style.top = rock_Y_INIT + "px";
     //init position display
     ship_place.innerHTML = "...";
+    rock_place.innerHTML = "...";
 
 
     // Add an event listener to the keypress event.
