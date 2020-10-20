@@ -1,0 +1,37 @@
+#ship {
+    position: absolute;
+    left: 500px;
+    /*top: 240px;*/
+}
+
+#board {
+    height: 800px;
+    width: 1020px;
+    background-color: grey;
+    align-content: center;
+    align-self: center;
+}
+
+#title {
+    background-color: rgb(128, 128, 128);
+    align-content: center;
+    align-self: center;
+}
+
+#scores {
+    background-color: rgb(247, 134, 241);
+    align-content: center;
+    align-self: center;
+}
+
+.location {
+    color: green;
+}
+
+#hits {
+    color: red;
+}
+
+#duration {
+    color: blue;
+}

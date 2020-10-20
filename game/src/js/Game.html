@@ -1,20 +1,72 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script src="p5.min.js"></script>
-    <script src="p5.dom.min.js"></script>
-    <script src="p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8">
+<html lang="en">
 
-  </head>
-  <body>
-    <script src="sketch.js"></script>
-    <script src="Ship.js"></script>
-    <script src="Debris.js"></script>
-    <script src="Score.js"></script>
-    <script src="Timer.js"></script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Demo of Image KeyInput Image Movement</title>
+    <link rel="stylesheet" type="text/css" href="../css/game.css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./game.js"></script>
 
+    <!--
+   Page first created by Ben Kenwright as part of the Web programming course.
+   Modified with different style of programming and different concept for the game by
+   Hadj Batatia as part of the Web programming course.
+    -->
 
+    <noscript>
+      Warning - JavaScript is Disabled. For full functionality of this page, it
+      is necessary to enable JavaScript.
+    </noscript>
+    <script>
+        var ship;
+
+        var ship_place;
+
+        var board;
+        var boardHeight;
+        var boardWidth;
+
+        var X_MAX;
+        var X_MIN;
+        var Y_MIN;
+        var Y_MAX;
+
+        var ship_X_STEP;
+        var ship_Y_STEP;
+
+        var X_ship_Direction;
+        var Y_ship_Direction;
+
+        var ship_Move_X;
+        var ship_Move_Y;
+
+        var KEYUP;
+        var KEYDOWN;
+        var KEYLEFT;
+        var KEYRIGHT;
+    </script>
+</head>
+
+<body onload="init();">
+    <div id="title">
+        <button onclick="restart();">Start</button>
+    </div>
+    <div id="scores">
+        <table>
+            <tr>
+                <td>
+                    <p>
+                        Ship Coordinates (<span id="ship_location" class="location">
+                ... </span
+              >)
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="board">
+      <img src="./spaceship.jpg" id="ship" />
+    </div>
   </body>
 </html>
