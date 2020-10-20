@@ -26,7 +26,9 @@
      Game ends as soon as the bar in the middle (timer) has completed.
      Winner of the game is the player who has got most points (has the most passes)
      
-   ![Image](https://user-images.githubusercontent.com/71345917/96571397-92cdd480-12dc-11eb-8a06-db8477779727.gif)
+     
+     
+   ![Game Image](https://user-images.githubusercontent.com/71345917/96571397-92cdd480-12dc-11eb-8a06-db8477779727.gif)
      
      
      
