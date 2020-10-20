@@ -100,11 +100,9 @@ function restart() {
     clearTimeout(myTime);
 
 
-    //calculate initial ship and wolf position
+    //calculate initial ship position
     let ship_X_INIT = board.offsetLeft + 0.5 * boardWidth;
-    let ship_Y_INIT = board.offsetTop + boardHeight;
-
-
+    let ship_Y_INIT = board.offsetTop + 0.9 * boardHeight;
 
     //set initial positions
     ship.style.left = ship_X_INIT + "px";
