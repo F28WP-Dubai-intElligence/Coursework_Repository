@@ -2,7 +2,8 @@
 
 ## by intElligence
 
-![Game Image](https://user-images.githubusercontent.com/71345917/96571397-92cdd480-12dc-11eb-8a06-db8477779727.gif)
+![Game Image](https://user-images.githubusercontent.com/71345917/96571397-92cdd480-12dc-11eb-8a06-db8477779727.gif)  
+<br>
 **SETTING:**
 
     Game is based off a scenario, where few people are stuck in space . The space is in utter chaos with killer asteroids coming from all directions making it nearly impossible to get through without getting hit by an aseteroid.
