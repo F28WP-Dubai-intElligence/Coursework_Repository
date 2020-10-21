@@ -16,6 +16,7 @@
     max-width: 1500px;
     margin: 0 auto;
     padding: 100px 0;
+    left: 32%;
 }
 
 .container {
@@ -54,10 +55,6 @@ h1 {
     cursor: pointer;
     position: absolute;
     text-decoration: none;
-}
-
-.rules {
-    left: 32%;
 }
 
 .playgame {
