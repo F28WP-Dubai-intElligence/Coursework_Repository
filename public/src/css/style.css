@@ -12,7 +12,7 @@
 
 .rules {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     max-width: 1500px;
     margin: 0 auto;
     padding: 100px 0;
@@ -57,8 +57,7 @@ h1 {
 }
 
 .rules {
-    position: absolute;
-    text-align: left;
+    left: 32%;
 }
 
 .playgame {
