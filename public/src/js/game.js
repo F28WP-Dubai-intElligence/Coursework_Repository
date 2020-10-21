@@ -7,6 +7,7 @@ function init() {
     ship_place = document.getElementById("ship_location");
     rock_place = document.getElementById("rock_location");
     hits = document.getElementById("hits");
+    duration = document.getElementById("duration");
 
     board = document.getElementById("board");
     boardHeight = board.offsetHeight;;
@@ -66,7 +67,7 @@ function gameLoop() // update loop for game
         let score = hits.innerHTML;
         score = Number(score) + 1;
         hits.innerHTML = score;
-        window.log("Game Over!");
+        //window.log("Game Over!");
         let currentDuration = duration.innerHTML;
         if (currentDuration !== "?") {
             currentDuration = Number(duration.innerHTML);
@@ -189,24 +190,25 @@ function setNewPosition(element, dx, dy) {
     element.style.left = x_element + "px";
     element.style.top = y_element + "px";
 
-    function cross(element1, element2) {
-        e1Left = element1.offsetLeft; //i1x
-        e1Top = element1.offsetTop; //i1y
-        e1Right = element1.offsetLeft + element1.offsetWidth; //r1x
-        e1Bottom = element1.offsetTop + element1.offsetHeight; //r1y
-    
-        e2Left = element2.offsetLeft; //i2x
-        e2Top = element2.offsetTop; //i2y
-        e2Right = element2.offsetLeft + element2.offsetWidth; //r2x
-        e2Bottom = element2.offsetTop + element2.offsetHeight; //r2y
-    
-        x_overlap = Math.max(0, Math.min(e1Right, e2Right) - Math.max(e1Left, e2Left));
-        y_overlap = Math.max(0, Math.min(e1Bottom, e2Bottom) - Math.max(e1Top, e2Top));
-        overlapArea = x_overlap * y_overlap;
-    
-        if (overlapArea == 0) return false;
-        return true;
-    
-    }
+
+}
+
+function cross(element1, element2) {
+    e1Left = element1.offsetLeft; //i1x
+    e1Top = element1.offsetTop; //i1y
+    e1Right = element1.offsetLeft + element1.offsetWidth; //r1x
+    e1Bottom = element1.offsetTop + element1.offsetHeight; //r1y
+
+    e2Left = element2.offsetLeft; //i2x
+    e2Top = element2.offsetTop; //i2y
+    e2Right = element2.offsetLeft + element2.offsetWidth; //r2x
+    e2Bottom = element2.offsetTop + element2.offsetHeight; //r2y
+
+    x_overlap = Math.max(0, Math.min(e1Right, e2Right) - Math.max(e1Left, e2Left));
+    y_overlap = Math.max(0, Math.min(e1Bottom, e2Bottom) - Math.max(e1Top, e2Top));
+    overlapArea = x_overlap * y_overlap;
+
+    if (overlapArea == 0) return false;
+    return true;
 
 }
