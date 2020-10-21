@@ -57,7 +57,8 @@ h1 {
 }
 
 .rules {
-    left: 32%;
+    position: absolute;
+    text-align: left;
 }
 
 .playgame {
