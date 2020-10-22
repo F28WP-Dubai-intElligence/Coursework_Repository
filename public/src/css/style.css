@@ -19,6 +19,11 @@
     left: 32%;
 }
 
+.instructions {
+    background-image: url('../assets/images/spacebg.jpeg');
+    color: white;
+}
+
 .container {
     min-height: 100vh;
     width: 100%;
