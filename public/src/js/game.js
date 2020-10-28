@@ -117,7 +117,7 @@ function keyDownHandler(e) {
 function restart() {
     startTime = new Date();
 
-    //init directions and mouvement
+    //init directions and movement
     ship_Direction = 1;
     rock_Direction = 1;
 
