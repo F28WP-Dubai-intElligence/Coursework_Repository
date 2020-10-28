@@ -1,8 +1,8 @@
 function init() {
     myTime = null;
 
-    ship = document.getElementById("ship");
-    rock = document.getElementById("rock");
+    ship = document.querySelector("#ship");
+    rocks = document.querySelectorAll(".rock");
 
     ship_place = document.getElementById("ship_location");
     rock_place = document.getElementById("rock_location");
@@ -54,13 +54,13 @@ function gameLoop() // update loop for game
     ship_Move_Y = 0;
 
     setNewPosition(ship, dx_ship, dy_ship);
-    setNewPosition(rock, dx_rock, dy_rock);
+    setRockNewPosition(rocks, dx_rock, dy_rock);
 
     myTime = setTimeout('gameLoop()', 10);
 
     ship_place.innerHTML = "x: " + ship.offsetLeft + "  y: " + ship.offsetTop;
+    rocks.forEach(rock => {
     rock_place.innerHTML = "x: " + rock.offsetLeft + "  y: " + rock.offsetTop;
-
     if (cross(rock, ship)) {
         let thisDuration = new Date() - startTime;
         restart();
@@ -75,6 +75,7 @@ function gameLoop() // update loop for game
         }
         document.getElementById("duration").innerHTML = thisDuration;
     }
+   });
 
 }
 
@@ -132,16 +133,18 @@ function restart() {
     //calculate initial ship position
     let ship_X_INIT = board.offsetLeft + 0.5 * boardWidth;
     let ship_Y_INIT = board.offsetTop + 0.9 * boardHeight;
-    let coef = Math.random();
-    let rock_X_INIT = board.offsetLeft + coef * boardWidth;
-    coef = Math.random();
-    let rock_Y_INIT = board.offsetTop + coef * boardHeight;
 
     //set initial positions
     ship.style.left = ship_X_INIT + "px";
     ship.style.top = ship_Y_INIT + "px";
+    rocks.forEach(rock => {
+    let coef = Math.random();
+    let rock_X_INIT = board.offsetLeft + coef * boardWidth;
+    coef = Math.random();
+    let rock_Y_INIT = board.offsetTop + coef * boardHeight;
     rock.style.left = rock_X_INIT + "px";
     rock.style.top = rock_Y_INIT + "px";
+    });
     //init position display
     ship_place.innerHTML = "...";
     rock_place.innerHTML = "...";
@@ -186,10 +189,51 @@ function setNewPosition(element, dx, dy) {
         Y_rock_Direction = 1;
     }
     if (y_element < Y_MIN) x_element = Y_MIN;
-    // Store positions	
+    // Store positions
     element.style.left = x_element + "px";
     element.style.top = y_element + "px";
 
+
+}
+
+function setRockNewPosition(element, dx, dy) {
+
+    // Get current positions
+    element.forEach(elem => {
+    let x_element = elem.offsetLeft;
+    let y_element = elem.offsetTop;
+
+    x_element = x_element + dx;
+    y_element = y_element + dy;
+
+    //keep within board
+    if (x_element >= X_MAX) x_element = X_MAX;
+    if (x_element <= X_MIN) x_element = X_MIN;
+    if (y_element >= Y_MAX) {
+        y_element = Y_MAX;
+    }
+    if (y_element <= Y_MIN) {
+        y_element = Y_MIN;
+    }
+    if (x_element >= X_MAX) {
+        X_rock_Direction = -1;
+
+    }
+    if (x_element <= X_MIN) {
+        X_rock_Direction = 1;
+    }
+    if (y_element >= Y_MAX) {
+        Y_rock_Direction = -1;
+
+    }
+    if (y_element <= Y_MIN) {
+        Y_rock_Direction = 1;
+    }
+    if (y_element < Y_MIN) x_element = Y_MIN;
+    // Store positions	
+    elem.style.left = x_element + "px";
+    elem.style.top = y_element + "px";
+    });
 
 }
 
