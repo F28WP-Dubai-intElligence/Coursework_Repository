@@ -5,28 +5,28 @@
     overflow: hidden;
 }
 
-#rock {
+#rock1 {
     position: absolute;
     left: -200px;
     /*top: 240px;*/
     width: 50px;
     height: 50px;
+    background-repeat: no-repeat;
+    background-image: url('../assets/images/meteor1.png');
 }
 
 #ship {
     position: absolute;
     height: 150px;
     width: 150px;
+    background-image: url('../assets/images/rocket2-removebg-preview.png');
     /*top: 240px;*/
 }
 
 #board {
     background-image: url("../assets/images/spacebg.jpeg");
-    /* Set rules to fill background */
     height: 93vh;
-    /* Set up proportionate scaling */
     width: 100%;
-    /* Set up positioning */
 }
 
 #title {

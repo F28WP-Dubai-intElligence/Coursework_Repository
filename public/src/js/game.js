@@ -1,8 +1,9 @@
 function init() {
     myTime = null;
 
+    data = [];
+
     ship = document.querySelector("#ship");
-    rocks = document.querySelectorAll(".rock");
 
     ship_place = document.getElementById("ship_location");
     rock_place = document.getElementById("rock_location");
@@ -21,23 +22,71 @@ function init() {
 
     ship_X_STEP = 10;
     ship_Y_STEP = 10;
-    rock_X_STEP = 2;
-    rock_Y_STEP = 1;
+
 
     X_ship_Direction = 1;
     Y_ship_Direction = 1;
-    X_rock_Direction = 1;
-    Y_rock_Direction = 1;
 
     ship_Move_X = 0;
     ship_Move_Y = 0;
-    rock_Move = 1;
 
 
     KEYUP = 38;
     KEYDOWN = 40;
     KEYLEFT = 37;
     KEYRIGHT = 39;
+
+    refresh = 0;
+
+
+}
+
+function randomleft() {
+    var x = Math.floor((Math.random() * X_MAX));
+    return x;
+}
+
+function randomtop() {
+    var x = Math.floor((Y_MIN + (Math.random() * boardHeight)));
+    return x;
+}
+
+function randomvel() {
+    var x = Math.floor((Math.random() * 16) - 8);
+    return x;
+}
+
+function Rock(rockbody, left, top, vx, vy) {
+    this.element = rockbody;
+    this.x = left;
+    this.y = top;
+    this.dx = vx;
+    this.dy = vy;
+
+    var move;
+    var that = this;
+    this.initr = function() {
+        this.element.style.left = this.x + 'px';
+        this.element.style.top = this.y + 'px';
+        this.updatePositive();
+    }
+
+    this.updatePositive = function() {
+        move = setInterval(frame, 100);
+
+        function frame() {
+            if (that.x >= X_MAX || that.x <= X_MIN) {
+                that.dx = that.dx * -1;
+            }
+            if (that.y >= Y_MAX || that.y <= Y_MIN + 10) {
+                that.dy *= -1;
+            }
+            that.x = that.x + that.dx;
+            that.y = that.y + that.dy;
+            that.element.style.left = that.x + 'px';
+            that.element.style.top = that.y + 'px';
+        }
+    }
 }
 
 function gameLoop() // update loop for game
@@ -46,36 +95,16 @@ function gameLoop() // update loop for game
     // change in offset for ship and wolf
     let dy_ship = Y_ship_Direction * ship_Move_Y * ship_Y_STEP;
     let dx_ship = X_ship_Direction * ship_Move_X * ship_X_STEP;
-    let dy_rock = Y_rock_Direction * rock_Move * rock_Y_STEP;
-    let dx_rock = X_rock_Direction * rock_Move * rock_X_STEP;
 
     //wait for next key press to move ship
     ship_Move_X = 0;
     ship_Move_Y = 0;
 
     setNewPosition(ship, dx_ship, dy_ship);
-    setRockNewPosition(rocks, dx_rock, dy_rock);
 
     myTime = setTimeout('gameLoop()', 10);
 
     ship_place.innerHTML = "x: " + ship.offsetLeft + "  y: " + ship.offsetTop;
-    rocks.forEach(rock => {
-    rock_place.innerHTML = "x: " + rock.offsetLeft + "  y: " + rock.offsetTop;
-    if (cross(rock, ship)) {
-        let thisDuration = new Date() - startTime;
-        restart();
-        let score = hits.innerHTML;
-        score = Number(score) + 1;
-        hits.innerHTML = score;
-        //window.log("Game Over!");
-        let currentDuration = duration.innerHTML;
-        if (currentDuration !== "?") {
-            currentDuration = Number(duration.innerHTML);
-            if (thisDuration < currentDuration) thisDuration = currentDuration;
-        }
-        document.getElementById("duration").innerHTML = thisDuration;
-    }
-   });
 
 }
 
@@ -95,6 +124,7 @@ function keyDownHandler(e) {
     if (e.keyCode == KEYUP) {
         Y_ship_Direction = -1;
         ship_Move_Y = 1;
+        console.log("KEY");
     } // up key
     if (e.keyCode == KEYDOWN) {
         Y_ship_Direction = 1;
@@ -116,44 +146,53 @@ function keyDownHandler(e) {
 
 
 function restart() {
-    startTime = new Date();
+    if (refresh == 0) {
+        refresh++;
+        startTime = new Date();
 
-    //init directions and mouvement
-    ship_Direction = 1;
-    rock_Direction = 1;
+        //init directions and mouvement
+        ship_Direction = 1;
 
-    ship_Move_X = 0;
-    ship_Move_Y = 0;
-    rock_Move = 1;
-
-
-    clearTimeout(myTime);
+        ship_Move_X = 0;
+        ship_Move_Y = 0;
 
 
-    //calculate initial ship position
-    let ship_X_INIT = board.offsetLeft + 0.5 * boardWidth;
-    let ship_Y_INIT = board.offsetTop + 0.9 * boardHeight;
-
-    //set initial positions
-    ship.style.left = ship_X_INIT + "px";
-    ship.style.top = ship_Y_INIT + "px";
-    rocks.forEach(rock => {
-    let coef = Math.random();
-    let rock_X_INIT = board.offsetLeft + coef * boardWidth;
-    coef = Math.random();
-    let rock_Y_INIT = board.offsetTop + coef * boardHeight;
-    rock.style.left = rock_X_INIT + "px";
-    rock.style.top = rock_Y_INIT + "px";
-    });
-    //init position display
-    ship_place.innerHTML = "...";
-    rock_place.innerHTML = "...";
+        clearTimeout(myTime);
 
 
-    // Add an event listener to the keypress event.
-    document.addEventListener("keydown", keyDownHandler, false);
+        //calculate initial ship position
+        let ship_X_INIT = board.offsetLeft + 0.5 * boardWidth;
+        let ship_Y_INIT = board.offsetTop + 0.9 * boardHeight;
 
-    gameLoop();
+        //set initial positions
+        ship.style.left = ship_X_INIT + "px";
+        ship.style.top = ship_Y_INIT + "px";
+
+        //init position display
+        ship_place.innerHTML = "...";
+        rock_place.innerHTML = "...";
+
+
+        for (var i = 0; i < 20; i++) {
+            data.push({ top: randomtop(), left: randomleft(), xvel: randomvel(), yvel: randomvel() });
+            var box = document.createElement('div');
+            box.style.width = '50px';
+            box.style.height = '44px';
+            box.style.backgroundImage = "url('public/src/assets/images/meteor1.png')";
+            box.style.backgroundRepeat = 'no-repeat';
+            box.style.position = 'absolute';
+            var rock = new Rock(box, data[i].left, data[i].top, data[i].xvel, data[i].yvel);
+            rock.initr();
+            board.appendChild(box);
+        }
+
+        // Add an event listener to the keypress event.
+        document.addEventListener("keydown", keyDownHandler, false);
+
+        gameLoop();
+    } else {
+        location.reload();
+    }
 }
 
 function setNewPosition(element, dx, dy) {
@@ -168,91 +207,11 @@ function setNewPosition(element, dx, dy) {
     //keep within board
     if (x_element >= X_MAX) x_element = X_MAX;
     if (x_element <= X_MIN) x_element = X_MIN;
-    if (y_element >= Y_MAX) {
-        y_element = Y_MAX;
-    }
-    if (y_element <= Y_MIN) {
-        y_element = Y_MIN;
-    }
-    if (x_element >= X_MAX && element == rock) {
-        X_rock_Direction = -1;
-
-    }
-    if (x_element <= X_MIN && element == rock) {
-        X_rock_Direction = 1;
-    }
-    if (y_element >= Y_MAX && element == rock) {
-        Y_rock_Direction = -1;
-
-    }
-    if (y_element <= Y_MIN && element == rock) {
-        Y_rock_Direction = 1;
-    }
-    if (y_element < Y_MIN) x_element = Y_MIN;
+    if (y_element >= Y_MAX) y_element = Y_MAX;
+    if (y_element <= Y_MIN) y_element = Y_MIN;
     // Store positions
     element.style.left = x_element + "px";
     element.style.top = y_element + "px";
 
-
-}
-
-function setRockNewPosition(element, dx, dy) {
-
-    // Get current positions
-    element.forEach(elem => {
-    let x_element = elem.offsetLeft;
-    let y_element = elem.offsetTop;
-
-    x_element = x_element + dx;
-    y_element = y_element + dy;
-
-    //keep within board
-    if (x_element >= X_MAX) x_element = X_MAX;
-    if (x_element <= X_MIN) x_element = X_MIN;
-    if (y_element >= Y_MAX) {
-        y_element = Y_MAX;
-    }
-    if (y_element <= Y_MIN) {
-        y_element = Y_MIN;
-    }
-    if (x_element >= X_MAX) {
-        X_rock_Direction = -1;
-
-    }
-    if (x_element <= X_MIN) {
-        X_rock_Direction = 1;
-    }
-    if (y_element >= Y_MAX) {
-        Y_rock_Direction = -1;
-
-    }
-    if (y_element <= Y_MIN) {
-        Y_rock_Direction = 1;
-    }
-    if (y_element < Y_MIN) x_element = Y_MIN;
-    // Store positions	
-    elem.style.left = x_element + "px";
-    elem.style.top = y_element + "px";
-    });
-
-}
-
-function cross(element1, element2) {
-    e1Left = element1.offsetLeft; //i1x
-    e1Top = element1.offsetTop; //i1y
-    e1Right = element1.offsetLeft + element1.offsetWidth; //r1x
-    e1Bottom = element1.offsetTop + element1.offsetHeight; //r1y
-
-    e2Left = element2.offsetLeft; //i2x
-    e2Top = element2.offsetTop; //i2y
-    e2Right = element2.offsetLeft + element2.offsetWidth; //r2x
-    e2Bottom = element2.offsetTop + element2.offsetHeight; //r2y
-
-    x_overlap = Math.max(0, Math.min(e1Right, e2Right) - Math.max(e1Left, e2Left));
-    y_overlap = Math.max(0, Math.min(e1Bottom, e2Bottom) - Math.max(e1Top, e2Top));
-    overlapArea = x_overlap * y_overlap;
-
-    if (overlapArea == 0) return false;
-    return true;
 
 }
