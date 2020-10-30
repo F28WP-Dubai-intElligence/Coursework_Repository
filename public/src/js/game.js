@@ -37,8 +37,6 @@ function init() {
     KEYRIGHT = 39;
 
     refresh = 0;
-
-
 }
 
 function randomleft() {
@@ -106,51 +104,41 @@ function gameLoop() // update loop for game
 
     ship_place.innerHTML = "x: " + ship.offsetLeft + "  y: " + ship.offsetTop;
 
-}
-
-// when key is pressed  (user input)
-function keyDownHandler(e) {
-
-
-    if (e.keyCode == KEYRIGHT) {
+    if (keyState[KEYRIGHT] == true) {
         X_ship_Direction = 1;
         ship_Move_X = 1;
     } // right key
-    if (e.keyCode == KEYLEFT) {
+    if (keyState[KEYLEFT]) {
         X_ship_Direction = -1;
         ship_Move_X = 1;
     } // left key
 
-    if (e.keyCode == KEYUP) {
+    if (keyState[KEYUP]) {
         Y_ship_Direction = -1;
         ship_Move_Y = 1;
-        console.log("KEY");
     } // up key
-    if (e.keyCode == KEYDOWN) {
+    if (keyState[KEYDOWN]) {
         Y_ship_Direction = 1;
         ship_Move_Y = 1;
     } // up key
-    switch (e.keyCode) {
-        case 37:
-        case 39:
-        case 38:
-        case 40: // Arrow keys
-        case 32:
-            e.preventDefault();
-            break; // Space
-        default:
-            break; // do not block other keys
-    }
+    console.log(keyState);
+}
 
-};
 
+function keyUP(e) {
+    keyState[e.keyCode] = true;
+}
+
+function keyDOWN(e) {
+    keyState[e.keyCode] = false;
+}
 
 function restart() {
     if (refresh == 0) {
         refresh++;
         startTime = new Date();
 
-        //init directions and mouvement
+        //init directions and movement
         ship_Direction = 1;
 
         ship_Move_X = 0;
@@ -187,7 +175,9 @@ function restart() {
         }
 
         // Add an event listener to the keypress event.
-        document.addEventListener("keydown", keyDownHandler, false);
+
+        document.addEventListener('keydown', keyUP, true);
+        document.addEventListener('keyup', keyDOWN, true);
 
         gameLoop();
     } else {
