@@ -14,12 +14,10 @@
       is necessary to enable JavaScript.
     </noscript>
     <script>
-        var refresh;
-
         var keyState = {};
 
         var noOfRocks;
-        var rockNo;
+        var rockID;
         var myTime;
 
         var ship;
@@ -55,9 +53,9 @@
     </script>
 </head>
 
-<body onload="init();">
+<body onload="init(),start();">
     <div id="title">
-        <button onclick="restart();">Start</button>
+        <button onclick="refresh();">Restart</button>
         <br />
         <a href="index.html">Back To HomePage -></a>
     </div>
