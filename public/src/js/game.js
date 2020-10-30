@@ -3,7 +3,11 @@ function init() {
 
     data = [];
 
+    noOfRocks = 20;
+
     ship = document.querySelector("#ship");
+    rocks = document.querySelectorAll(".rock");
+
 
     ship_place = document.getElementById("ship_location");
     rock_place = document.getElementById("rock_location");
@@ -20,8 +24,8 @@ function init() {
     Y_MIN = board.offsetTop;
     Y_MAX = board.offsetTop + 0.9 * boardHeight;
 
-    ship_X_STEP = 10;
-    ship_Y_STEP = 10;
+    ship_X_STEP = 3;
+    ship_Y_STEP = 3;
 
 
     X_ship_Direction = 1;
@@ -30,6 +34,7 @@ function init() {
     ship_Move_X = 0;
     ship_Move_Y = 0;
 
+    rockNo = 0;
 
     KEYUP = 38;
     KEYDOWN = 40;
@@ -45,7 +50,7 @@ function randomleft() {
 }
 
 function randomtop() {
-    var x = Math.floor((Y_MIN + (Math.random() * boardHeight)));
+    var x = Math.floor(((Y_MIN + 10) + (Math.random() * (Y_MAX - Y_MIN))));
     return x;
 }
 
@@ -76,7 +81,7 @@ function Rock(rockbody, left, top, vx, vy) {
             if (that.x >= X_MAX || that.x <= X_MIN) {
                 that.dx = that.dx * -1;
             }
-            if (that.y >= Y_MAX || that.y <= Y_MIN + 10) {
+            if (that.y >= Y_MAX - 5 || that.y <= Y_MIN + 10) {
                 that.dy *= -1;
             }
             that.x = that.x + that.dx;
@@ -104,6 +109,13 @@ function gameLoop() // update loop for game
 
     ship_place.innerHTML = "x: " + ship.offsetLeft + "  y: " + ship.offsetTop;
 
+    keyHandler();
+
+
+    // console.log(keyState);
+}
+
+function keyHandler() {
     if (keyState[KEYRIGHT] == true) {
         X_ship_Direction = 1;
         ship_Move_X = 1;
@@ -121,9 +133,7 @@ function gameLoop() // update loop for game
         Y_ship_Direction = 1;
         ship_Move_Y = 1;
     } // up key
-    console.log(keyState);
 }
-
 
 function keyUP(e) {
     keyState[e.keyCode] = true;
@@ -160,19 +170,19 @@ function restart() {
         ship_place.innerHTML = "...";
         rock_place.innerHTML = "...";
 
-
-        for (var i = 0; i < 20; i++) {
-            data.push({ top: randomtop(), left: randomleft(), xvel: randomvel(), yvel: randomvel() });
-            var box = document.createElement('div');
-            box.style.width = '50px';
-            box.style.height = '44px';
-            box.style.backgroundImage = "url('public/src/assets/images/meteor1.png')";
-            box.style.backgroundRepeat = 'no-repeat';
-            box.style.position = 'absolute';
-            var rock = new Rock(box, data[i].left, data[i].top, data[i].xvel, data[i].yvel);
-            rock.initr();
-            board.appendChild(box);
-        }
+        addRocks();
+        // for (var i = 0; i < noOfRocks; i++) {
+        //     data.push({ top: randomtop(), left: randomleft(), xvel: randomvel(), yvel: randomvel() });
+        //     var box = document.createElement('div');
+        //     box.style.width = '50px';
+        //     box.style.height = '44px';
+        //     box.style.backgroundImage = "url('public/src/assets/images/meteor1.png')";
+        //     box.style.backgroundRepeat = 'no-repeat';
+        //     box.style.position = 'absolute';
+        //     var rock = new Rock(box, data[i].left, data[i].top, data[i].xvel, data[i].yvel);
+        //     rock.initr();
+        //     board.appendChild(box);
+        // }
 
         // Add an event listener to the keypress event.
 
@@ -183,6 +193,32 @@ function restart() {
     } else {
         location.reload();
     }
+}
+
+function addRocks() {
+    rocks.forEach(rock => {
+        data.push({ top: randomtop(), left: randomleft(), xvel: randomvel(), yvel: randomvel() });
+        var rock1 = new Rock(rock, data[rockNo].left, data[rockNo].top, data[rockNo].xvel, data[rockNo].yvel);
+        rock1.initr();
+        board.appendChild(rock);
+        rockNo++;
+    });
+    // for (var i = 0; i < noOfRocks; i++) {
+    //     data.push({ top: randomtop(), left: randomleft(), xvel: randomvel(), yvel: randomvel() });
+    //     var box = document.createElement('div');
+    //     box.style.width = '50px';
+    //     box.style.height = '44px';
+    //     box.style.backgroundImage = "url('public/src/assets/images/meteor1.png')";
+    //     box.style.backgroundRepeat = 'no-repeat';
+    //     box.style.position = 'absolute';
+    //     var rock = new Rock(box, data[i].left, data[i].top, data[i].xvel, data[i].yvel);
+    //     rock.initr();
+    //     board.appendChild(box);
+    // }
+
+    // if (cross(box, ship)) {
+    //     location.reload();
+    // }
 }
 
 function setNewPosition(element, dx, dy) {
@@ -205,3 +241,23 @@ function setNewPosition(element, dx, dy) {
 
 
 }
+
+// function cross(element1, element2) {
+//     e1Left = element1.offsetLeft; //i1x
+//     e1Top = element1.offsetTop; //i1y
+//     e1Right = element1.offsetLeft + element1.offsetWidth; //r1x
+//     e1Bottom = element1.offsetTop + element1.offsetHeight; //r1y
+
+//     e2Left = element2.offsetLeft; //i2x
+//     e2Top = element2.offsetTop; //i2y
+//     e2Right = element2.offsetLeft + element2.offsetWidth; //r2x
+//     e2Bottom = element2.offsetTop + element2.offsetHeight; //r2y
+
+//     x_overlap = Math.max(0, Math.min(e1Right, e2Right) - Math.max(e1Left, e2Left));
+//     y_overlap = Math.max(0, Math.min(e1Bottom, e2Bottom) - Math.max(e1Top, e2Top));
+//     overlapArea = x_overlap * y_overlap;
+
+//     if (overlapArea == 0) return false;
+//     return true;
+
+// }
