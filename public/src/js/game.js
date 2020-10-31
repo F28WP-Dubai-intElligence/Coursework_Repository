@@ -92,7 +92,7 @@ function Rock(rockpic, left, top, vx, vy) {
             if (that.x >= X_MAX || that.x <= X_MIN) {
                 that.dx = that.dx * -1;
             }
-            if (that.y >= Y_MAX - 5 || that.y <= Y_MIN + 10) {
+            if (that.y >= Y_MAX - 50 || that.y <= Y_MIN + 10) {
                 that.dy *= -1;
             }
             that.x = that.x + that.dx;
