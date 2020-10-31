@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <link rel="stylesheet" type="text/css" href="./public/src/css/game.css" media="all" />
     <script src="./public/src/js/game.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -9,86 +9,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="./public/src/js/game.js"></script>
     <script>
-      var keyState = {};
+        var keyState = {};
 
-      var noOfRocks;
-      var rockID;
-      var myTime;
+        var noOfRocks;
+        var rockID;
+        var myTime;
 
-      var ship;
-      var rockele;
-      var box;
+        var ship;
+        var rockele;
+        var box;
 
-      var ship_place;
-      var rock_place;
-      var score;
+        var ship_place;
+        var rock_place;
+        var score;
 
-      var board;
-      var boardHeight;
-      var boardWidth;
+        var board;
+        var boardHeight;
+        var boardWidth;
 
-      var X_MAX;
-      var X_MIN;
-      var Y_MIN;
-      var Y_MAX;
+        var X_MAX;
+        var X_MIN;
+        var Y_MIN;
+        var Y_MAX;
 
-      var ship_X_STEP;
-      var ship_Y_STEP;
+        var ship_X_STEP;
+        var ship_Y_STEP;
 
-      var X_ship_Direction;
-      var Y_ship_Direction;
+        var X_ship_Direction;
+        var Y_ship_Direction;
 
-      var ship_Move_X;
-      var ship_Move_Y;
+        var ship_Move_X;
+        var ship_Move_Y;
 
-      var KEYUP;
-      var KEYDOWN;
-      var KEYLEFT;
-      var KEYRIGHT;
+        var KEYUP;
+        var KEYDOWN;
+        var KEYLEFT;
+        var KEYRIGHT;
     </script>
-  </head>
+</head>
 
-  <body onload="init(),start();">
+<body onload="init(),start();">
     <div id="title">
         <button onclick="refresh();">Restart</button>
         <br />
         <a href="index.html">Back To HomePage -></a>
     </div>
     <div id="scores">
-      <table>
-        <tr>
-          <td>
-            <p>
-              Ship Coordinates (<span id="ship_location" class="location">... </span>)
+        <table>
+            <tr>
+                <td>
+                    <p>
+                        Ship Coordinates (<span id="ship_location" class="location">... </span
+              >)
             </p>
           </td>
           <td>
             <p>
-              Rock Coordinates (<span id="rock_location" class="location">... </span>)
+              Rock Coordinates (<span id="rock_location" class="location"
+                >... </span
+              >)
             </p>
           </td>
           <td>
-            <p>
-              Score: [<span id="score">0</span>]
-            </p>
-          </td>
-        </tr>
-      </table>
+            <p>Score: [<span id="score">0</span>]</p>
+                </td>
+            </tr>
+        </table>
     </div>
     <div id="board">
-      <img src="./public/src/assets/images/rocket2-removebg-preview.png" id="ship" />
-      <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
-      <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
-      <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
-      <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
-      <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
-      <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
-      <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
-      <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
-      <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
-      <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
-      <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
-      <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
+        <img src="./public/src/assets/images/rocket2-removebg-preview.png" id="ship" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
     </div>
-  </body>
+</body>
+
 </html>
