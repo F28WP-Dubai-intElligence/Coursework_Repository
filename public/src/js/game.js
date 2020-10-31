@@ -141,12 +141,12 @@ function gameLoop() // update loop for game
         }
     });
 
-    // if(ship.offsetTop == Y_MIN){
-    //     refresh();
-    //     let shipScore = score.innerHTML;
-    //     shipScore = Number(shipScore) + 1;
-    //     score.innerHTML = shipScore;
-    // }
+    if(ship.offsetTop == Y_MIN){
+        refresh();
+        let shipScore = score.innerHTML;
+        shipScore = Number(shipScore) + 1;
+        score.innerHTML = shipScore;
+    }
 
 
     // console.log(keyState);
