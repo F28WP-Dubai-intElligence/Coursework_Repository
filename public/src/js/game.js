@@ -12,7 +12,7 @@ function init() {
 
     ship_place = document.getElementById("ship_location");
     rock_place = document.getElementById("rock_location");
-    hits = document.getElementById("hits");
+    score = document.getElementById("score");
     duration = document.getElementById("duration");
 
     board = document.getElementById("board");
@@ -140,6 +140,13 @@ function gameLoop() // update loop for game
             // document.getElementById("duration").innerHTML = thisDuration;
         }
     });
+
+    // if(ship.offsetTop == Y_MIN){
+    //     refresh();
+    //     let shipScore = score.innerHTML;
+    //     shipScore = Number(shipScore) + 1;
+    //     score.innerHTML = shipScore;
+    // }
 
 
     // console.log(keyState);
