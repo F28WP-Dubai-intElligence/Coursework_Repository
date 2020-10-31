@@ -195,18 +195,6 @@ function start() {
     ship_place.innerHTML = "...";
     rock_place.innerHTML = "...";
     addRocks();
-    // for (var i = 0; i < noOfRocks; i++) {
-    //     data.push({ top: randomtop(), left: randomleft(), xvel: randomvel(), yvel: randomvel() });
-    //     var box = document.createElement('div');
-    //     box.style.width = '50px';
-    //     box.style.height = '44px';
-    //     box.style.backgroundImage = "url('public/src/assets/images/meteor1.png')";
-    //     box.style.backgroundRepeat = 'no-repeat';
-    //     box.style.position = 'absolute';
-    //     var rock = new Rock(box, data[i].left, data[i].top, data[i].xvel, data[i].yvel);
-    //     rock.initr();
-    //     board.appendChild(box);
-    // }
 
     // Add an event listener to the keypress event.
 
@@ -225,22 +213,6 @@ function addRocks() {
         // console.log(data[rockID]);
         rockID++;
     });
-    // for (var i = 0; i < noOfRocks; i++) {
-    //     data.push({ top: randomtop(), left: randomleft(), xvel: randomvel(), yvel: randomvel() });
-    //     var box = document.createElement('div');
-    //     box.style.width = '50px';
-    //     box.style.height = '44px';
-    //     box.style.backgroundImage = "url('public/src/assets/images/meteor1.png')";
-    //     box.style.backgroundRepeat = 'no-repeat';
-    //     box.style.position = 'absolute';
-    //     var rock = new Rock(box, data[i].left, data[i].top, data[i].xvel, data[i].yvel);
-    //     rock.initr();
-    //     board.appendChild(box);
-    // }
-
-    // if (cross(box, ship)) {
-    //     location.reload();
-    // }
 }
 
 function setNewPosition(element, dx, dy) {
