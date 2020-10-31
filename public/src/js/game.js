@@ -15,7 +15,7 @@ function init() {
     hits = document.getElementById("hits");
     duration = document.getElementById("duration");
 
-    board = document.getElementById("banner");
+    board = document.getElementById("board");
     boardHeight = board.offsetHeight;;
     boardWidth = board.offsetWidth;;
 
