@@ -16,8 +16,8 @@
 
 #ship {
     position: absolute;
-    height: 150px;
-    width: 150px;
+    height: 70px;
+    width: 70px;
     background-image: url('../assets/images/rocket2-removebg-preview.png');
     /*top: 240px;*/
 }
@@ -41,7 +41,7 @@
     color: green;
 }
 
-#hits {
+#score {
     color: red;
 }
 
