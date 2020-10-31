@@ -107,7 +107,7 @@ function gameLoop() // update loop for game
 {
 
     // console.log(data);
-    // change in offset for ship and wolf
+    // change in offset for ship
     let dy_ship = Y_ship_Direction * ship_Move_Y * ship_Y_STEP;
     let dx_ship = X_ship_Direction * ship_Move_X * ship_X_STEP;
 
@@ -123,28 +123,17 @@ function gameLoop() // update loop for game
 
     keyHandler();
     rocks.forEach(rock => {
-        // rock_place.innerHTML = "x: " + rock.offsetLeft + "  y: " + rock.offsetTop;
         if (cross(rock, ship)) {
-            // let thisDuration = new Date() - startTime;
             rockID = 0;
             refresh();
-            // let score = hits.innerHTML;
-            // score = Number(score) + 1;
-            // hits.innerHTML = score;
-            // console.log("Game Over!");
-            // let currentDuration = duration.innerHTML;
-            // if (currentDuration !== "?") {
-            //     currentDuration = Number(duration.innerHTML);
-            //     if (thisDuration < currentDuration) thisDuration = currentDuration;
-            // }
-            // document.getElementById("duration").innerHTML = thisDuration;
         }
     });
 
     if(ship.offsetTop == Y_MIN){
-        refresh();
+        start();
         let shipScore = score.innerHTML;
         shipScore = Number(shipScore) + 1;
+        console.log(data)
         score.innerHTML = shipScore;
     }
 
