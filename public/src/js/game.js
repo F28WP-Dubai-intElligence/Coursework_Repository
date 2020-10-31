@@ -9,7 +9,7 @@ function init() {
     hits = document.getElementById("hits");
     duration = document.getElementById("duration");
 
-    board = document.getElementById("board");
+    board = document.getElementById("banner");
     boardHeight = board.offsetHeight;;
     boardWidth = board.offsetWidth;;
 
