@@ -16,8 +16,8 @@
 
 #ship {
     position: absolute;
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
     background-image: url('../assets/images/rocket2-removebg-preview.png');
     /*top: 240px;*/
 }
