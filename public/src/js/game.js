@@ -25,6 +25,7 @@ function init() {
     Y_MIN = board.offsetTop;
     Y_MAX = board.offsetTop + 0.9 * boardHeight;
 
+    //velocity of the ship
     ship_X_STEP = 3;
     ship_Y_STEP = 3;
 
@@ -64,12 +65,12 @@ function randomvel() {
     random[0] = Math.floor(Math.random() * (max - min + 1) + min);
     random[1] = Math.floor(Math.random() * ((-1 * max) - (-1 * min) + 1) + (-1 * min));
     posorneg = Math.floor(Math.random() * ((Math.floor(1)) - 0 + 1) + 0);
-    console.log(random[posorneg]);
+    // console.log(random[posorneg]);
     return random[posorneg];
 }
 
-function Rock(rockbody, left, top, vx, vy) {
-    this.element = rockbody;
+function Rock(rockpic, left, top, vx, vy) {
+    this.element = rockpic;
     this.x = left;
     this.y = top;
     this.dx = vx;
@@ -87,6 +88,7 @@ function Rock(rockbody, left, top, vx, vy) {
         move = setInterval(frame, 100);
 
         function frame() {
+            //meteor boundaries
             if (that.x >= X_MAX || that.x <= X_MIN) {
                 that.dx = that.dx * -1;
             }
@@ -104,6 +106,7 @@ function Rock(rockbody, left, top, vx, vy) {
 function gameLoop() // update loop for game
 {
 
+    // console.log(data);
     // change in offset for ship and wolf
     let dy_ship = Y_ship_Direction * ship_Move_Y * ship_Y_STEP;
     let dx_ship = X_ship_Direction * ship_Move_X * ship_X_STEP;
@@ -120,7 +123,7 @@ function gameLoop() // update loop for game
 
     keyHandler();
     rocks.forEach(rock => {
-        rock_place.innerHTML = "x: " + rock.offsetLeft + "  y: " + rock.offsetTop;
+        // rock_place.innerHTML = "x: " + rock.offsetLeft + "  y: " + rock.offsetTop;
         if (cross(rock, ship)) {
             // let thisDuration = new Date() - startTime;
             rockID = 0;
@@ -143,7 +146,7 @@ function gameLoop() // update loop for game
 }
 
 function keyHandler() {
-    if (keyState[KEYRIGHT] == true) {
+    if (keyState[KEYRIGHT]) {
         X_ship_Direction = 1;
         ship_Move_X = 1;
     } // right key
@@ -162,16 +165,16 @@ function keyHandler() {
     } // up key
 }
 
-function keyUP(e) {
+function keyDOWN(e) {
     keyState[e.keyCode] = true;
 }
 
-function keyDOWN(e) {
+function keyUP(e) {
     keyState[e.keyCode] = false;
 }
 
 function start() {
-    startTime = new Date();
+    // startTime = new Date();
 
     //init directions and movement
     ship_Direction = 1;
@@ -180,7 +183,7 @@ function start() {
     ship_Move_Y = 0;
 
 
-    clearTimeout(myTime);
+    // clearTimeout(myTime);
 
 
     //calculate initial ship position
@@ -198,8 +201,8 @@ function start() {
 
     // Add an event listener to the keypress event.
 
-    document.addEventListener('keydown', keyUP, true);
-    document.addEventListener('keyup', keyDOWN, true);
+    document.addEventListener('keydown', keyDOWN, true);
+    document.addEventListener('keyup', keyUP, true);
 
     gameLoop();
 }
@@ -232,7 +235,6 @@ function setNewPosition(element, dx, dy) {
     // Store positions
     element.style.left = x_element + "px";
     element.style.top = y_element + "px";
-
 
 }
 
