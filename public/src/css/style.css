@@ -14,10 +14,9 @@
     /* background-image: url('../assets/images/spacebg.jpeg'); */
     flex-direction: column;
     text-align: left;
-    max-width: 1500px;
+    height: 100vh;
     margin: 0 auto;
     padding: 100px 0;
-    left: 32%;
 }
 
 .instructions {
@@ -65,6 +64,10 @@ h1 {
 
 .playgame {
     left: 54%;
+}
+
+.howto {
+    left: 32%;
 }
 
 .intro a:hover {
