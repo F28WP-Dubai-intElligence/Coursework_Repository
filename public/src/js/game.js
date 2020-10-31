@@ -126,7 +126,7 @@ function restart() {
     rock_Move = 1;
 
 
-    clearTimeout(myTime);
+    //clearTimeout(myTime);
 
 
     //calculate initial ship position
@@ -151,6 +151,7 @@ function restart() {
     document.addEventListener("keydown", keyDownHandler, false);
 
     gameLoop();
+    countdown();
 }
 
 function setNewPosition(element, dx, dy) {
@@ -212,3 +213,28 @@ function cross(element1, element2) {
     return true;
 
 }
+
+function timedOut() {
+    alert("game over!!");
+}
+
+// set a timer
+setTimeout( timedOut , 60000 );
+function countdown() {
+    var seconds = 60;
+    function tick() {
+        var counter = document.getElementById("counter");
+        seconds--;
+        counter.innerHTML = "0:" + (seconds < 10 ? "0" : "") + String(seconds);
+        if( seconds > 0 ) {
+            setTimeout(tick, 1000);
+        } else {
+            alert("Game over");
+        }
+    }
+    tick();
+}
+
+
+
+// start the countdown
