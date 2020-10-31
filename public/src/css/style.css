@@ -11,6 +11,7 @@
 }
 
 .rules {
+    /* background-image: url('../assets/images/spacebg.jpeg'); */
     flex-direction: column;
     text-align: left;
     max-width: 1500px;
@@ -82,4 +83,8 @@ h1 {
     top: 130%;
     width: 100%;
     font-size: 50%;
+}
+
+.rules h4 {
+    bottom: 700px;
 }
