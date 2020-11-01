@@ -8,6 +8,7 @@
     <title>Space Race</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="./public/src/js/game.js"></script>
+
     <script>
         var keyState = {};
 
@@ -48,13 +49,17 @@
     </script>
 </head>
 
-<body onload="init(),start();">
+<body onload="init();">
     <div id="title">
-        <button onclick="restart();" id="starttime">Start</button>
-        <div id="counter">1:00</div>
+        <button onclick="extra();" >Start</button>
+        
+    </div>
         <br>
         <a href="index.html">Back To HomePage -></a>
     </div>
+    <div id="myProgress"></div>
+         <div id="myBar">1:00</div> 
+    
     <div id="scores">
         <table>
             <tr>
