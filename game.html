@@ -49,7 +49,28 @@
 </head>
 
 <body onload="init(),start();">
-    <div id="title">
+    <div class="menu-wrap">
+        <input type="checkbox" class="toggler">
+        <div class="hamburger">
+            <!-- for lines -->
+            <div></div>
+        </div>
+        <div class="menu">
+            <div>
+                <div>
+                    <ul>
+                        <li><a href="#">Restart</a></li>
+                        <li><a href="index.html">Back to Home</a></li>
+                        <li><a href="#">Leaderboard</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <div id="title">
         <button onclick="restart();" id="starttime">Start</button>
         <div id="counter">1:00</div>
         <br>
@@ -76,7 +97,7 @@
                 </td>
             </tr>
         </table>
-    </div>
+    </div> -->
     <div id="board">
         <img src="./public/src/assets/images/rocket2-removebg-preview.png" id="ship" />
         <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
@@ -92,8 +113,8 @@
         <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
         <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
     </div>
-    
-    
+
+
 </body>
 
 </html>
