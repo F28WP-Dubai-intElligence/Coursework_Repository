@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="./public/src/css/game.css" media="all" />
+    <link rel="stylesheet" href="../Coursework_Repository/menu.css">
     <script src="./public/src/js/game.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Space Race</title>
@@ -53,36 +54,56 @@
     </script>
 </head>
 
-<body onload="init();">
-    <div id="title">
-        <button onclick="restart();">Start</button>
+<body>
+    <!-- onload="init(),start();" -->
+    <div id="title ">
+        <button onclick="restart(); ">Start</button>
     </div>
-    <div id="scores">
+    <div id="scores ">
         <table>
             <tr>
                 <td>
                     <p>
-                        Ship Coordinates (<span id="ship_location" class="location">... </span
+                        Ship Coordinates (<span id="ship_location " class="location ">... </span
               >)
             </p>
           </td>
           <td>
             <p>
-              Rock Coordinates (<span id="rock_location" class="location"
+              Rock Coordinates (<span id="rock_location " class="location "
                 >... </span
               >)
             </p>
           </td>
           <td>
-            <p>Hits: [<span id="hits">0</span>]</p>
+            <p>Hits: [<span id="hits ">0</span>]</p>
                 </td>
             </tr>
         </table>
     </div>
-    <div id="board">
-        <img src="./public/src/assets/images/rocket2-removebg-preview.png" id="ship" />
-        <img id="rock" src="./public/src/assets/images/bomb1.png" class="rock" />
+    <div id="board ">
+        <div class="menu-wrap ">
+            <input type="checkbox " class="toggler ">
+            <div class="hamburger ">
+                <!-- for lines -->
+                <div></div>
+            </div>
+            <div class="menu ">
+                <div>
+                    <div>
+                        <ul>
+                            <li><a href="# ">Restart</a></li>
+                            <li><a href="# ">Back to Home</a></li>
+                            <li><a href="# ">Leaderboard</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="./public/src/assets/images/rocket2-removebg-preview.png " id="ship " />
+        <img id="rock " src="./public/src/assets/images/bomb1.png " class="rock " />
     </div>
+
 </body>
 
 </html>
