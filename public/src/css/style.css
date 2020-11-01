@@ -11,12 +11,12 @@
 }
 
 .rules {
+    /* background-image: url('../assets/images/spacebg.jpeg'); */
     flex-direction: column;
     text-align: left;
-    max-width: 1500px;
+    height: 100vh;
     margin: 0 auto;
     padding: 100px 0;
-    left: 32%;
 }
 
 .instructions {
@@ -66,6 +66,10 @@ h1 {
     left: 54%;
 }
 
+.howto {
+    left: 32%;
+}
+
 .intro a:hover {
     background-color: white;
     color: black;
@@ -82,4 +86,8 @@ h1 {
     top: 130%;
     width: 100%;
     font-size: 50%;
+}
+
+.rules h4 {
+    bottom: 700px;
 }

@@ -7,21 +7,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Space Race</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="./game.js"></script>
-
-    <noscript>
-      Warning - JavaScript is Disabled. For full functionality of this page, it
-      is necessary to enable JavaScript.
-    </noscript>
+    <script src="./public/src/js/game.js"></script>
     <script>
+        var keyState = {};
+
+        var noOfRocks;
+        var rockID;
         var myTime;
 
         var ship;
-        var rock;
+        var rockele;
+        var box;
 
         var ship_place;
         var rock_place;
-        var hits;
+        var score;
 
         var board;
         var boardHeight;
@@ -34,17 +34,12 @@
 
         var ship_X_STEP;
         var ship_Y_STEP;
-        var rock_X_STEP;
-        var rock_Y_STEP;
 
         var X_ship_Direction;
         var Y_ship_Direction;
-        var X_rock_Direction;
-        var Y_rock_Direction;
 
         var ship_Move_X;
         var ship_Move_Y;
-        var rock_Move;
 
         var KEYUP;
         var KEYDOWN;
@@ -53,7 +48,7 @@
     </script>
 </head>
 
-<body onload="init();">
+<body onload="init(),start();">
     <div id="title">
         <button onclick="restart();" id="starttime">Start</button>
         <div id="counter">1:00</div>
@@ -61,29 +56,41 @@
         <a href="index.html">Back To HomePage -></a>
     </div>
     <div id="scores">
-      <table>
-        <tr>
-          <td>
-            <p>
-              Ship Coordinates (<span id="ship_location" class="location">... </span>)
+        <table>
+            <tr>
+                <td>
+                    <p>
+                        Ship Coordinates (<span id="ship_location" class="location">... </span
+              >)
             </p>
           </td>
           <td>
             <p>
-              Rock Coordinates (<span id="rock_location" class="location">... </span>)
+              Rock Coordinates (<span id="rock_location" class="location"
+                >... </span
+              >)
             </p>
           </td>
           <td>
-            <p>
-              Hits: [<span id="hits">0</span>]
-            </p>
-          </td>
-        </tr>
-      </table>
+            <p>Score: [<span id="score">0</span>]</p>
+                </td>
+            </tr>
+        </table>
     </div>
-    <div id="banner">
+    <div id="board">
         <img src="./public/src/assets/images/rocket2-removebg-preview.png" id="ship" />
-        <img id="rock" src="./public/src/assets/images/bomb1.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
     </div>
     
     
