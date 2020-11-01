@@ -50,8 +50,9 @@
 
 <body onload="init(),start();">
     <div id="title">
-        <button onclick="refresh();">Restart</button>
-        <br />
+        <button onclick="restart();" id="starttime">Start</button>
+        <div id="counter">1:00</div>
+        <br>
         <a href="index.html">Back To HomePage -></a>
     </div>
     <div id="scores">
@@ -91,6 +92,8 @@
         <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
         <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
     </div>
+    
+    
 </body>
 
 </html>
