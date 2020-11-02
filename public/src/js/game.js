@@ -1,13 +1,16 @@
 function init() {
 
+    noOfPlayers = 1;
+    playerID = 0;
+
     myTime = null;
 
-    data = [];
+    rockData = [];
 
     noOfRocks = 20;
 
-    ship = document.querySelector("#ship");
     rocks = document.querySelectorAll(".rock");
+    ships = document.querySelectorAll(".ship");
 
 
     ship_place = document.getElementById("ship_location");
@@ -43,80 +46,19 @@ function init() {
 
     rockID = 0;
 
-    //calculate initial ship position
-    let ship_X_INIT = board.offsetLeft + (0.5 * boardWidth);
-    let ship_Y_INIT = board.offsetTop + (0.9 * boardHeight);
-
-    //set initial positions
-    ship.style.left = ship_X_INIT + "px";
-    ship.style.top = ship_Y_INIT + "px";
+    shipInit();
 
     addRocks();
+
 }
 
 function refresh() {
     location.reload();
 }
 
-function randomleft() {
-    var x = Math.floor((Math.random() * X_MAX));
-    return x;
-}
-
-function randomtop() {
-    var x = Math.floor(((Y_MIN + 10) + (Math.random() * (Y_MAX - Y_MIN))));
-    return x;
-}
-
-function randomvel() {
-    var random = [];
-    min = Math.ceil(15);
-    max = Math.floor(7);
-    random[0] = Math.floor(Math.random() * (max - min + 1) + min);
-    random[1] = Math.floor(Math.random() * ((-1 * max) - (-1 * min) + 1) + (-1 * min));
-    posorneg = Math.floor(Math.random() * ((Math.floor(1)) - 0 + 1) + 0);
-    // console.log(random[posorneg]);
-    return random[posorneg];
-}
-
-function Rock(rockpic, left, top, vx, vy) {
-    this.element = rockpic;
-    this.x = left;
-    this.y = top;
-    this.dx = vx;
-    this.dy = vy;
-
-    var move;
-    var that = this;
-    this.initr = function() {
-        this.element.style.left = this.x + 'px';
-        this.element.style.top = this.y + 'px';
-        this.updatePositive();
-    }
-
-    this.updatePositive = function() {
-        move = setInterval(frame, 100);
-
-        function frame() {
-            //meteor boundaries
-            if (that.x >= X_MAX || that.x <= X_MIN) {
-                that.dx = that.dx * -1;
-            }
-            if (that.y >= Y_MAX - 50 || that.y <= Y_MIN + 10) {
-                that.dy *= -1;
-            }
-            that.x = that.x + that.dx;
-            that.y = that.y + that.dy;
-            that.element.style.left = that.x + 'px';
-            that.element.style.top = that.y + 'px';
-        }
-    }
-}
 
 function gameLoop() // update loop for game
 {
-
-    // console.log(data);
     // change in offset for ship
     let dy_ship = Y_ship_Direction * ship_Move_Y * ship_Y_STEP;
     let dx_ship = X_ship_Direction * ship_Move_X * ship_X_STEP;
@@ -125,102 +67,32 @@ function gameLoop() // update loop for game
     ship_Move_X = 0;
     ship_Move_Y = 0;
 
-    console.log(ship_Move_X);
-
-    setNewPosition(ship, dx_ship, dy_ship);
-
+    ships.forEach(ship => {
+        setNewPosition(ship, dx_ship, dy_ship);
+    });
     myTime = setTimeout('gameLoop()', 10);
 
-    ship_place.innerHTML = "x: " + ship.offsetLeft + "  y: " + ship.offsetTop;
+    // ship_place.innerHTML = "x: " + ship.offsetLeft + "  y: " + ship.offsetTop;
 
     keyHandler();
     rocks.forEach(rock => {
-        if (cross(rock, ship)) {
-            rockID = 0;
-            restart();
+        ships.forEach(ship => {
+            if (cross(rock, ship)) {
+                rockID = 0;
+                restart();
+            }
+        })
+    });
 
+    ships.forEach(ship => {
+        if (ship.offsetTop == Y_MIN) {
+            restart();
+            let shipScore = score.innerHTML;
+            shipScore = Number(shipScore) + 1;
+            console.log(data)
+            score.innerHTML = shipScore;
         }
     });
-
-    if (ship.offsetTop == Y_MIN) {
-        let shipScore = score.innerHTML;
-        shipScore = Number(shipScore) + 1;
-        score.innerHTML = shipScore;
-        restart();
-    }
-
-
-    // console.log(keyState);
-}
-
-function keyHandler() {
-    if (keyState[KEYRIGHT]) {
-        X_ship_Direction = 1;
-        ship_Move_X = 1;
-    } // right key
-    if (keyState[KEYLEFT]) {
-        X_ship_Direction = -1;
-        ship_Move_X = 1;
-    } // left key
-
-    if (keyState[KEYUP]) {
-        Y_ship_Direction = -1;
-        ship_Move_Y = 1;
-    } // up key
-    if (keyState[KEYDOWN]) {
-        Y_ship_Direction = 1;
-        ship_Move_Y = 1;
-    } // up key
-}
-
-function keyDOWN(e) {
-    keyState[e.keyCode] = true;
-    switch (e.keyCode) {
-        case 37:
-        case 39:
-        case 38:
-        case 40: // Arrow keys
-        case 32:
-            e.preventDefault();
-            break; // Space
-        default:
-            break; // do not block other keys
-    }
-}
-
-function keyUP(e) {
-    keyState[e.keyCode] = false;
-}
-
-function addRocks() {
-    rocks.forEach(rock => {
-        // console.log(rockID);
-        data[rockID] = { top: randomtop(), left: randomleft(), xvel: randomvel(), yvel: randomvel() };
-        var rock1 = new Rock(rock, data[rockID].left, data[rockID].top, data[rockID].xvel, data[rockID].yvel);
-        rock1.initr();
-        // console.log(data[rockID]);
-        rockID++;
-    });
-}
-
-function setNewPosition(element, dx, dy) {
-
-    // Get current positions
-    let x_element = element.offsetLeft;
-    let y_element = element.offsetTop;
-
-    x_element = x_element + dx;
-    y_element = y_element + dy;
-
-    //keep within board
-    if (x_element >= X_MAX) x_element = X_MAX;
-    if (x_element <= X_MIN) x_element = X_MIN;
-    if (y_element >= Y_MAX) y_element = Y_MAX;
-    if (y_element <= Y_MIN) y_element = Y_MIN;
-    // Store positions
-    element.style.left = x_element + "px";
-    element.style.top = y_element + "px";
-
 }
 
 function cross(element1, element2) {
@@ -243,47 +115,6 @@ function cross(element1, element2) {
 
 }
 
-function timedOut() {
-    alert("GAME OVER!!");
-}
-
-// set a timer
-setTimeout(timedOut, 60000);
-/*function countdown() {
-    var seconds = 60;
-    function tick() {
-        var counter = document.getElementById("counter");
-        seconds--;
-        counter.innerHTML = "0:" + (seconds < 10 ? "0" : "") + String(seconds);
-        if( seconds > 0 ) {
-            setTimeout(tick, 1000);
-        } else {
-            alert("Game over");
-        }
-    }
-    tick();
-}
-*/
-function move(delay) {
-    var elem = document.getElementById("myBar");
-    var end = Date.now() + delay;
-    var frame = () => {
-        var timeleft = Math.max(0, end - Date.now());
-        elem.style.width = (100 * timeleft) / delay + '%';
-        elem.innerHTML = (timeleft / 1000).toFixed(1) + 's';
-        if (timeleft === 0) return;
-        requestAnimationFrame(frame);
-    };
-    requestAnimationFrame(frame);
-}
-
-function extra() {
-    restart();
-    move(60000);
-
-
-}
-
 function restart() {
     // startTime = new Date();
     //init directions and movement
@@ -295,13 +126,7 @@ function restart() {
     ship_Move_X = 0;
     ship_Move_Y = 0;
 
-    //calculate initial ship position
-    let ship_X_INIT = board.offsetLeft + (0.5 * boardWidth);
-    let ship_Y_INIT = board.offsetTop + (0.9 * boardHeight);
-
-    //set initial positions
-    ship.style.left = ship_X_INIT + "px";
-    ship.style.top = ship_Y_INIT + "px";
+    shipInit();
 
 
     // Add an event listener to the keypress event.
@@ -311,6 +136,10 @@ function restart() {
 
     gameLoop();
 
+}
 
-
+function addPlayer() {
+    noOfPlayers++;
+    playerID++;
+    shipInit();
 }

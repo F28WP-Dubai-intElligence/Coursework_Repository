@@ -8,17 +8,26 @@
     <title>Space Race</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="./public/src/js/game.js"></script>
-
+    <script src="./public/src/js/rock.js"></script>
+    <script src="./public/src/js/ship.js"></script>
+    <script src="./public/src/js/keyhandler.js"></script>
+    <script src="./public/src/js/timer.js"></script>
     <script>
         var keyState = {};
+
+        var noOfPlayers;
+        var playerID;
 
         var noOfRocks;
         var rockID;
         var myTime;
 
-        var ship;
+        var shiparr = [];
+        var ships = [];
         var rockele;
         var box;
+
+        var ships = [];
 
         var ship_place;
         var rock_place;
@@ -91,13 +100,16 @@
           <td>
             <p>Score: [<span id="score">0</span>]</p>
                 </td>
+                <td><button onclick="addPlayer();">Add New Player</button></td>
             </tr>
         </table>
     </div>
     <div id="board">
         <div id="myProgress"></div>
         <div id="myBar">1:00</div>
-        <img src="./public/src/assets/images/rocket2-removebg-preview.png" id="ship" />
+        <img id="ship" src="./public/src/assets/images/rocket2-removebg-preview.png" class="ship" />
+        <img id="ship" src="./public/src/assets/images/rocket4-removebg-preview.png" class="ship" />
+        <img id="ship" src="./public/src/assets/images/rocket5-removebg-preview.png" class="ship" />
         <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
         <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
         <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
