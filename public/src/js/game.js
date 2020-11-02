@@ -43,6 +43,14 @@ function init() {
 
     rockID = 0;
 
+    //calculate initial ship position
+    let ship_X_INIT = board.offsetLeft + (0.5 * boardWidth);
+    let ship_Y_INIT = board.offsetTop + (0.9 * boardHeight);
+
+    //set initial positions
+    ship.style.left = ship_X_INIT + "px";
+    ship.style.top = ship_Y_INIT + "px";
+
     addRocks();
 }
 
@@ -167,6 +175,17 @@ function keyHandler() {
 
 function keyDOWN(e) {
     keyState[e.keyCode] = true;
+    switch (e.keyCode) {
+        case 37:
+        case 39:
+        case 38:
+        case 40: // Arrow keys
+        case 32:
+            e.preventDefault();
+            break; // Space
+        default:
+            break; // do not block other keys
+    }
 }
 
 function keyUP(e) {
