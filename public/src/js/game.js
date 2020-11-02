@@ -42,6 +42,8 @@ function init() {
     KEYRIGHT = 39;
 
     rockID = 0;
+
+    addRocks();
 }
 
 function refresh() {
@@ -133,11 +135,10 @@ function gameLoop() // update loop for game
     });
 
     if (ship.offsetTop == Y_MIN) {
-        restart();
         let shipScore = score.innerHTML;
         shipScore = Number(shipScore) + 1;
-        console.log(data)
         score.innerHTML = shipScore;
+        restart();
     }
 
 
@@ -170,42 +171,6 @@ function keyDOWN(e) {
 
 function keyUP(e) {
     keyState[e.keyCode] = false;
-}
-
-function start() {
-    // startTime = new Date();
-    //init directions and movement
-    ship_Direction = 1;
-
-    ship_Move_X = 0;
-    ship_Move_Y = 0;
-
-    //clearTimeout(myTime);
-
-
-
-    //calculate initial ship position
-    let ship_X_INIT = board.offsetLeft + 0.5 * boardWidth;
-    let ship_Y_INIT = board.offsetTop + 0.9 * boardHeight;
-
-    //set initial positions
-    ship.style.left = ship_X_INIT + "px";
-    ship.style.top = ship_Y_INIT + "px";
-
-    //init position display
-    ship_place.innerHTML = "...";
-    rock_place.innerHTML = "...";
-    addRocks();
-
-    // Add an event listener to the keypress event.
-
-    document.addEventListener('keydown', keyDOWN, true);
-    document.addEventListener('keyup', keyUP, true);
-
-    gameLoop();
-
-
-
 }
 
 function addRocks() {
@@ -293,9 +258,8 @@ function move(delay) {
     requestAnimationFrame(frame);
 }
 
-// start the 
 function extra() {
-    start();
+    restart();
     move(60000);
 
 
@@ -304,7 +268,8 @@ function extra() {
 function restart() {
     // startTime = new Date();
     //init directions and movement
-    console.log(ship_X_STEP);
+
+    clearTimeout(myTime);
 
     ship_Direction = 1;
 
@@ -312,8 +277,8 @@ function restart() {
     ship_Move_Y = 0;
 
     //calculate initial ship position
-    let ship_X_INIT = board.offsetLeft + 0.5 * boardWidth;
-    let ship_Y_INIT = board.offsetTop + 0.9 * boardHeight;
+    let ship_X_INIT = board.offsetLeft + (0.5 * boardWidth);
+    let ship_Y_INIT = board.offsetTop + (0.9 * boardHeight);
 
     //set initial positions
     ship.style.left = ship_X_INIT + "px";
