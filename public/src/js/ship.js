@@ -24,20 +24,19 @@ function shipInit() {
     console.log("screens " + screens);
     console.log("player count " + noOfPlayers);
     let leftBound = 0;
-    ships.forEach(ship => {
-        console.log("leftbound = " + leftBound);
-        let ship_Y_INIT = board.offsetTop + 0.9 * boardHeight;
+    console.log("leftbound = " + leftBound);
+    let ship1_Y_INIT = board.offsetTop + 0.9 * boardHeight;
 
-        //intitial locations of the ships
-        // for (var i = 0; i > noOfPlayers; i++) {
-        console.log("leftbound + screens = " + (leftBound + screens));
-        console.log("newlocation = " + (leftBound + screens) / 2);
-        // let ship_X_INIT = ((leftBound + screens) - leftBound) / 2;
-        let ship_X_INIT = ((leftBound + screens) - leftBound) / 2;
-        // screens += screens;
-        // }
-        ship.style.left = ship_X_INIT + "px";
-        ship.style.top = ship_Y_INIT + "px";
-        leftBound += screens;
-    });
+    //intitial locations of the ships
+    // for (var i = 0; i > noOfPlayers; i++) {
+    console.log("leftbound + screens = " + (leftBound + screens));
+    console.log("newlocation = " + (leftBound + screens) / 2);
+    // let ship_X_INIT = ((leftBound + screens) - leftBound) / 2;
+    let ship1_X_INIT = ((leftBound + screens) - leftBound) / 2;
+    // screens += screens;
+    // }
+    ship1.style.left = ship1_X_INIT + "px";
+    ship1.style.top = ship1_Y_INIT + "px";
+    leftBound += screens;
+
 }

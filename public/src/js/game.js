@@ -10,10 +10,10 @@ function init() {
     noOfRocks = 20;
 
     rocks = document.querySelectorAll(".rock");
-    ships = document.querySelectorAll(".ship");
+    ship1 = document.getElementById("ship1");
 
 
-    ship_place = document.getElementById("ship_location");
+    ship1_place = document.getElementById("ship1_location");
     rock_place = document.getElementById("rock_location");
     score = document.getElementById("score");
     duration = document.getElementById("duration");
@@ -29,15 +29,15 @@ function init() {
     Y_MAX = board.offsetTop + 0.9 * boardHeight;
 
     //velocity of the ship
-    ship_X_STEP = 3;
-    ship_Y_STEP = 3;
+    ship1_X_STEP = 3;
+    ship1_Y_STEP = 3;
 
 
-    X_ship_Direction = 1;
-    Y_ship_Direction = 1;
+    X_ship1_Direction = 1;
+    Y_ship1_Direction = 1;
 
-    ship_Move_X = 0;
-    ship_Move_Y = 0;
+    ship1_Move_X = 0;
+    ship1_Move_Y = 0;
 
     KEYUP = 38;
     KEYDOWN = 40;
@@ -60,39 +60,37 @@ function refresh() {
 function gameLoop() // update loop for game
 {
     // change in offset for ship
-    let dy_ship = Y_ship_Direction * ship_Move_Y * ship_Y_STEP;
-    let dx_ship = X_ship_Direction * ship_Move_X * ship_X_STEP;
+    let dy_ship1 = Y_ship1_Direction * ship1_Move_Y * ship1_Y_STEP;
+    let dx_ship1 = X_ship1_Direction * ship1_Move_X * ship1_X_STEP;
 
     //wait for next key press to move ship
-    ship_Move_X = 0;
-    ship_Move_Y = 0;
+    ship1_Move_X = 0;
+    ship1_Move_Y = 0;
 
-    ships.forEach(ship => {
-        setNewPosition(ship, dx_ship, dy_ship);
-    });
+
+    setNewPosition(ship1, dx_ship1, dy_ship1);
     myTime = setTimeout('gameLoop()', 10);
 
     // ship_place.innerHTML = "x: " + ship.offsetLeft + "  y: " + ship.offsetTop;
 
     keyHandler();
     rocks.forEach(rock => {
-        ships.forEach(ship => {
-            if (cross(rock, ship)) {
-                rockID = 0;
-                restart();
-            }
-        })
+        if (cross(rock, ship1)) {
+            rockID = 0;
+            restart();
+        }
+
     });
 
-    ships.forEach(ship => {
-        if (ship.offsetTop == Y_MIN) {
-            restart();
-            let shipScore = score.innerHTML;
-            shipScore = Number(shipScore) + 1;
-            console.log(data)
-            score.innerHTML = shipScore;
-        }
-    });
+
+    if (ship1.offsetTop == Y_MIN) {
+        restart();
+        let ship1Score = score.innerHTML;
+        ship1Score = Number(ship1Score) + 1;
+        console.log(data)
+        score.innerHTML = ship1Score;
+    }
+
 }
 
 function cross(element1, element2) {
@@ -121,10 +119,10 @@ function restart() {
 
     clearTimeout(myTime);
 
-    ship_Direction = 1;
+    ship1_Direction = 1;
 
-    ship_Move_X = 0;
-    ship_Move_Y = 0;
+    ship1_Move_X = 0;
+    ship1_Move_Y = 0;
 
     shipInit();
 
