@@ -51,7 +51,7 @@
 
 <body onload="init(),start();">
     <div class="menu-wrap">
-        <input type="checkbox" class="toggler">
+        <input type="checkbox" class="toggler" />
         <div class="hamburger">
             <div></div>
         </div>
@@ -60,30 +60,18 @@
             <div>
                 <div>
                     <ul>
-                        <li><a class="btn restart" onclick="restart();">Restart</a></li>
-                        <li><a href="index.html" class="btn homepage">Back to HomePage</a></li>
+                        <li>
+                            <a class="btn restart" onclick="refresh();extra();">Restart</a>
+                        </li>
+                        <li>
+                            <a href="index.html" class="btn homepage">Back to HomePage</a>
+                        </li>
                         <li><a href="#" class="btn leaderbrd">Leaderboard</a></li>
                     </ul>
                 </div>
             </div>
-            <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
-            <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
-            <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
-            <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
-            <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
-            <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
-            <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
-            <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
-            <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
-            <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
-            <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
-            <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
         </div>
-
     </div>
-
-
-
 
     <!-- <div id="title">
         <button onclick="restart();" id="starttime">Start</button>
@@ -114,6 +102,8 @@
             </tr>
         </table>
     </div>
+    <div id="myProgress"></div>
+    <div id="myBar">1:00</div>
     <div id="board">
         <img src="./public/src/assets/images/rocket2-removebg-preview.png" id="ship" />
         <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
@@ -129,8 +119,6 @@
         <img id="rock" src="./public/src/assets/images/bomb2.png" class="rock" />
         <img id="rock" src="./public/src/assets/images/meteor3.png" class="rock" />
     </div>
-
-
 </body>
 
 </html>
