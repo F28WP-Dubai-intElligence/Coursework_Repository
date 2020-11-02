@@ -58,6 +58,7 @@
      background-position: 120% 70px, 0px 0px;
      background-repeat: no-repeat, repeat-x, repeat-x;
      animation: animate-background linear 50s infinite;
+     /* position: relative; */
  }
  
  @keyframes animate-background {
@@ -162,11 +163,21 @@
      display: flex;
      align-items: center;
      justify-content: center;
-     background-color: black;
+     /* background-image: url(../assets/images/scrolling_space.jpg); */
+     background-image: url("../assets/images/planet2-removebg-preview.png"), url("../assets/images/scrolling_space.jpg");
+     background-position: 120% 70px, 0px 0px;
+     background-repeat: no-repeat, repeat-x, repeat-x;
+     animation: animate-background linear 50s infinite;
+ }
+ 
+ .overlay {
+     width: 100%;
+     height: 100%;
+     background-color: #000;
  }
  
  .menu-wrap .menu>div {
-     background: var(--overlay-color);
+     /* background: var(--overlay-color); */
      border-radius: 50%;
      width: 200vw;
      height: 200vw;
