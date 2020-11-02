@@ -125,12 +125,13 @@ function gameLoop() // update loop for game
     rocks.forEach(rock => {
         if (cross(rock, ship)) {
             rockID = 0;
-            refresh();
+            restart();
+            
         }
     });
 
     if(ship.offsetTop == Y_MIN){
-        refresh();
+        restart();
         let shipScore = score.innerHTML;
         shipScore = Number(shipScore) + 1;
         console.log(data)
@@ -171,7 +172,6 @@ function keyUP(e) {
 
 function start() {
     // startTime = new Date();
-
     //init directions and movement
     ship_Direction = 1;
 
@@ -199,9 +199,11 @@ function start() {
 
     document.addEventListener('keydown', keyDOWN, true);
     document.addEventListener('keyup', keyUP, true);
-
+    
     gameLoop();
-    countdown();
+    
+    
+    
 }
 
 function addRocks() {
@@ -256,12 +258,12 @@ function cross(element1, element2) {
 }
 
 function timedOut() {
-    alert("game over!!");
+    alert("GAME OVER!!");
 }
 
 // set a timer
 setTimeout( timedOut , 60000 );
-function countdown() {
+/*function countdown() {
     var seconds = 60;
     function tick() {
         var counter = document.getElementById("counter");
@@ -275,7 +277,57 @@ function countdown() {
     }
     tick();
 }
+*/
+function move(delay) {
+    var elem = document.getElementById("myBar");
+    var end = Date.now() + delay;
+    var frame = () => {
+      var timeleft = Math.max(0, end - Date.now());
+      elem.style.width = (100*timeleft)/delay + '%'; 
+      elem.innerHTML = (timeleft/1000).toFixed(1)  + 's';
+      if (timeleft === 0) return;
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  }
+
+// start the 
+function extra(){
+    start();
+    move(60000);
+
+
+}
+function restart() {
+    // startTime = new Date();
+    //init directions and movement
+    ship_Direction = 1;
+
+    ship_Move_X = 0;
+    ship_Move_Y = 0;
+
+    //clearTimeout(myTime);
 
 
 
-// start the countdown
+    //calculate initial ship position
+    let ship_X_INIT = board.offsetLeft + 0.5 * boardWidth;
+    let ship_Y_INIT = board.offsetTop + 0.9 * boardHeight;
+
+    //set initial positions
+    ship.style.left = ship_X_INIT + "px";
+    ship.style.top = ship_Y_INIT + "px";
+
+    //init position display
+    
+
+    // Add an event listener to the keypress event.
+
+    document.addEventListener('keydown', keyDOWN, true);
+    document.addEventListener('keyup', keyUP, true);
+    
+    gameLoop();
+    
+    
+    
+}
