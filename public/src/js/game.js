@@ -89,6 +89,10 @@ function gameLoop() // update loop for game
         if (cross(rock, ships[playerID])) {
             // rockID = 0;
             restart();
+            let shipScore = score.innerHTML;
+            shipScore = Number(shipScore) - 1;
+            console.log(shipScore);
+            score.innerHTML = shipScore;
         }
 
     });
