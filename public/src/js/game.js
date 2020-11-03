@@ -1,5 +1,4 @@
 function init() {
-
     noOfPlayers = 1;
     playerID = 0;
     latestPlayer = 0;
