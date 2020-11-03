@@ -7,6 +7,24 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Space Race</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+    #divcountdown{
+    position: absolute;
+    left: 100px;
+    width:1000px;
+    height:30px;
+    top:100px;
+    border: 2px black solid;
+    background: linear-gradient(to right,red,yellow,green);
+
+}
+#mytimeleft{
+    float: right;
+    background:lightgrey;
+    height:30px;
+}
+    </style>
+
     <script src="./public/src/js/game.js"></script>
     <script src="./public/src/js/rock.js"></script>
     <script src="./public/src/js/ship.js"></script>
@@ -69,7 +87,7 @@
                 <div>
                     <ul>
                         <li>
-                            <a class="btn restart" onclick="refresh();">Restart</a>
+                            <a class="btn restart" onclick="extra();">Restart</a>
                         </li>
                         <li>
                             <a href="index.html" class="btn homepage">Back to HomePage</a>
@@ -80,6 +98,7 @@
             </div>
         </div>
     </div>
+    
     <div id="scores">
         <table>
             <tr>
@@ -103,10 +122,11 @@
             </tr>
         </table>
     </div>
-    <div id="banner">
-        <div id="board">
-            <div id="myProgress"></div>
-            <div id="myBar">1:00</div>
+    <div id="banner"></div>
+    <div id="divcountdown" >
+        <div id="mytimeleft"></div>  
+    </div>
+    <div id="board"></div>
             <img id="ship1" src="./public/src/assets/images/rocket2-removebg-preview.png" class="ship" />
             <img id="ship2" src="./public/src/assets/images/rocket4-removebg-preview.png" class="ship" />
             <img id="ship3" src="./public/src/assets/images/rocket5-removebg-preview.png" class="ship" />
