@@ -89,12 +89,16 @@ function gameLoop() // update loop for game
         if (cross(rock, ships[playerID])) {
             // rockID = 0;
             restart();
+            let shipScore = score.innerHTML;
+            shipScore = Number(shipScore) - 1;
+            console.log(shipScore);
+            score.innerHTML = shipScore;
         }
 
     });
 
 
-    if (ships[playerID].offsetTop == board.offsetTop) {
+    if (ships[playerID].offsetTop == (Y_MIN+60)) {
         restart();
         let shipScore = score.innerHTML;
         shipScore = Number(shipScore) + 1;
