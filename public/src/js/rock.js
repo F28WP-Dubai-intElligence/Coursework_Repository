@@ -1,10 +1,12 @@
 function randomleft() {
-    var x = Math.floor((Math.random() * X_MAX));
-    return x;
+    // console.log("board i x max" + boardDivisions[i].X_MAX)
+    // var x = Math.floor((Math.random() * boardDivisions[i].X_MAX));
+    // return x;
+    return Math.floor(Math.random() * (X_MAX - X_MIN) + X_MIN);
 }
 
 function randomtop() {
-    var x = Math.floor(((Y_MIN + 10) + (Math.random() * (Y_MAX - Y_MIN))));
+    var x = Math.floor(((Y_MIN + 70) + (Math.random() * (Y_MAX - Y_MIN - 100))));
     return x;
 }
 
@@ -39,12 +41,16 @@ function Rock(rockpic, left, top, vx, vy) {
 
         function frame() {
             //meteor boundaries
+            // let i = 0;
+            // while (i < noOfPlayers) {
             if (that.x >= X_MAX || that.x <= X_MIN) {
                 that.dx = that.dx * -1;
             }
-            if (that.y >= Y_MAX - 50 || that.y <= Y_MIN + 10) {
+            if (that.y >= Y_MAX - 50 || that.y <= Y_MIN + 60) {
                 that.dy *= -1;
             }
+            // i++;
+            // }
             that.x = that.x + that.dx;
             that.y = that.y + that.dy;
             that.element.style.left = that.x + 'px';
@@ -54,12 +60,16 @@ function Rock(rockpic, left, top, vx, vy) {
 }
 
 function addRocks() {
+    // rocks[0] = document.querySelectorAll(".rock1");
+    // rocks[1] = document.querySelectorAll(".rock2");
+
     rocks.forEach(rock => {
         // console.log(rockID);
         rockData[rockID] = { top: randomtop(), left: randomleft(), xvel: randomvel(), yvel: randomvel() };
         var rock1 = new Rock(rock, rockData[rockID].left, rockData[rockID].top, rockData[rockID].xvel, rockData[rockID].yvel);
         rock1.initr();
-        // console.log(data[rockID]);
+        console.log(rockData[rockID].display);
         rockID++;
     });
+
 }

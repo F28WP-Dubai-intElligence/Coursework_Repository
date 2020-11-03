@@ -1,20 +1,20 @@
 function keyHandler() {
     if (keyState[KEYRIGHT]) {
-        X_ship1_Direction = 1;
-        ship1_Move_X = 1;
+        X_ship_Direction = 1;
+        ship_Move_X = 1;
     } // right key
     if (keyState[KEYLEFT]) {
-        X_ship1_Direction = -1;
-        ship1_Move_X = 1;
+        X_ship_Direction = -1;
+        ship_Move_X = 1;
     } // left key
 
     if (keyState[KEYUP]) {
-        Y_ship1_Direction = -1;
-        ship1_Move_Y = 1;
+        Y_ship_Direction = -1;
+        ship_Move_Y = 1;
     } // up key
     if (keyState[KEYDOWN]) {
-        Y_ship1_Direction = 1;
-        ship1_Move_Y = 1;
+        Y_ship_Direction = 1;
+        ship_Move_Y = 1;
     } // up key
 }
 

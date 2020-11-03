@@ -18,7 +18,6 @@
     position: absolute;
     height: 90px;
     width: 50px;
-    background-image: url('../assets/images/rocket2-removebg-preview.png');
     /*top: 240px;*/
 }
 
@@ -49,7 +48,7 @@
     color: blue;
 }
 
-#board {
+#banner {
     width: 100%;
     height: 100vh;
     margin: 0px auto;
@@ -60,6 +59,11 @@
     animation: animate-background linear 50s infinite;
     position: fixed;
     /* position: relative; */
+}
+
+#board {
+    width: 100%;
+    height: 100vh;
 }
 
 @keyframes animate-background {

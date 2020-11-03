@@ -19,24 +19,17 @@ function setNewPosition(element, dx, dy) {
 }
 
 function shipInit() {
-    console.log("board width " + boardWidth);
-    let screens = boardWidth / noOfPlayers;
-    console.log("screens " + screens);
-    console.log("player count " + noOfPlayers);
+    let i = 0;
     let leftBound = 0;
-    console.log("leftbound = " + leftBound);
-    let ship1_Y_INIT = board.offsetTop + 0.9 * boardHeight;
+    while (i < noOfPlayers) {
+        let screens = boardWidth / noOfPlayers;
+        let ship_Y_INIT = board.offsetTop + 0.9 * boardHeight;
+        let ship_X_INIT = (leftBound + screens) - (screens / 2);
+        ships[i].style.left = ship_X_INIT + "px";
+        ships[i].style.top = ship_Y_INIT + "px";
+        leftBound += screens;
+        i++;
+    }
 
-    //intitial locations of the ships
-    // for (var i = 0; i > noOfPlayers; i++) {
-    console.log("leftbound + screens = " + (leftBound + screens));
-    console.log("newlocation = " + (leftBound + screens) / 2);
-    // let ship_X_INIT = ((leftBound + screens) - leftBound) / 2;
-    let ship1_X_INIT = ((leftBound + screens) - leftBound) / 2;
-    // screens += screens;
-    // }
-    ship1.style.left = ship1_X_INIT + "px";
-    ship1.style.top = ship1_Y_INIT + "px";
-    leftBound += screens;
 
 }
