@@ -18,6 +18,7 @@ function init() {
 
     ships.forEach(ship => {
         ship.style.left = -9999 + 'px';
+        ship.style.top = 9999 + 'px';
         ship.style.position = "absolute";
     })
 
@@ -75,10 +76,9 @@ function gameLoop() // update loop for game
     ship_Move_X = 0;
     ship_Move_Y = 0;
 
-
-
-    setNewPosition(ships[playerID], dx_ship, dy_ship);
-
+    if (playerID + 1 <= noOfPlayers) {
+        setNewPosition(ships[playerID], dx_ship, dy_ship);
+    }
 
     myTime = setTimeout('gameLoop()', 10);
 
@@ -98,7 +98,7 @@ function gameLoop() // update loop for game
     });
 
 
-    if (ships[playerID].offsetTop == (Y_MIN+60)) {
+    if (ships[playerID].offsetTop <= Y_MIN + 30) {
         restart();
         let shipScore = score.innerHTML;
         shipScore = Number(shipScore) + 1;
