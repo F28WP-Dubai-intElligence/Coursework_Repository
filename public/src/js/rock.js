@@ -12,8 +12,8 @@ function randomtop() {
 
 function randomvel() {
     var random = [];
-    min = Math.ceil(15);
-    max = Math.floor(7);
+    min = Math.ceil(rockMaxSpeed);
+    max = Math.floor(rockMinSpeed);
     random[0] = Math.floor(Math.random() * (max - min + 1) + min);
     random[1] = Math.floor(Math.random() * ((-1 * max) - (-1 * min) + 1) + (-1 * min));
     posorneg = Math.floor(Math.random() * ((Math.floor(1)) - 0 + 1) + 0);
@@ -71,5 +71,9 @@ function addRocks() {
         console.log(rockData[rockID].display);
         rockID++;
     });
+
+}
+
+function rockSpeedUp() {
 
 }

@@ -4,6 +4,9 @@ function init() {
     playerID = 0;
     latestPlayer = 0;
 
+    rockMinSpeed = 7;
+    rockMaxSpeed = 15;
+
     myTime = null;
 
     rockData = [];
@@ -75,7 +78,7 @@ function gameLoop() // update loop for game
 
 
 
-    setNewPosition(ship[playerID], dx_ship, dy_ship);
+    setNewPosition(ships[playerID], dx_ship, dy_ship);
 
 
     myTime = setTimeout('gameLoop()', 10);
@@ -84,7 +87,7 @@ function gameLoop() // update loop for game
 
     keyHandler();
     rocks.forEach(rock => {
-        if (cross(rock, ship[playerID])) {
+        if (cross(rock, ships[playerID])) {
             // rockID = 0;
             restart();
         }
@@ -92,7 +95,7 @@ function gameLoop() // update loop for game
     });
 
 
-    if (ship[playerID].offsetTop == board.offsetTop) {
+    if (ships[playerID].offsetTop == board.offsetTop) {
         restart();
         let shipScore = score.innerHTML;
         shipScore = Number(shipScore) + 1;

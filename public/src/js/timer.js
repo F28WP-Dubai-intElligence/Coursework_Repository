@@ -36,5 +36,4 @@ function extra() {
     restart();
     move(60000);
 
-
 }
