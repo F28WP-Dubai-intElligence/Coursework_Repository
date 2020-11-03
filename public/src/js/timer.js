@@ -22,7 +22,7 @@ setTimeout(timedOut, 60000);
 function initBarCount() {
     var mytimeleft = document.getElementById("mytimeleft");
     var divcountdown = document.getElementById("divcountdown");
-    var startTimer = setInterval(barCount, 74);
+    var startTimer = setInterval(barCount, 71);
 
     function barCount() {
         if (mytimeleft.clientWidth < divcountdown.clientWidth) {
@@ -35,8 +35,56 @@ function initBarCount() {
     }
 }
 
+function initBarCount2() {
+    var mytimeleft2 = document.getElementById("mytimeleft2");
+    var divcountdown2 = document.getElementById("divcountdown2");
+    var startTimer = setInterval(barCount, 71);
+
+    function barCount() {
+        if (mytimeleft2.clientWidth < divcountdown2.clientWidth) {
+            mytimeleft2.style.width = mytimeleft2.clientWidth + 1 + "px";
+        } else {
+            mytimeleft2.style.width = mytimeleft2.clientWidth + "px";
+            clearInterval(startTimer);
+        }
+
+    }
+}
+
+
 function extra() {
     refresh();
     restart();
 
+}
+
+function timerPosUpdate() {
+    console.log("players: " + noOfPlayers)
+    var mytimeleft = document.getElementById("mytimeleft");
+    var divcountdown = document.getElementById("divcountdown");
+
+    if (noOfPlayers >= 2) {
+        divcountdown.style.transform = "rotate(-90deg)";
+        divcountdown.style.top = '60%';
+        divcountdown.style.height = '20px';
+        mytimeleft.style.height = '20px';
+
+
+        if (noOfPlayers == 3) {
+            var mytimeleft2 = document.getElementById("mytimeleft2");
+            var divcountdown2 = document.getElementById("divcountdown2");
+            divcountdown2.style.visibility = 'visible';
+            divcountdown2.style.transform = "rotate(-90deg)";
+            divcountdown2.style.top = '60%';
+            divcountdown2.style.height = '20px';
+            mytimeleft2.style.height = '20px';
+            divcountdown.style.left = '8.33%';
+            divcountdown2.style.left = '41.67%';
+            mytimeleft2.style.left = '20%';
+
+
+        }
+        // Append the newly created element on element p 
+
+    }
 }

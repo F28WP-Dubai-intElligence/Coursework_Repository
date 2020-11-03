@@ -12,7 +12,10 @@ function init() {
 
     noOfRocks = 20;
 
+    board = document.getElementById("board");
+
     rocks = document.querySelectorAll(".rocks");
+
     // rocks[1] = document.querySelectorAll(".rock2");
     ships = document.querySelectorAll(".ship");
 
@@ -28,7 +31,7 @@ function init() {
     score = document.getElementById("score");
     duration = document.getElementById("duration");
 
-    board = document.getElementById("board");
+
     boardHeight = board.offsetHeight;
     boardWidth = board.offsetWidth;;
 
@@ -148,6 +151,8 @@ function restart() {
 
     gameLoop();
     initBarCount();
+    initBarCount2();
+
 
 }
 
@@ -158,6 +163,7 @@ function addPlayer() {
     // removeRocks();
     // addRocks();
     shipInit(latestPlayer);
+    timerPosUpdate();
 }
 
 // function updateBoards() {
