@@ -98,7 +98,7 @@ function gameLoop() // update loop for game
     });
 
 
-    if (ships[playerID].offsetTop == board.offsetTop) {
+    if (ships[playerID].offsetTop == (Y_MIN+60)) {
         restart();
         let shipScore = score.innerHTML;
         shipScore = Number(shipScore) + 1;
