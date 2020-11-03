@@ -344,3 +344,19 @@
      position: absolute;
      text-decoration: none;
  } */
+
+#divcountdown {
+    position: absolute;
+    left: 100px;
+    width: 1000px;
+    height: 30px;
+    top: 100px;
+    border: 2px black solid;
+    background: linear-gradient(to right, red, yellow, green);
+}
+
+#mytimeleft {
+    float: right;
+    background: lightgrey;
+    height: 30px;
+}
