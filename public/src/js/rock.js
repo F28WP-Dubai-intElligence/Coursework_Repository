@@ -6,7 +6,7 @@ function randomleft() {
 }
 
 function randomtop() {
-    var x = Math.floor(((Y_MIN + 70) + (Math.random() * (Y_MAX - Y_MIN - 100))));
+    var x = Math.floor(((Y_MIN + 70) + (Math.random() * (Y_MAX - Y_MIN - 120))));
     return x;
 }
 
