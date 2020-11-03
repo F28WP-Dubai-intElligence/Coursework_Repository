@@ -19,21 +19,24 @@ setTimeout(timedOut, 60000);
     tick();
 }
 */
-function move(delay) {
-    var elem = document.getElementById("myBar");
-    var end = Date.now() + delay;
-    var frame = () => {
-        var timeleft = Math.max(0, end - Date.now());
-        elem.style.width = (100 * timeleft) / delay + '%';
-        elem.innerHTML = (timeleft / 1000).toFixed(1) + 's';
-        if (timeleft === 0) return;
-        requestAnimationFrame(frame);
-    };
-    requestAnimationFrame(frame);
+function initBarCount(){
+    var mytimeleft = document.getElementById("mytimeleft");
+    var divcountdown= document.getElementById("divcountdown");
+    var startTimer= setInterval(barCount,74);
+    function barCount(){
+        if(mytimeleft.clientWidth < divcountdown.clientWidth){
+            mytimeleft.style.width=mytimeleft.clientWidth + 1 + "px";
+        }
+        else{
+            mytimeleft.style.width=mytimeleft.clientWidth + "px";
+            clearInterval(startTimer);
+        }
+
+    }
 }
 
 function extra() {
+    refresh();
     restart();
-    move(60000);
 
 }

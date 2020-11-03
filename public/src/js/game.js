@@ -147,6 +147,7 @@ function restart() {
     document.addEventListener('keyup', keyUP, true);
 
     gameLoop();
+    initBarCount();
 
 }
 
