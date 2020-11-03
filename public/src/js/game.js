@@ -75,7 +75,7 @@ function gameLoop() // update loop for game
     ship_Move_X = 0;
     ship_Move_Y = 0;
 
-
+    console.log(ships[0].style.top);
 
     setNewPosition(ships[playerID], dx_ship, dy_ship);
 
@@ -98,7 +98,7 @@ function gameLoop() // update loop for game
     });
 
 
-    if (ships[playerID].offsetTop == (Y_MIN+60)) {
+    if (ships[playerID].offsetTop <= Y_MIN + 30) {
         restart();
         let shipScore = score.innerHTML;
         shipScore = Number(shipScore) + 1;
