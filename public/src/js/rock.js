@@ -68,7 +68,6 @@ function addRocks() {
         rockData[rockID] = { top: randomtop(), left: randomleft(), xvel: randomvel(), yvel: randomvel() };
         var rock1 = new Rock(rock, rockData[rockID].left, rockData[rockID].top, rockData[rockID].xvel, rockData[rockID].yvel);
         rock1.initr();
-        console.log(rockData[rockID].display);
         rockID++;
     });
 

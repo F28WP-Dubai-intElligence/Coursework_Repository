@@ -12,6 +12,7 @@
     <script src="./public/src/js/ship.js"></script>
     <script src="./public/src/js/keyhandler.js"></script>
     <script src="./public/src/js/timer.js"></script>
+    <script src="./public/src/js/selectPlayer.js"></script>
     <script>
         var keyState = {};
 
@@ -100,6 +101,9 @@
             <p>Score: [<span id="score">0</span>]</p>
                 </td>
                 <td><button onclick="addPlayer();">Add New Player</button></td>
+                <td><button onclick="player1();">Control rocket 1</button></td>
+                <td><button onclick="player2();">Control rocket 2 </button></td>
+                <td><button onclick="player3();">Control rocket 3</button></td>
             </tr>
         </table>
     </div>
@@ -107,9 +111,9 @@
         <div id="board">
             <div id="myProgress"></div>
             <div id="myBar">1:00</div>
-            <img id="ship1" src="./public/src/assets/images/rocket2-removebg-preview.png" class="ship" />
-            <img id="ship2" src="./public/src/assets/images/rocket4-removebg-preview.png" class="ship" />
-            <img id="ship3" src="./public/src/assets/images/rocket5-removebg-preview.png" class="ship" />
+            <img id="ship1" src="./public/src/assets/images/rocket1.gif" class="ship" />
+            <img id="ship2" src="./public/src/assets/images/rocket2.gif" class="ship" />
+            <img id="ship3" src="./public/src/assets/images/rocket3.gif" class="ship" />
             <div id="allRocks">
                 <img id="rock" src="./public/src/assets/images/meteor2.png" class="rocks" />
                 <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
