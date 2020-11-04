@@ -103,15 +103,17 @@ section {
     height: 500px;
     /* border: 15px solid green; */
     padding: 50px;
-    margin: 20px;
+    margin: 22px;
     color: white;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc, 0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc, 0 10px 0 #ccc, 0 11px 0 #ccc, 0 12px 0 #ccc, 0 20px 30px rgba(0, 0, 0, 0.5);
+    font-size: 2cm;
 }
 
 .Grules {
     background-color: lightgrey;
     width: 600px;
     height: 500px;
-    border: 15px solid green;
+    /* border: 15px solid green; */
     padding: 50px;
     margin-left: 600px;
     margin-top: -620px;
