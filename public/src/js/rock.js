@@ -46,7 +46,7 @@ function Rock(rockpic, left, top, vx, vy) {
             if (that.x >= X_MAX + 100 || that.x <= X_MIN - 100) {
                 that.dx = that.dx * -1;
             }
-            if (that.y >= Y_MAX - 50 || that.y <= Y_MIN + 10) {
+            if (that.y >= Y_MAX - 50 || that.y <= Y_MIN - 100) {
                 that.dy *= -1;
             }
             // i++;
@@ -66,13 +66,10 @@ function addRocks() {
     rocks.forEach(rock => {
         // console.log(rockID);
         rockData[rockID] = { top: randomtop(), left: randomleft(), xvel: randomvel(), yvel: randomvel() };
+        // console.log(rockData[rockID].top);
         var rock1 = new Rock(rock, rockData[rockID].left, rockData[rockID].top, rockData[rockID].xvel, rockData[rockID].yvel);
         rock1.initr();
         rockID++;
     });
-
-}
-
-function rockSpeedUp() {
 
 }

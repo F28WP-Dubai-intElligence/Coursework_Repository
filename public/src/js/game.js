@@ -3,6 +3,8 @@ function init() {
     playerID = 0;
     latestPlayer = 0;
 
+    secondsRemaining = 60;
+
     rockMinSpeed = 7;
     rockMaxSpeed = 15;
 
@@ -13,21 +15,22 @@ function init() {
 
     rockData = [];
 
+    meteorData = [];
+
     noOfRocks = 20;
+
+    warning = document.getElementById("warning");
 
     board = document.getElementById("board");
 
     rocks = document.querySelectorAll(".rocks");
 
+    meteors = document.querySelectorAll(".meteor");
+
     // rocks[1] = document.querySelectorAll(".rock2");
     ships = document.querySelectorAll(".ship");
 
-    ships.forEach(ship => {
-        ship.style.left = -9999 + 'px';
-        ship.style.top = 9999 + 'px';
-        ship.style.position = "absolute";
-    })
-
+    countdown();
 
     ship_place = document.getElementById("ship_location");
     rock_place = document.getElementById("rock_location");
@@ -60,11 +63,15 @@ function init() {
     KEYRIGHT = 39;
 
     rockID = 0;
+    meteorID = 0;
 
     shipInit();
 
     addRocks();
 
+    callStrike();
+
+    strikeWarning();
 }
 
 function refresh() {

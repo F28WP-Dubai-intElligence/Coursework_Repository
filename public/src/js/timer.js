@@ -4,21 +4,17 @@ function timedOut() {
 
 // set a timer
 setTimeout(timedOut, 60000);
-/*function countdown() {
-    var seconds = 60;
+
+function countdown() {
     function tick() {
-        var counter = document.getElementById("counter");
-        seconds--;
-        counter.innerHTML = "0:" + (seconds < 10 ? "0" : "") + String(seconds);
-        if( seconds > 0 ) {
-            setTimeout(tick, 1000);
-        } else {
-            alert("Game over");
-        }
+        // var counter = document.getElementById("counter");
+        secondsRemaining--;
+        // counter.innerHTML = "0:" + (seconds < 10 ? "0" : "") + String(seconds);
+        setTimeout(tick, 1000);
     }
     tick();
 }
-*/
+
 function initBarCount() {
     var mytimeleft = document.getElementById("mytimeleft");
     var divcountdown = document.getElementById("divcountdown");
