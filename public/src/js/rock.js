@@ -46,7 +46,7 @@ function Rock(rockpic, left, top, vx, vy) {
             if (that.x >= X_MAX + 100 || that.x <= X_MIN - 100) {
                 that.dx = that.dx * -1;
             }
-            if (that.y >= Y_MAX - 50 || that.y <= Y_MIN + 60) {
+            if (that.y >= Y_MAX - 50 || that.y <= Y_MIN + 10) {
                 that.dy *= -1;
             }
             // i++;
