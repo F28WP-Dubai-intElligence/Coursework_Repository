@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital@1&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./public/src/css/game.css" media="all" />
     <script src="./public/src/js/game.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -22,6 +23,14 @@
         var noOfPlayers;
         var playerID;
         var latestPlayer;
+
+        var animationInterval;
+        var widthOfSpriteSheet;
+        var widthOfEachSprite;
+
+        var shipGif = ["public/src/assets/images/rocket1.gif", "public/src/assets/images/rocket2.gif", "public/src/assets/images/rocket3.gif"];
+        var shipStat = ["public/src/assets/images/rocket2-removebg-preview.png", "public/src/assets/images/rocket4-removebg-preview.png", "public/src/assets/images/rocket5-removebg-preview.png"];
+
 
         var noOfRocks;
         var rockID;
@@ -60,32 +69,34 @@
 </head>
 
 <body onload="init(),restart();">
-    <div class="menu-wrap">
-        <input type="checkbox" class="toggler" />
-        <div class="hamburger">
-            <div></div>
-        </div>
-        <div class="menu">
-            <div class="overlay"></div>
-            <div>
-                <div>
-                    <ul>
-                        <li>
-                            <a class="btn restart" onclick="extra();">Restart</a>
-                        </li>
-                        <li>
-                            <a href="index.html" class="btn homepage">Back to HomePage</a>
-                        </li>
-                        <li><a href="#" class="btn leaderbrd">Leaderboard</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div id="scores">
+    <div id="controlPanel">
         <table>
             <tr>
+                <td>
+                    <div class="menu-wrap">
+                        <input type="checkbox" class="toggler" />
+                        <div class="hamburger">
+                            <div></div>
+                        </div>
+                        <div class="menu">
+                            <div class="overlay"></div>
+                            <div>
+                                <div>
+                                    <ul>
+                                        <li>
+                                            <a class="btn restart" onclick="extra();">Restart</a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html" class="btn homepage">Back to HomePage</a>
+                                        </li>
+                                        <li><a href="#" class="btn leaderbrd">Leaderboard</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
                 <td>
                     <p>
                         Ship Coordinates (<span id="ship_location" class="location">... </span
@@ -99,9 +110,6 @@
               >)
             </p>
           </td>
-          <td>
-            <p>Score: [<span id="score">0</span>]</p>
-                </td>
                 <td><button onclick="addPlayer();">Add New Player</button></td>
                 <td><button onclick="player1();">Control rocket 1</button></td>
                 <td><button onclick="player2();">Control rocket 2</button></td>
@@ -113,49 +121,59 @@
         <!-- <div id="divcountdown">
         <div id="mytimeleft"></div>
         </div> -->
+        <div id="divcountdown">
+            <div id="mytimeleft"></div>
+        </div>
         <div id="board">
-            <div id="divcountdown">
-                <div id="mytimeleft"></div>
-            </div>
             <div id="divcountdown2">
                 <div id="mytimeleft2"></div>
             </div>
-            <img id="ship1" src="./public/src/assets/images/rocket1.gif" class="ship" />
-            <img id="ship2" src="./public/src/assets/images/rocket2.gif" class="ship" />
-            <img id="ship3" src="./public/src/assets/images/rocket3.gif" class="ship" />
-
-            <div id="allRocks">
-                <img id="rock" src="./public/src/assets/images/meteor2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
-                <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
-                <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
-                <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
-                <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
-                <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
-            </div>
-        </div>
+            <div id="score">0</div>
+    <div id="allShips">
+        <img id="ship1" src="./public/src/assets/images/rocket2-removebg-preview.png" class="ship" />
+        <img id="ship2" src="./public/src/assets/images/rocket2.gif" class="ship" />
+        <img id="ship3" src="./public/src/assets/images/rocket3.gif" class="ship" />
+        <img id="ship3" src="./public/src/assets/images/rocket1.gif" class="ship" />
+    </div>
+    <div id="allRocks">
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/rocknobg.gif" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/rocknobg.gif" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/rocknobg.gif" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/rocknobg.gif" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/rocknobg.gif" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/rocknobg.gif" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/rocknobg.gif" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor3.png" class="rocks" />
+        <img id="rock" src="./public/src/assets/images/meteor2.png" class="rock" />
+        <img id="rock" src="./public/src/assets/images/bomb2.png" class="rocks" />
+    </div>
+    </div>
 </body>
 
 </html>

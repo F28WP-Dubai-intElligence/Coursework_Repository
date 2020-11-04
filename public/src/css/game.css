@@ -1,6 +1,7 @@
     * {
         margin: 0px;
         padding: 0px;
+        font-family: 'Space Mono', monospace;
         /* box-sizing: border-box; */
         /* overflow: hidden; */
     }
@@ -29,7 +30,7 @@
         align-self: center;
     }
     
-    #scores {
+    #controlPanel {
         background-color: rgb(247, 134, 241);
         width: 100%;
         align-content: center;
@@ -317,13 +318,20 @@
         left: 25%;
         height: 30px;
         border: 2px black solid;
-        background: linear-gradient(to right, red, yellow, green);
+        background: linear-gradient(to right, #ba1e68, #1d1135, #0c164f, #5643fd);
+        transform: rotate(-90deg);
+        top: 50%;
+        left: -24%;
+        border-radius: 25px;
+        z-index: 1;
     }
     
     #mytimeleft {
         float: right;
-        background: lightgrey;
+        background: black;
         height: 30px;
+        border-radius: 25px;
+        z-index: 1;
     }
     
     #divcountdown2 {
@@ -332,16 +340,23 @@
         left: 25%;
         height: 30px;
         border: 2px black solid;
-        background: linear-gradient(to right, red, yellow, green);
+        background: linear-gradient(to right, #ba1e68, #1d1135, #0c164f, #5643fd);
+        transform: rotate(-90deg);
+        top: 50%;
+        left: -24%;
+        border-radius: 25px;
         visibility: hidden;
+        z-index: 1;
     }
     
     #mytimeleft2 {
         float: right;
-        background: lightgrey;
+        background: black;
         height: 30px;
+        border-radius: 25px;
+        z-index: 1;
     }
     
-    #rockg {
-        width: 100px;
+    #score {
+        text-align: center;
     }

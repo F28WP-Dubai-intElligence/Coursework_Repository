@@ -60,27 +60,19 @@ function extra() {
 
 function timerPosUpdate() {
     console.log("players: " + noOfPlayers)
-    var mytimeleft = document.getElementById("mytimeleft");
     var divcountdown = document.getElementById("divcountdown");
 
     if (noOfPlayers >= 2) {
-        divcountdown.style.transform = "rotate(-90deg)";
-        divcountdown.style.top = '60%';
-        divcountdown.style.height = '20px';
-        mytimeleft.style.height = '20px';
+        // divcountdown.style.transform = "rotate(-90deg)";
+        divcountdown.style.left = '25%';
 
 
         if (noOfPlayers == 3) {
-            var mytimeleft2 = document.getElementById("mytimeleft2");
             var divcountdown2 = document.getElementById("divcountdown2");
             divcountdown2.style.visibility = 'visible';
-            divcountdown2.style.transform = "rotate(-90deg)";
-            divcountdown2.style.top = '60%';
-            divcountdown2.style.height = '20px';
-            mytimeleft2.style.height = '20px';
             divcountdown.style.left = '8.33%';
             divcountdown2.style.left = '41.67%';
-            mytimeleft2.style.left = '20%';
+            // mytimeleft2.style.left = '20%';
 
 
         }

@@ -6,6 +6,9 @@ function init() {
     rockMinSpeed = 7;
     rockMaxSpeed = 15;
 
+    widthOfSpriteSheet = 50;
+    widthOfEachSprite = 16.67;
+
     myTime = null;
 
     rockData = [];
@@ -157,13 +160,17 @@ function restart() {
 }
 
 function addPlayer() {
-    latestPlayer++;
-    noOfPlayers++;
-    // updateBoards();
-    // removeRocks();
-    // addRocks();
-    shipInit(latestPlayer);
-    timerPosUpdate();
+    if (noOfPlayers == 3) {
+        window.alert("Max 3 Players only!");
+    } else {
+        latestPlayer++;
+        noOfPlayers++;
+        // updateBoards();
+        // removeRocks();
+        // addRocks();
+        shipInit(latestPlayer);
+        timerPosUpdate();
+    }
 }
 
 // function updateBoards() {

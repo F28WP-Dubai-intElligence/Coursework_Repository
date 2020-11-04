@@ -43,7 +43,7 @@ function Rock(rockpic, left, top, vx, vy) {
             //meteor boundaries
             // let i = 0;
             // while (i < noOfPlayers) {
-            if (that.x >= X_MAX || that.x <= X_MIN) {
+            if (that.x >= X_MAX + 100 || that.x <= X_MIN - 100) {
                 that.dx = that.dx * -1;
             }
             if (that.y >= Y_MAX - 50 || that.y <= Y_MIN + 60) {
