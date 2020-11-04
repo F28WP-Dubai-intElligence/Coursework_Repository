@@ -98,7 +98,7 @@
 
 .heading {
     background-color: lightgrey;
-    width: 300px;
+    width: 400px;
     height: 500px;
     border: 15px solid green;
     padding: 50px;
@@ -107,10 +107,10 @@
 
 .Grules {
     background-color: lightgrey;
-    width: 400px;
+    width: 600px;
     height: 500px;
     border: 15px solid green;
     padding: 50px;
-    margin: 20px;
-    top: -600px;
+    margin-left: 600px;
+    margin-top: -650px;
 }
