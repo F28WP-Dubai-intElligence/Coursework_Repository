@@ -122,3 +122,9 @@ section {
     top: 5%;
     left: -1%;
 }
+
+img {
+    width: 100px;
+    top: -20px;
+    /* left: 500px; */
+}
