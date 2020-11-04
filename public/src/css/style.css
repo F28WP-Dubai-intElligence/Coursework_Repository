@@ -126,3 +126,10 @@ section {
 img {
     width: 170px;
 }
+
+h3 a {
+    text-decoration: none;
+    color: navy;
+    font-size: 0.5cm;
+    margin-left: 1.5cm;
+}
