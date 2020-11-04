@@ -10,15 +10,16 @@
     height: 100vh;
 }
 
-
-/* .rules {
+section {
     background-image: url('../assets/images/spacebg.jpeg');
-    flex-direction: column;
+    height: 100vh;
+    /* flex-direction: column;
     text-align: left;
     height: 500vh;
     margin: 0 auto;
-    padding: 100px 0;
-} */
+    padding: 100px 0; */
+    /* background-color: aqua; */
+}
 
 
 /* .instructions {
@@ -97,12 +98,13 @@
 } */
 
 .heading {
-    background-color: lightgrey;
+    /* background-color: lightgrey; */
     width: 400px;
     height: 500px;
-    border: 15px solid green;
+    /* border: 15px solid green; */
     padding: 50px;
     margin: 20px;
+    color: white;
 }
 
 .Grules {
@@ -112,5 +114,9 @@
     border: 15px solid green;
     padding: 50px;
     margin-left: 600px;
-    margin-top: -650px;
+    margin-top: -620px;
+    border-style: hidden;
+    position: relative;
+    top: 5%;
+    left: -1%;
 }
