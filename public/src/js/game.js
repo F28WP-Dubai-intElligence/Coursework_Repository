@@ -109,14 +109,24 @@ function gameLoop() // update loop for game
             console.log(shipScore);
             score.innerHTML = shipScore;
         }
+    });
 
+    meteors.forEach(meteoroid => {
+        if (cross(meteoroid, ships[playerID])) {
+            // rockID = 0;
+            restart();
+            let shipScore = score.innerHTML;
+            shipScore = Number(shipScore) - 5;
+            console.log(shipScore);
+            score.innerHTML = shipScore;
+        }
     });
 
 
     if (ships[playerID].offsetTop <= Y_MIN) {
         restart();
         let shipScore = score.innerHTML;
-        shipScore = Number(shipScore) + 1;
+        shipScore = Number(shipScore) + 5;
         console.log(shipScore);
         score.innerHTML = shipScore;
     }
