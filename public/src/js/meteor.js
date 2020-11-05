@@ -75,11 +75,11 @@ function strikeWarning() {
         clearTimeout(visibleTime);
         warning.style.visibility = "visible";
         setInterval(function() {
-            warning.style.background = "white";
+            warning.style.background = "blanchedalmond";
             warning.style.color = "black";
         }, 500)
         setInterval(function() {
-            warning.style.background = "#db3b0f";
+            warning.style.background = "black";
             warning.style.color = "blanchedalmond";
         }, 1000)
 
