@@ -6,7 +6,7 @@ function randomleft() {
 }
 
 function randomtop() {
-    var x = Math.floor(((Y_MIN + 70) + (Math.random() * (Y_MAX - Y_MIN - 120))));
+    var x = Math.floor(((Y_MIN + 70) + (Math.random() * (Y_MAX - Y_MIN - 200))));
     return x;
 }
 
@@ -46,7 +46,7 @@ function Rock(rockpic, left, top, vx, vy) {
             if (that.x >= X_MAX + 100 || that.x <= X_MIN - 100) {
                 that.dx = that.dx * -1;
             }
-            if (that.y >= Y_MAX - 50 || that.y <= Y_MIN - 100) {
+            if (that.y >= Y_MAX - 60 || that.y <= Y_MIN - 100) {
                 that.dy *= -1;
             }
             // i++;

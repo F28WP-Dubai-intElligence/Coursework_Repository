@@ -14,13 +14,24 @@ function Meteor(meteorpic, left, top, vx, vy) {
     }
 
     this.updatePositiveM = function() {
+        flip = setInterval(flipFireball, 100);
         move = setInterval(frameM, 100);
 
         function frameM() {
+            if (that.y >= Y_MAX - 120) {
+                that.dy *= -1;
+            }
             that.x = that.x + that.dx;
             that.y = that.y + that.dy;
             that.element.style.left = that.x + 'px';
             that.element.style.top = that.y + 'px';
+        }
+
+        function flipFireball() {
+            if (that.dy <= 0) {
+                clearTimeout(flip);
+                that.element.src = "public/src/assets/images/fireball_flip.gif";
+            }
         }
     }
 }
@@ -45,7 +56,7 @@ function meteorLeft() {
 }
 
 function meteorYVel() {
-    return Math.random() * (18);
+    return Math.random() * (10);
 }
 
 
