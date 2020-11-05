@@ -15,6 +15,8 @@ function init() {
 
     rockData = [];
 
+    console.log(username1);
+
     meteorData = [];
 
     noOfRocks = 20;

@@ -1,0 +1,25 @@
+{
+    "name": "Coursework_Repository",
+    "version": "1.0.0",
+    "description": "## by intElligence",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon server/app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/F28WP-Dubai-intElligence/Coursework_Repository.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/F28WP-Dubai-intElligence/Coursework_Repository/issues"
+    },
+    "homepage": "https://github.com/F28WP-Dubai-intElligence/Coursework_Repository#readme",
+    "dependencies": {
+        "codemon": "^0.1.31-development",
+        "nodemon": "^2.0.6"
+    }
+}
