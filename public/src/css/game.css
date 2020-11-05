@@ -107,6 +107,7 @@
     border-radius: 50px;
     visibility: hidden;
     border-style: dashed;
+    z-index: 3;
 }
 
 #warning h1 {

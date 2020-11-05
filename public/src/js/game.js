@@ -8,9 +8,6 @@ function init() {
     rockMinSpeed = 7;
     rockMaxSpeed = 15;
 
-    widthOfSpriteSheet = 50;
-    widthOfEachSprite = 16.67;
-
     myTime = null;
 
     rockData = [];
@@ -103,6 +100,7 @@ function gameLoop() // update loop for game
     rocks.forEach(rock => {
         if (cross(rock, ships[playerID])) {
             // rockID = 0;
+            rock.remove();
             restart();
             let shipScore = score.innerHTML;
             shipScore = Number(shipScore) - 1;
