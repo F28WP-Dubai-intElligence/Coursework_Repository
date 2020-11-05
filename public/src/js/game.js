@@ -110,6 +110,14 @@ function gameLoop() // update loop for game
 
     });
 
+    meteors.forEach(meteoroid => {
+        if (cross(meteoroid, ships[playerID])) {
+            // rockID = 0;
+            restart();
+        }
+
+    });
+
 
     if (ships[playerID].offsetTop <= Y_MIN) {
         restart();
