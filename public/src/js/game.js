@@ -114,7 +114,7 @@ function gameLoop() // update loop for game
             // rockID = 0;
             restart();
             let shipScore = score.innerHTML;
-            shipScore = Number(shipScore) - 1;
+            shipScore = Number(shipScore) - 5;
             console.log(shipScore);
             score.innerHTML = shipScore;
         }
@@ -124,7 +124,7 @@ function gameLoop() // update loop for game
     if (ships[playerID].offsetTop <= Y_MIN) {
         restart();
         let shipScore = score.innerHTML;
-        shipScore = Number(shipScore) + 1;
+        shipScore = Number(shipScore) + 5;
         console.log(shipScore);
         score.innerHTML = shipScore;
     }
