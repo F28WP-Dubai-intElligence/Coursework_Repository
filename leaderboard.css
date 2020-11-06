@@ -13,14 +13,14 @@
 
 .name {
     position: relative;
-    /* display: inline-block; */
+    display: inline-block;
     width: 75%;
     line-height: 45px;
 }
 
 .score {
     position: relative;
-    /* display: inline-block; */
+    display: inline-block;
     width: 25%;
 }
 
