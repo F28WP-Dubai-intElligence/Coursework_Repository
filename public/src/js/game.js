@@ -16,8 +16,6 @@ function init() {
 
     rockData = [];
 
-    console.log(username1);
-
     meteorData = [];
 
     noOfRocks = 20;
@@ -33,7 +31,6 @@ function init() {
     meteors = document.querySelectorAll(".meteor");
 
     spotScore = document.getElementById("spotScore");
-
     // rocks[1] = document.querySelectorAll(".rock2");
     ships = document.querySelectorAll(".ship");
 
@@ -106,7 +103,6 @@ function gameLoop() // update loop for game
 
     keyHandler();
     rocks.forEach(rock => {
-        console.log(rock.style.visibility);
 
         if (cross(rock, ships[playerID]) && rock.style.visibility == "visible") {
             // rockID = 0;

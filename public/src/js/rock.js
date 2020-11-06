@@ -21,12 +21,13 @@ function randomvel() {
     return random[posorneg];
 }
 
-function Rock(rockpic, left, top, vx, vy) {
+function Rock(rockpic, left, top, vx, vy, id) {
     this.element = rockpic;
     this.x = left;
     this.y = top;
     this.dx = vx;
     this.dy = vy;
+    this.id = id;
     this.element.style.visibility = "visible";
 
     var move;
@@ -36,6 +37,22 @@ function Rock(rockpic, left, top, vx, vy) {
         this.element.style.top = this.y + 'px';
         this.updatePositive();
     }
+
+    var name = "warn" + this.id;
+    if ($(name).length == 0) {
+        // console.log($(name).length);
+        name = document.createElement("div");
+        board.appendChild(name);
+        name.innerHTML = "!";
+        name.style.width = "auto";
+        name.style.height = "auto";
+        name.style.fontSize = "2vw";
+        name.style.color = "red";
+        name.style.position = "absolute";
+        name.style.visibility = "hidden";
+        name.className = "blinking"
+    }
+
 
     this.updatePositive = function() {
         move = setInterval(frame, 100);
@@ -48,11 +65,20 @@ function Rock(rockpic, left, top, vx, vy) {
                 that.dx = that.dx * -1;
                 that.element.style.visibility = "visible";
             }
-            if (that.y >= Y_MAX - 60 || that.y <= Y_MIN - 100) {
+            if (that.y >= Y_MAX - 60 || that.y <= Y_MIN - 200) {
                 that.dy *= -1;
             }
-            if (that.y <= Y_MIN - 100) {
+
+            if (that.y <= Y_MIN) {
+                name.style.visibility = "visible";
+                name.style.left = that.element.offsetLeft + 'px';
+            }
+
+            if (that.y <= Y_MIN) {
                 that.element.style.visibility = "visible";
+            }
+            if (that.y >= Y_MIN - 50) {
+                name.style.visibility = "hidden";
             }
             // i++;
             // }
@@ -72,9 +98,15 @@ function addRocks() {
         // console.log(rockID);
         rockData[rockID] = { top: randomtop(), left: randomleft(), xvel: randomvel(), yvel: randomvel() };
         // console.log(rockData[rockID].top);
-        var rock1 = new Rock(rock, rockData[rockID].left, rockData[rockID].top, rockData[rockID].xvel, rockData[rockID].yvel);
+        var rock1 = new Rock(rock, rockData[rockID].left, rockData[rockID].top, rockData[rockID].xvel, rockData[rockID].yvel, rockID);
         rock1.initr();
         rockID++;
     });
 
 }
+
+function blinker() {
+    $('.blinking').fadeOut(500);
+    $('.blinking').fadeIn(500);
+}
+setInterval(blinker, 10);

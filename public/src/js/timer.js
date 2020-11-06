@@ -1,10 +1,12 @@
 function timedOut() {
-    alert("GAME OVER!!");
+    rocks.forEach(rock => {
+        rock.remove()
+    });
 }
 
 
 // set a timer
-// setTimeout(timedOut, 60000);
+setTimeout(timedOut, 60000);
 // setTimeout(function() {
 //     trial.style.visibility = "visible";
 //     trial.style.display = "block";

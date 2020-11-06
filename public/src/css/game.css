@@ -14,6 +14,7 @@
     height: 38px;
     background-repeat: no-repeat;
     visibility: visible;
+    z-index: 4;
 }
 
 .ship {
@@ -24,6 +25,7 @@
     left: -999px;
     position: absolute;
     /*top: 240px;*/
+    z-index: 10;
 }
 
 .meteor {
@@ -122,6 +124,7 @@
     visibility: hidden;
     border-style: dashed;
     z-index: 3;
+    opacity: 75%;
 }
 
 #warning h1 {
@@ -139,6 +142,7 @@
     visibility: none;
     display: none;
 } */
+
 .blast {
     left: 50%;
     top: 50%;
@@ -146,4 +150,13 @@
     height: auto;
     position: absolute;
     visibility: hidden;
+}
+
+#screen {
+    position: absolute;
+    width: 100vw;
+    height: 100vw;
+    background-size: cover;
+    background-color: black;
+    opacity: 0%;
 }

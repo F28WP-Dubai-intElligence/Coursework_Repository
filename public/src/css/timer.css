@@ -24,7 +24,7 @@
     top: 50%;
     left: -24%;
     border-radius: 25px;
-    z-index: 2;
+    z-index: 5;
 }
 
 #mytimeleft {
@@ -32,7 +32,7 @@
     background: black;
     height: 30px;
     border-radius: 25px;
-    z-index: 2;
+    z-index: 5;
 }
 
 #divcountdown2 {
@@ -47,7 +47,7 @@
     left: -24%;
     border-radius: 25px;
     visibility: hidden;
-    z-index: 2;
+    z-index: 5;
 }
 
 #mytimeleft2 {
@@ -55,7 +55,7 @@
     background: black;
     height: 30px;
     border-radius: 25px;
-    z-index: 2;
+    z-index: 5;
 }
 
 .timerwrapper {
