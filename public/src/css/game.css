@@ -13,6 +13,7 @@
     width: 38px;
     height: 38px;
     background-repeat: no-repeat;
+    visibility: visible;
 }
 
 .ship {
@@ -59,8 +60,21 @@
 
 #score {
     color: blanchedalmond;
+    position: absolute;
     text-align: center;
-    font-size: 50px;
+    font-size: 4vw;
+    left: 49%;
+    z-index: 4;
+}
+
+#spotScore {
+    color: blanchedalmond;
+    width: 5%;
+    height: 5%;
+    text-align: center;
+    font-size: 1.5vw;
+    position: absolute;
+    visibility: hidden;
 }
 
 #duration {
@@ -112,4 +126,13 @@
 
 #warning h1 {
     text-decoration: underline;
+}
+
+.blast {
+    left: 50%;
+    top: 50%;
+    width: 3%;
+    height: auto;
+    position: absolute;
+    visibility: hidden;
 }

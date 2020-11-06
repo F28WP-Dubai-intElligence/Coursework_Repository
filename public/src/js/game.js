@@ -8,6 +8,10 @@ function init() {
     rockMinSpeed = 7;
     rockMaxSpeed = 15;
 
+    spot = 0;
+
+    spotFade = 0;
+
     myTime = null;
 
     rockData = [];
@@ -18,6 +22,8 @@ function init() {
 
     noOfRocks = 20;
 
+    blast = document.getElementById("blast");
+
     warning = document.getElementById("warning");
 
     board = document.getElementById("board");
@@ -25,6 +31,8 @@ function init() {
     rocks = document.querySelectorAll(".rocks");
 
     meteors = document.querySelectorAll(".meteor");
+
+    spotScore = document.getElementById("spotScore");
 
     // rocks[1] = document.querySelectorAll(".rock2");
     ships = document.querySelectorAll(".ship");
@@ -98,13 +106,17 @@ function gameLoop() // update loop for game
 
     keyHandler();
     rocks.forEach(rock => {
-        if (cross(rock, ships[playerID])) {
+        console.log(rock.style.visibility);
+
+        if (cross(rock, ships[playerID]) && rock.style.visibility == "visible") {
             // rockID = 0;
-            rock.remove();
+            rock.style.visibility = "hidden";
+            showBlast(ships[playerID].offsetTop, ships[playerID].offsetLeft);
+            spotPoint(ships[playerID].offsetTop, ships[playerID].offsetLeft, -1, "red");
             restart();
             let shipScore = score.innerHTML;
             shipScore = Number(shipScore) - 1;
-            console.log(shipScore);
+            // console.log(shipScore);
             score.innerHTML = shipScore;
         }
     });
@@ -112,22 +124,67 @@ function gameLoop() // update loop for game
     meteors.forEach(meteoroid => {
         if (cross(meteoroid, ships[playerID])) {
             // rockID = 0;
+            showBlast(ships[playerID].offsetTop, ships[playerID].offsetLeft);
+            spotPoint(ships[playerID].offsetTop, ships[playerID].offsetLeft, -5, "red");
             restart();
             let shipScore = score.innerHTML;
             shipScore = Number(shipScore) - 5;
-            console.log(shipScore);
             score.innerHTML = shipScore;
         }
     });
 
 
     if (ships[playerID].offsetTop <= Y_MIN) {
+        spotPoint(ships[playerID].offsetTop, ships[playerID].offsetLeft, "+" + 5, "green");
         restart();
         let shipScore = score.innerHTML;
         shipScore = Number(shipScore) + 5;
         console.log(shipScore);
         score.innerHTML = shipScore;
     }
+}
+
+function showBlast(y, x) {
+    console.log("blast" + x, y);
+    blast.style.visibility = "visible";
+    blast.style.top = y + 'px';
+    blast.style.left = x + 'px';
+    setTimeout(function() {
+        blast.style.visibility = "hidden";
+    }, 900);
+}
+
+function spotPoint(y, x, p, c) {
+    console.log("points" + x, y);
+    if (spotFade != 0) {
+        clearInterval(timerId);
+    }
+    spotScore.innerHTML = p;
+    spotScore.style.color = c;
+    spotScore.style.opacity = 1;
+    opacity = 1;
+    spotScore.style.visibility = "visible";
+    spotScore.style.top = y + 'px';
+    spotScore.style.left = x + 'px';
+    hideScore()
+    spot++;
+
+    function hideScore() {
+        setTimeout(function() { // start a delay
+            spotScore.style.opacity = 1;
+            spotFade++;
+            timerId = setInterval(function() {
+                opacity = spotScore.style.opacity;
+                if (opacity == 0) {
+                    clearInterval(timerId);
+                    spotFade = 0;
+                } else {
+                    spotScore.style.opacity = opacity - 0.05;
+                }
+            }, 100);
+        }, 500);
+    }
+
 }
 
 function cross(element1, element2) {
