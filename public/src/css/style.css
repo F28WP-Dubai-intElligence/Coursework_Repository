@@ -47,6 +47,7 @@ section {
     font-size: 600%;
     letter-spacing: 25px;
 }
+
 .intro h4 {
     color: white;
 }
@@ -126,7 +127,7 @@ section {
     left: -1%;
 }
 
-.Scoring{
+.Scoring {
     background-color: darkgray;
 }
 

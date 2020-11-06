@@ -2,8 +2,13 @@ function timedOut() {
     alert("GAME OVER!!");
 }
 
+
 // set a timer
-setTimeout(timedOut, 60000);
+// setTimeout(timedOut, 60000);
+// setTimeout(function() {
+//     trial.style.visibility = "visible";
+//     trial.style.display = "block";
+// }, 60000);
 
 function countdown() {
     function tick() {
