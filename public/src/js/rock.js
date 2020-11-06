@@ -27,6 +27,7 @@ function Rock(rockpic, left, top, vx, vy) {
     this.y = top;
     this.dx = vx;
     this.dy = vy;
+    this.element.style.visibility = "visible";
 
     var move;
     var that = this;
@@ -45,9 +46,13 @@ function Rock(rockpic, left, top, vx, vy) {
             // while (i < noOfPlayers) {
             if (that.x >= X_MAX + 100 || that.x <= X_MIN - 100) {
                 that.dx = that.dx * -1;
+                that.element.style.visibility = "visible";
             }
             if (that.y >= Y_MAX - 60 || that.y <= Y_MIN - 100) {
                 that.dy *= -1;
+            }
+            if (that.y <= Y_MIN - 100) {
+                that.element.style.visibility = "visible";
             }
             // i++;
             // }
