@@ -2,6 +2,7 @@ function timedOut() {
     alert("GAME OVER!!");
 }
 
+
 // set a timer
 setTimeout(timedOut, 60000);
 
