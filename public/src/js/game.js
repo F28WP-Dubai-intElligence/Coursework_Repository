@@ -22,6 +22,10 @@ function init() {
 
     blastCount = 0;
 
+    shipTop = document.getElementById("shiptop")
+
+    shipspawn = document.getElementById("shipspawn");
+
     blast = document.getElementById("blast");
 
     warning = document.getElementById("warning");
@@ -144,11 +148,10 @@ function gameLoop() // update loop for game
 }
 
 function shipTopBlast(y, x) {
-    shipTop = document.getElementById("shiptop")
     shipTop.src = "public/src/assets/images/shiptop 2.gif";
     shipTop.style.visibility = "visible";
     shipTop.style.top = Y_MIN - 40 + 'px';
-    shipTop.style.left = x - 25 + 'px';
+    shipTop.style.left = x - 30 + 'px';
     setTimeout(function() {
         shipTop.style.visibility = "hidden";
     }, 700);

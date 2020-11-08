@@ -29,7 +29,13 @@ function shipInit() {
         ships[i].style.top = ship_Y_INIT + "px";
         leftBound += screens;
         i++;
+        shipspawn.src = "public/src/assets/images/shiptop 2.gif";
+        shipspawn.style.visibility = "visible";
+        shipspawn.style.top = ship_Y_INIT - 20 + 'px';
+        shipspawn.style.left = ship_X_INIT - 30 + 'px';
+        setTimeout(function() {
+            shipspawn.style.visibility = "hidden";
+        }, 700);
     }
-
 
 }
