@@ -91,6 +91,8 @@ function refresh() {
 
 function gameLoop() // update loop for game
 {
+    myTime = setTimeout('gameLoop()', 10);
+
     // change in offset for ship
     let dy_ship = Y_ship_Direction * ship_Move_Y * ship_Y_STEP;
     let dx_ship = X_ship_Direction * ship_Move_X * ship_X_STEP;
@@ -103,11 +105,19 @@ function gameLoop() // update loop for game
         setNewPosition(ships[playerID], dx_ship, dy_ship);
     }
 
-    myTime = setTimeout('gameLoop()', 10);
-
     // ship_place.innerHTML = "x: " + ship.offsetLeft + "  y: " + ship.offsetTop;
 
     keyHandler();
+
+    rockCollisionCheck();
+
+    meteorCollisionCheck();
+
+    crossTop();
+
+}
+
+function rockCollisionCheck() {
     rocks.forEach(rock => {
 
         if (cross(rock, ships[playerID]) && rock.style.visibility == "visible") {
@@ -122,7 +132,9 @@ function gameLoop() // update loop for game
             score.innerHTML = shipScore;
         }
     });
+}
 
+function meteorCollisionCheck() {
     meteors.forEach(meteoroid => {
         if (cross(meteoroid, ships[playerID])) {
             // rockID = 0;
@@ -134,8 +146,9 @@ function gameLoop() // update loop for game
             score.innerHTML = shipScore;
         }
     });
+}
 
-
+function crossTop() {
     if (ships[playerID].offsetTop <= Y_MIN) {
         shipTopBlast(ships[playerID].offsetTop, ships[playerID].offsetLeft)
         spotPoint(ships[playerID].offsetTop, ships[playerID].offsetLeft, "+" + 5, "green");
