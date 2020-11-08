@@ -152,6 +152,15 @@
     visibility: hidden;
 }
 
+.shiptop {
+    left: 50%;
+    top: -100;
+    width: 7%;
+    height: auto;
+    position: absolute;
+    visibility: hidden;
+}
+
 #screen {
     position: absolute;
     width: 100vw;

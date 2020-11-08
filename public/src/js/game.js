@@ -20,6 +20,8 @@ function init() {
 
     noOfRocks = 20;
 
+    blastCount = 0;
+
     blast = document.getElementById("blast");
 
     warning = document.getElementById("warning");
@@ -131,6 +133,7 @@ function gameLoop() // update loop for game
 
 
     if (ships[playerID].offsetTop <= Y_MIN) {
+        shipTopBlast(ships[playerID].offsetTop, ships[playerID].offsetLeft)
         spotPoint(ships[playerID].offsetTop, ships[playerID].offsetLeft, "+" + 5, "green");
         restart();
         let shipScore = score.innerHTML;
@@ -140,12 +143,27 @@ function gameLoop() // update loop for game
     }
 }
 
+function shipTopBlast(y, x) {
+    shipTop = document.getElementById("shiptop")
+    shipTop.src = "public/src/assets/images/shiptop 2.gif";
+    shipTop.style.visibility = "visible";
+    shipTop.style.top = Y_MIN - 40 + 'px';
+    shipTop.style.left = x - 25 + 'px';
+    setTimeout(function() {
+        shipTop.style.visibility = "hidden";
+    }, 700);
+}
+
 function showBlast(y, x) {
-    console.log("blast" + x, y);
+    if (blastCount != 0) {
+        clearTimeout(blastTimeout);
+    }
+    blastCount++;
+    blast.src = "public/src/assets/images/blast.gif";
     blast.style.visibility = "visible";
     blast.style.top = y + 'px';
     blast.style.left = x + 'px';
-    setTimeout(function() {
+    blastTimeout = setTimeout(function() {
         blast.style.visibility = "hidden";
     }, 900);
 }

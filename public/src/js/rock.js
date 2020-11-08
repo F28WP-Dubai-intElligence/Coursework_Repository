@@ -50,7 +50,7 @@ function Rock(rockpic, left, top, vx, vy, id) {
         name.style.color = "red";
         name.style.position = "absolute";
         name.style.visibility = "hidden";
-        name.className = "blinking"
+        name.className = "blinking";
     }
 
 
