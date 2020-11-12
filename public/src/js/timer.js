@@ -56,6 +56,7 @@ function initBarCount2() {
 
 
 function extra() {
+    name();
     refresh();
     restart();
 
@@ -82,4 +83,8 @@ function timerPosUpdate() {
         // Append the newly created element on element p 
 
     }
+}
+function name(){
+    var name= window.prompt("Enter your name: ");
+    alert("Welcome " + name);
 }

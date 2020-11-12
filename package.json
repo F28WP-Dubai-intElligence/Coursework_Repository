@@ -6,16 +6,11 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "nodemon server/app.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/F28WP-Dubai-intElligence/Coursework_Repository.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
+        "build": "webpack --progress --colors",
         "url": "https://github.com/F28WP-Dubai-intElligence/Coursework_Repository/issues"
+        "build": "webpack --progress --colors",
+        "dev": "nodemon client/server.js --exec babel-node"
+
     },
     "homepage": "https://github.com/F28WP-Dubai-intElligence/Coursework_Repository#readme",
     "dependencies": {
@@ -23,3 +18,5 @@
         "nodemon": "^2.0.6"
     }
 }
+
+    
