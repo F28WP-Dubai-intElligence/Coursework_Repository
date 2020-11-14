@@ -3,6 +3,16 @@
     height: auto;
 }
 
+.leaderboarditems {
+    width: 500px;
+    height: 400px;
+    margin: 100px auto 0;
+    background: grey;
+    border-radius: 5px;
+    padding: 25px 40px;
+    position: relative;
+}
+
 .row {
     position: relative;
     display: inline-block;
@@ -35,4 +45,8 @@
 
 .row:nth-child(3) {
     background: beige;
+}
+
+background: beige;
+
 }
