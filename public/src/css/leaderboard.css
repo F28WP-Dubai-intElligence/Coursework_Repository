@@ -3,6 +3,22 @@
     height: auto;
 }
 
+body {
+    background-image: url("../assets/images/planet2-removebg-preview.png"), url("../assets/images/scrolling_space.jpg");
+    background-position: 120% 70px, 0px 0px;
+    background-repeat: no-repeat, repeat-x, repeat-x;
+    animation: animate-background linear 50s infinite;
+}
+
+@keyframes animate-background {
+    from {
+        background-position: 120% 70px, 0px 0px;
+    }
+    to {
+        background-position: -20% 70px, -1000px 0px;
+    }
+}
+
 .leaderboarditems {
     width: 500px;
     height: 400px;
@@ -21,7 +37,8 @@
     border-bottom: 1px solid #AFAFAF;
 }
 
-.name {
+
+/* .name {
     position: relative;
     display: inline-block;
     width: 75%;
@@ -32,7 +49,7 @@
     position: relative;
     display: inline-block;
     width: 25%;
-}
+} */
 
 .row:nth-child(1) {
     background: black;
@@ -47,6 +64,5 @@
     background: beige;
 }
 
-background: beige;
 
 }
