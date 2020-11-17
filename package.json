@@ -1,22 +1,20 @@
 {
-    "name": "Coursework_Repository",
-    "version": "1.0.0",
-    "description": "## by intElligence",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "nodemon server/app.js"
-        "build": "webpack --progress --colors",
-        "url": "https://github.com/F28WP-Dubai-intElligence/Coursework_Repository/issues"
-        "build": "webpack --progress --colors",
-        "dev": "nodemon client/server.js --exec babel-node"
-
-    },
-    "homepage": "https://github.com/F28WP-Dubai-intElligence/Coursework_Repository#readme",
-    "dependencies": {
-        "codemon": "^0.1.31-development",
-        "nodemon": "^2.0.6"
-    }
+  "name": "coursework_repository",
+  "version": "1.0.0",
+  "description": "![Game Image](https://user-images.githubusercontent.com/71345917/96571397-92cdd480-12dc-11eb-8a06-db8477779727.gif)  \r <br>\r **SETTING:**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node game.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/F28WP-Dubai-intElligence/Coursework_Repository.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/F28WP-Dubai-intElligence/Coursework_Repository/issues"
+  },
+  "homepage": "https://github.com/F28WP-Dubai-intElligence/Coursework_Repository#readme"
 }
-
-    
