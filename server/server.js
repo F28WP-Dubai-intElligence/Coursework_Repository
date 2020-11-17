@@ -61,3 +61,21 @@ io.on('connection', socket => {
   socket.on(Constants.MSG_TYPES.INPUT, handleInput);
   socket.on('disconnect', onDisconnect);
 });
+const Game = require('./game');
+
+// ...
+
+// Setup the Game
+const game = new Game();
+
+function joinGame(username) {
+  game.addPlayer(this, username);
+}
+
+function handleInput(dir) {
+  game.handleInput(this, dir);
+}
+
+function onDisconnect() {
+  game.removePlayer(this);
+}
