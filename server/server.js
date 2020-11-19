@@ -39,7 +39,7 @@ io.on('connection', socket => {
   socket.on(Constants.MSG_TYPES.INPUT, handleInput);
   socket.on('disconnect', onDisconnect);
 });
-const Game = require('./game');
+const Game = require('../public/src/js/game');
 
 // ...
 
