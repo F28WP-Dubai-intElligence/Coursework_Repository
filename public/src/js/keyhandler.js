@@ -32,6 +32,18 @@ function keyHandler() {
         test = false;
         ships[playerID].style.height = 90 + 'px';
     }
+
+    if (keyState[SPACEBAR] && (keyState[KEYLEFT] || keyState[KEYRIGHT] || keyState[KEYUP] || keyState[KEYDOWN])) {
+        if (boostLeft >= 0) {
+            ship_Y_STEP = 6;
+            boostLeft -= 1;
+        } else {
+            ship_Y_STEP = 3;
+        }
+    }
+    if (!keyState[SPACEBAR]) {
+        ship_Y_STEP = 3;
+    }
 }
 
 function keyDOWN(e) {

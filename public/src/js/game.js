@@ -60,6 +60,8 @@ function init() {
     ship_X_STEP = 3;
     ship_Y_STEP = 3;
 
+    totalBoost = 250;
+    boostLeft = 250;
 
     X_ship_Direction = 1;
     Y_ship_Direction = 1;
@@ -71,6 +73,7 @@ function init() {
     KEYDOWN = 40;
     KEYLEFT = 37;
     KEYRIGHT = 39;
+    SPACEBAR = 32;
 
     rockID = 0;
     meteorID = 0;
@@ -115,7 +118,10 @@ function gameLoop() // update loop for game
 
     crossTop();
 
+    boostUpdate();
+    console.log(ship_Y_STEP);
 }
+
 
 function rockCollisionCheck() {
     rocks.forEach(rock => {
