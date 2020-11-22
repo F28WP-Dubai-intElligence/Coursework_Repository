@@ -2,10 +2,10 @@
     "name": "Coursework_Repository",
     "version": "1.0.0",
     "description": "## by intElligence",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "nodemon server/app.js"
+        "start": "node server",
+        "dev": "nodemon server"
     },
     "repository": {
         "type": "git",
@@ -22,6 +22,12 @@
         "asynckit": "^0.4.0",
         "bignumber.js": "^9.0.1",
         "codemon": "^0.1.31-development",
+        "express": "^4.17.1",
+        "socket.io": "^3.0.3"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.6"
+
         "combined-stream": "^1.0.8",
         "debug": "^4.2.0",
         "delayed-stream": "^1.0.0",
@@ -47,5 +53,6 @@
     },
     "devDependencies": {
         "supertest": "^6.0.1"
+
     }
 }
