@@ -15,7 +15,6 @@
 #divcountdown {
     position: absolute;
     width: 50%;
-    left: 25%;
     height: 30px;
     border: 2px black solid;
     /* background: linear-gradient(to right, #ba1e68, #1d1135, #0c164f, #5643fd); */
