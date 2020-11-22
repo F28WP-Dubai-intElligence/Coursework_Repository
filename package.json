@@ -2,7 +2,7 @@
     "name": "Coursework_Repository",
     "version": "1.0.0",
     "description": "## by intElligence",
-    "main": "server.js",
+    "main": "./server/server.js",
     "scripts": {
         "start": "node server",
         "dev": "nodemon server"
