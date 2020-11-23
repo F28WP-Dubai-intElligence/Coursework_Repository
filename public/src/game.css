@@ -88,7 +88,7 @@
     height: 100vh;
     margin: 0px auto;
     background-color: #000;
-    background-image: url("../assets/images/planet2-removebg-preview.png"), url("../assets/images/brightSpace.png");
+    background-image: url("assets/images/planet2-removebg-preview.png"), url("assets/images/brightSpace.png");
     background-position: 120% 70px, 0px 0px;
     background-repeat: no-repeat, repeat-x, repeat-x;
     animation: animate-background linear 50s infinite;

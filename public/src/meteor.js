@@ -30,7 +30,7 @@ function Meteor(meteorpic, left, top, vx, vy) {
         function flipFireball() {
             if (that.dy <= 0) {
                 clearTimeout(flip);
-                that.element.src = "public/src/assets/images/fireball_flip.gif";
+                that.element.src = "assets/images/fireball_flip.gif";
             }
         }
     }

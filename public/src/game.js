@@ -167,7 +167,7 @@ function crossTop() {
 }
 
 function shipTopBlast(y, x) {
-    shipTop.src = "public/src/assets/images/shiptop 2.gif";
+    shipTop.src = "assets/images/shiptop 2.gif";
     shipTop.style.visibility = "visible";
     shipTop.style.top = Y_MIN - 40 + 'px';
     shipTop.style.left = x - 30 + 'px';
@@ -181,7 +181,7 @@ function showBlast(y, x) {
         clearTimeout(blastTimeout);
     }
     blastCount++;
-    blast.src = "public/src/assets/images/blast.gif";
+    blast.src = "assets/images/blast.gif";
     blast.style.visibility = "visible";
     blast.style.top = y + 'px';
     blast.style.left = x + 'px';
