@@ -4,12 +4,12 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "root",
-    database: "groupchat"
+    database: "leaderboard"
 });
 
 
 const find = function() {
-    const selectSessions = "SEELECT * from groupchat.sessions ;";
+    const selectSessions = "SEELECT * from leaderboard.sessions ;";
     con.connect(function(err) {
         if (err) throw err;
         //select all sessions
@@ -22,7 +22,7 @@ const find = function() {
 };
 
 const findById = function(id) {
-    const selectSession = "SEELECT * from groupchat.sessions where id = ?";
+    const selectSession = "SEELECT * from leaderboard.sessions where id = ?";
     con.connect(function(err) {
         if (err) throw err;
         //select session by id
@@ -35,7 +35,7 @@ const findById = function(id) {
 };
 
 const createSession = function() {
-    const insertSession = "INSERT INTO groupchat.sessions VALUES();";
+    const insertSession = "INSERT INTO leaderboard.sessions VALUES();";
     con.connect(function(err) {
         if (err) throw err;
         //create session with default values ID, and startDate
@@ -48,7 +48,7 @@ const createSession = function() {
 };
 
 const deleteSession = function(id) {
-    const deleteSession = "DELETE FROM groupchat.sessions WHERE id = ?";
+    const deleteSession = "DELETE FROM leaderboard.sessions WHERE id = ?";
     con.connect(function(err) {
         if (err) throw err;
         //delete session with ID
