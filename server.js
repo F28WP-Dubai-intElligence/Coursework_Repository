@@ -1,32 +1,42 @@
-const express = require('express')
-const path = require('path')
-const http = require('http')
-const PORT = process.env.PORT || 3000
-const socketio = require('socket.io')
-const app = express()
-const server = http.createServer(app)
-const io = socketio(server)
+const express = require('express');
+const path = require('path');
+const http = require('http');
+const PORT = process.env.PORT || 3000;
+const socketio = require('socket.io');
+const app = express();
+const session = require('express-session');
+
+app.use(session({
+    secret:'my secrete',
+    cookie:{maxAge:60000},
+    resave:false,
+    saveUninitialized:false
+}));
+
 
 //use morgan middleware
 const morgan = require("morgan");
 app.use(morgan('dev'));
-
-app.use(express.static('/'));
-app.get('/', (req, res) => {
-    res.sendFile('index.html', { root: __dirname });
-});
 
 // middleware
 app.use(express.json());
 app.use(express.urlencoded());
 
 
-// // Set static folder
-// app.use(express.static(path.join(__dirname, "/public/src/js/game.js")))
-
+app.use(express.static('./public/src'));
 app.get('/', (req, res) => {
-    res.sendFile('game.html', { root: __dirname });
+    res.sendFile('./public/src/index.html', { root: __dirname });
 });
 
+const myRouter = require('./routes/post');
+app.use(myRouter);
+
+const createDB = require('./DAOS/db');
+//createDB();
+
 // Start server
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+
+const io = socketio(server);
+
+//listen to socket

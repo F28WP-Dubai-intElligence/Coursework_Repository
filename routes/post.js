@@ -4,13 +4,12 @@ const userController = require('../controllers/userController');
 
 
 //define a router and create routes
-const chatRouter = express.Router();
+const myRouter = express.Router();
 //create a route for /api/login
-chatRouter.post('/api/login', userController.loginCtrl);
-//create a route for /api/users
-chatRouter.get('/api/users', userController.getUsers);
-//create a route with /api/users/id
-chatRouter.get('/api/users/:id', userController.getUserByID);
+myRouter.post('/api/register', userController.registerCtrl);
+//create a route for /api/login
+myRouter.post('/api/login', userController.loginCtrl);
+
 
 //export router
-module.exports = chatRouter;
+module.exports = myRouter;
