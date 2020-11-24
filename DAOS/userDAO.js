@@ -152,6 +152,6 @@ module.exports = {
     createUser,
     deleteUser,
     createScoreBoard,
-    findByUsername2
+    findByUsername2,
     checkPass
 };
