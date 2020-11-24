@@ -8,7 +8,8 @@ function init() {
             console.log(name + "'" + pass);
             $.post('/api/register', user, function(result) {
                     console.log(result);
-                    window.location.pathname = 'game.html';
+                    window.alert("test");
+                    window.navigate("game.html");
                     // $.get("https://f28wp-dubai-intelligence.github.io/Coursework_Repository/public/src/game.html");
                 })
                 .fail(function() {
