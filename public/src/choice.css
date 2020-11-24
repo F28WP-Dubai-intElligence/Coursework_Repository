@@ -33,15 +33,16 @@
         color: white;
         left: 0;
         /* line-height: 200px; */
-        margin-top: -270px;
+        margin-top: -200px;
         position: absolute;
         text-align: center;
         top: 40%;
         width: 100%;
-        font-size: 600%;
+        font-size: 500%;
         letter-spacing: 25px;
     }
     
     .rockets {
         top: 30%;
+        margin-left: 300px;
     }
