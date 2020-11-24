@@ -96,6 +96,7 @@ function init(i) {
 
     gameLoop();
     initBarCount();
+    startClock();
 
 }
 
