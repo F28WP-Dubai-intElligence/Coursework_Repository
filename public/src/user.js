@@ -7,15 +7,18 @@ function init() {
             var user = { username: username, password: pass, email: email }; //username is attribute
             console.log(name + "'" + pass);
             $.post('/api/register', user, function(result) {
-                    console.log(result);
                     $.get('game.html');
-                    window.location.replace('game.html');
-
                 })
                 .fail(function() {
-                    window.alert("test");
+                    window.alert(result);
                     console.log("error loading user");
                 });
+            if (success = true) {
+                window.location.replace('game.html');
+
+            } else {
+                window.alert("The username/email-ID is already in use");
+            }
         });
         $("#login").click(function(e) {
             var username = $("#username").val();

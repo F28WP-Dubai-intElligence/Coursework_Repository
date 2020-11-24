@@ -18,17 +18,26 @@ const loginService = (username, password, callback) => {
 
 
 const registerService = (username, password, email, callback) => {
-
-    userDAO.createUser(username, password, email, function(err, affectedRows, insertId) {
-        console.log(`Insertion  from DAO : ${affectedRows}, ${insertId}`);
-        if (affectedRows != 0) {
-            console.log(`new user ${insertId}, ${username}, ${email}`);
-            user = new User(insertId, username, email);
-            callback(null, user);
+    userDAO.findByUsername(username, function(err, rows) {
+        if (rows.length != 0) {
+            success = false;
         } else {
-            callback(true, null);
+            success = true;
+            userDAO.createUser(username, password, email, function(err, affectedRows, insertId) {
+                console.log(`Insertion  from DAO : ${affectedRows}, ${insertId}`);
+                if (affectedRows != 0) {
+                    console.log(`new user ${insertId}, ${username}, ${email}`);
+                    user = new User(insertId, username, email);
+                    callback(null, user);
+                } else {
+                    callback(true, null);
+                }
+            });
+
         }
     });
+
+
 };
 
 const searchService = function(callback) {

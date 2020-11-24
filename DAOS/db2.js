@@ -14,7 +14,7 @@ const testSelect = function() {
 
         }
 
-        const sqlTest = "SELECT * from sql12378272.login where username = 'kevin';";
+        const sqlTest = "SELECT * from sql12378272.login where username like 'kevin1231'";
         connection.query(sqlTest, function(err, result) {
             if (err) {
                 console.log('SQL error');

@@ -1,4 +1,3 @@
-
 function init() {
     noOfPlayers = 1;
     playerID = 0;
@@ -120,7 +119,6 @@ function gameLoop() // update loop for game
     crossTop();
 
     boostUpdate();
-    console.log(ship_Y_STEP);
 }
 
 
