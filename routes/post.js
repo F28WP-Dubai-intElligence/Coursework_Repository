@@ -1,6 +1,6 @@
 const express = require('express');
 //const app = express();
-const userController = require('../controllers/userController');
+const userController = require('controllers/userController');
 
 
 //define a router and create routes
