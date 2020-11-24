@@ -13,7 +13,7 @@ function keyHandler() {
 
     if (keyState[KEYUP]) {
         if (test == false) {
-            ships[playerID].setAttribute("src", "assets/images/rocket1.gif");
+            ships[playerID].setAttribute("src", shipGifs[playerID]);
             ships[playerID].style.height = 100 + 'px';
         }
         test = true;
@@ -28,7 +28,7 @@ function keyHandler() {
     }
 
     if (!keyState[KEYLEFT] && !keyState[KEYRIGHT] && !keyState[KEYUP] && !keyState[KEYDOWN]) {
-        ships[playerID].setAttribute("src", "assets/images/rocket1.gif");
+        ships[playerID].setAttribute("src", shipGifs[playerID]);
         test = false;
         ships[playerID].style.height = 90 + 'px';
     }
