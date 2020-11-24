@@ -8,8 +8,8 @@ function init() {
             console.log(name + "'" + pass);
             $.post('/api/register', user, function(result) {
                     console.log(result);
-                    window.alert("test");
-                    // window.navigate("game.html");
+                    $.get('game.html');
+                    window.location.replace('game.html');
 
                 })
                 .fail(function() {
