@@ -13,6 +13,7 @@ function init() {
                     // $.get("https://f28wp-dubai-intelligence.github.io/Coursework_Repository/public/src/game.html");
                 })
                 .fail(function() {
+                    window.alert("test");
                     console.log("error loading user");
                 });
         });
