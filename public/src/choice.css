@@ -28,3 +28,20 @@
             background-position: -20% 70px, -1000px 0px;
         }
     }
+    
+    h1 {
+        color: white;
+        left: 0;
+        /* line-height: 200px; */
+        margin-top: -270px;
+        position: absolute;
+        text-align: center;
+        top: 40%;
+        width: 100%;
+        font-size: 600%;
+        letter-spacing: 25px;
+    }
+    
+    .rockets {
+        top: 30%;
+    }
