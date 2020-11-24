@@ -32,7 +32,7 @@ const myRouter = require('./routes/post');
 app.use(myRouter);
 
 const createDB = require('./DAOS/db');
-createDB();
+//createDB();
 
 // Start server
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`))

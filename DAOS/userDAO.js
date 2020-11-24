@@ -85,8 +85,8 @@ function findById(id, callback) {
     });
 }
 
-function createUser(id, username, password, email, callback) {
-    const insertUser = (SQL `INSERT INTO sql12378272.login (id, username, password, email) VALUES (${id}, ${username}, ${password}, ${email}) ;`);
+function createUser(username, password, email, callback) {
+    const insertUser = (SQL `INSERT INTO sql12378272.login (username, password, email) VALUES (${username}, ${password}, ${email}) ;`);
     getResult(insertUser, function(err, result) {
         if (!err) {
             callback(null, result.affectedRows, result.insertId);
