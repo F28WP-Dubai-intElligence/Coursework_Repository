@@ -2,7 +2,7 @@
 
 ## by intElligence
 
-![Game Image](https://i.ibb.co/jzQYTXv/ezgif-com-video-to-gif.gif)
+![Game Image](public/src/ezgif.com-video-to-gif.gif)
 
 **CLICK HERE TO PLAY THE GAME!**
 
