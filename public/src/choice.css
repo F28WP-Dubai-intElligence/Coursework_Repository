@@ -46,3 +46,8 @@
         top: 30%;
         margin-left: 300px;
     }
+    
+    .rockets a:hover {
+        opacity: 0.4;
+        transition: 0.6s;
+    }
