@@ -1,4 +1,5 @@
 function timedOut() {
+    window.location.replace('gameover.html');
     rocks.forEach(rock => {
         rock.remove()
     });
