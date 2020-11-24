@@ -6,7 +6,6 @@ function init(){
             var email = $("#email").val();
             var user = { username: username, password: pass, email:email }; //username is attribute
             console.log(name + "'" + pass);
-            $.get("game.html");
             $.post('/api/register', user, function(result) {
                 console.log(result);
                 $.get("game.html");
