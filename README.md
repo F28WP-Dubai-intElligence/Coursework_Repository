@@ -28,3 +28,6 @@
      Game end:
      Game ends as soon as the bar in the middle (timer) has completed.
      Winner of the game is the player who has got most points (has the most passes)
+
+     Game link :
+     https://f28wp-dubai-intelligence.github.io/Coursework_Repository/public/src
