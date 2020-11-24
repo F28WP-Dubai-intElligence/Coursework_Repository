@@ -1,3 +1,4 @@
+
 function init() {
     noOfPlayers = 1;
     playerID = 0;
