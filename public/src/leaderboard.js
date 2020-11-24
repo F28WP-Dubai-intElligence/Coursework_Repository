@@ -1,12 +1,16 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let elements = []
-    let container = document.querySelector('#container')
-        // Add each row to the array
-    container.querySelectorAll('.row').forEach(el => elements.push(el))
-        // Clear the container
-    container.innerHTML = ''
-        // Sort the array from highest to lowest
-    elements.sort((a, b) => b.querySelector('.score').textContent - a.querySelector('.score').textContent)
-        // Put the elements back into the container
-    elements.forEach(e => container.appendChild(e))
-})
+function leaderboardscores() {
+    $(document).ready(function() {
+                $("#leaderboard").click(function(e) {
+                    var username = $("#username").val();
+                    var score = $("#score").val();
+                    var user = { username: username, score: score }; //username is attribute
+                    // console.log(name + "'" + pass);
+                    $.post('/api/leaderboard', user, function(result) { //IF RESULT IS NULL NO GAME , IF RESULT IS USER THEN GET GAME;HTML
+                            console.log(result);
+
+                        })
+                        .fail(function() {
+                            window.alert("test");
+                            console.log("error loading user");
+                        });
+                });

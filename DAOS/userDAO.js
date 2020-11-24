@@ -74,6 +74,17 @@ function findByEmail(email, callback) {
     });
 }
 
+function findByUsername2(username, callback) {
+    const selectPlayer = (SQL `SELECT * from sql12378272.leaderboard ORDER BY score desc;`);
+    getResult(selectPlayer, function(err, rows) {
+        if (!err) {
+            callback(null, rows);
+        } else {
+            console.log(err);
+        }
+    });
+}
+
 function findById(id, callback) {
     const selectUser = (SQL `SELECT * from sql12378272.login where id = ${id};`);
     getResult(selectUser, function(err, rows) {
@@ -108,6 +119,17 @@ function createUser(username, password, email, callback) {
     });
 }
 
+function createScoreBoard(username, score, callback) {
+    const insertScore = (SQL `INSERT INTO sql12378272.leaderboard (username, score) VALUES (${username}, ${score}) ;`);
+    getResult(insertScore, function(err, result) {
+        if (!err) {
+            callback(null, result.affectedRows, result.insertId);
+        } else {
+            console.log(err);
+        }
+    });
+}
+
 
 function deleteUser(id, callback) {
     const insertUser = (SQL `DELETE from sql12378272.login where id = ${id};`);
@@ -128,6 +150,8 @@ module.exports = {
     findByEmail,
     findById,
     createUser,
-    checkPass,
-    deleteUser
+    deleteUser,
+    createScoreBoard,
+    findByUsername2
+    checkPass
 };

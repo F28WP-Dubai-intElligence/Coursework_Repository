@@ -1,5 +1,6 @@
 const { User } = require('../models/entities');
 const userDAO = require('../daos/userDAO');
+const { Score } = require('../models/entities');
 
 // const loginService = (username, password, callback) => {
 //     //check if the user is in the DB
@@ -65,6 +66,23 @@ const registerService = (username, password, email, callback) => {
 
 };
 
+const scoreService = (username, score, callback) => {
+
+    userDAO.createScoreBoard(username, score, function(err, affectedRows) {
+
+        console.log(`Insertion  from DAO : ${affectedRows}`);
+        if (affectedRows != 0) {
+            console.log(`new user ${username}, ${score}`);
+            scores = new Score(username, score);
+            callback(null, scores);
+        } else {
+            callback(true, null);
+        }
+    });
+};
+
+
+
 const searchService = function(callback) {
     userDAO.find(function(err, rows) {
         if (rows.length == 0) {
@@ -105,5 +123,6 @@ module.exports = {
     registerService,
     searchIDService,
     searchService,
-    deleteService
+    deleteService,
+    scoreService
 };

@@ -23,8 +23,16 @@ class Participant {
     }
 }
 
+class Score {
+    constructor(username, score) {
+        this.username = username;
+        this.score = score;
+    }
+}
+
 module.exports = {
     User,
     Session,
-    Participant
+    Participant,
+    Score
 }
