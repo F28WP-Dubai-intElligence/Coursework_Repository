@@ -1,0 +1,30 @@
+    * {
+        margin: 0px;
+        padding: 0px;
+        font-family: 'Space Mono', monospace;
+        /* box-sizing: border-box; */
+        /* overflow: hidden; */
+    }
+    
+    .rockets {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* visibility: hidden;
+        overflow: hidden;
+        display: flex; */
+        align-items: center;
+        justify-content: center;
+        background-image: url(../assets/images/scrolling_space.jpg);
+    }
+    
+    @keyframes animate-background {
+        from {
+            background-position: 120% 70px, 0px 0px;
+        }
+        to {
+            background-position: -20% 70px, -1000px 0px;
+        }
+    }
