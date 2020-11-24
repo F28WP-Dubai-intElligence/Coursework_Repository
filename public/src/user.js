@@ -6,11 +6,12 @@ function init() {
             var email = $("#email").val();
             var user = { username: username, password: pass, email: email }; //username is attribute
             console.log(name + "'" + pass);
+            alert(result);
             $.post('/api/register', user, function(result) {
                     console.log(result);
                     window.alert("test");
-                    window.navigate("game.html");
-                    // $.get("https://f28wp-dubai-intelligence.github.io/Coursework_Repository/public/src/game.html");
+                    // window.navigate("game.html");
+                    $.get("game.html");
                 })
                 .fail(function() {
                     window.alert("test");
