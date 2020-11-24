@@ -1,7 +1,11 @@
+function init(i) {
+    choice = true;
+    if (choice = true) {
+        $(".shipChoice").remove();
 
-function init() {
-    noOfPlayers = 1;
-    playerID = 0;
+    }
+    playerID = i;
+    console.log("playerid " + playerID);
     latestPlayer = 0;
 
     secondsRemaining = 60;
@@ -40,6 +44,7 @@ function init() {
     spotScore = document.getElementById("spotScore");
     // rocks[1] = document.querySelectorAll(".rock2");
     ships = document.querySelectorAll(".ship");
+    console.log(ships.length);
 
     countdown();
 
@@ -86,6 +91,12 @@ function init() {
     callStrike();
 
     strikeWarning();
+    document.addEventListener('keydown', keyDOWN, true);
+    document.addEventListener('keyup', keyUP, true);
+
+    gameLoop();
+    initBarCount();
+
 }
 
 function refresh() {
@@ -105,9 +116,9 @@ function gameLoop() // update loop for game
     ship_Move_X = 0;
     ship_Move_Y = 0;
 
-    if (playerID + 1 <= noOfPlayers) {
-        setNewPosition(ships[playerID], dx_ship, dy_ship);
-    }
+    // if (playerID + 1 <= noOfPlayers) {
+    setNewPosition(ships[playerID], dx_ship, dy_ship);
+    // }
 
     // ship_place.innerHTML = "x: " + ship.offsetLeft + "  y: " + ship.offsetTop;
 
@@ -120,7 +131,6 @@ function gameLoop() // update loop for game
     crossTop();
 
     boostUpdate();
-    console.log(ship_Y_STEP);
 }
 
 
@@ -249,7 +259,6 @@ function restart() {
     //init directions and movement
 
     clearTimeout(myTime);
-
     ship_Direction = 1;
 
     ship_Move_X = 0;
@@ -264,25 +273,10 @@ function restart() {
     document.addEventListener('keyup', keyUP, true);
 
     gameLoop();
-    initBarCount();
-    initBarCount2();
-
 
 }
 
-function addPlayer() {
-    if (noOfPlayers == 3) {
-        window.alert("Max 3 Players only!");
-    } else {
-        latestPlayer++;
-        noOfPlayers++;
-        // updateBoards();
-        // removeRocks();
-        // addRocks();
-        shipInit(latestPlayer);
-        timerPosUpdate();
-    }
-}
+
 
 // function updateBoards() {
 //     let boardScreens = boardWidth / noOfPlayers;

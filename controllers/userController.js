@@ -2,16 +2,14 @@ const loginCtrl = (request, response, next) => {
     const loginServices = require('../services/userServices');
     let username = request.body.username;
     let password = request.body.password;
-
-    loginServices.loginService(username, password, function(err, user) {
+    let email = request.body.email;
+    loginServices.loginService(username, password, email, function(err, result) {
         console.log("User from login service ");
-        if (user === null) {
-            console.log("Auhtentication problem!");
-            response.json(null);
+        if (err) {
+            location.reload();
+            response.json({ outcome: result });
         } else {
-            console.log("Auhtentication went through!");
-            //add username to the session
-            response.json(user);
+            response.json({ outcome: result });
         }
         response.end();
         next();
@@ -25,15 +23,15 @@ const registerCtrl = (request, response, next) => {
     let password = request.body.password;
     let email = request.body.email;
 
-    console.log(username + "," + password+ "," + email);
-    loginServices.registerService(username, password, email, function(err, user) {
-        console.log("User from login service :" + user.id);
+    console.log(username + "," + password + "," + email);
+    loginServices.registerService(username, password, email, function(err, result) {
+        console.log("User from login service :");
         if (err) {
             console.log("No user inserted!");
-            response.write("No user inserted");
+            response.json({ outcome: result });
         } else {
             console.log("Insertion went through!");
-            response.json(user);
+            response.json({ outcome: result });
         }
         response.end();
         next();

@@ -52,9 +52,7 @@ function find(callback) {
 }
 
 function findByUsername(username, callback) {
-    console.log("test");
-
-    const selectUser = (SQL `SELECT * from sql12378272.login where username = ${username};`);
+    const selectUser = (SQL `SELECT * from sql12378272.login where username like ${username};`);
     getResult(selectUser, function(err, rows) {
         if (!err) {
             callback(null, rows);
@@ -97,6 +95,18 @@ function findById(id, callback) {
         }
     });
 }
+
+function checkPass(username, password, email, callback) {
+    const selectUser = (SQL `SELECT * from sql12378272.login where username like ${username} and password like ${password} and email like ${email};`);
+    getResult(selectUser, function(err, rows) {
+        if (!err) {
+            callback(null, rows);
+        } else {
+            console.log(err);
+        }
+    });
+}
+
 
 function createUser(username, password, email, callback) {
     const insertUser = (SQL `INSERT INTO sql12378272.login (username, password, email) VALUES (${username}, ${password}, ${email}) ;`);
@@ -143,5 +153,5 @@ module.exports = {
     deleteUser,
     createScoreBoard,
     findByUsername2
-
+    checkPass
 };
