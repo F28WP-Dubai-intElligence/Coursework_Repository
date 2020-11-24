@@ -52,7 +52,9 @@ function find(callback) {
 }
 
 function findByUsername(username, callback) {
-    const selectUser = (SQL `SELECT * from sql12378272.login where username like ${username};`);
+    console.log("test");
+
+    const selectUser = (SQL `SELECT * from sql12378272.login where username = ${username};`);
     getResult(selectUser, function(err, rows) {
         if (!err) {
             callback(null, rows);
