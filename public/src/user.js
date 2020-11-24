@@ -6,12 +6,11 @@ function init() {
             var email = $("#email").val();
             var user = { username: username, password: pass, email: email }; //username is attribute
             console.log(name + "'" + pass);
-            alert(result);
             $.post('/api/register', user, function(result) {
                     console.log(result);
                     window.alert("test");
                     // window.navigate("game.html");
-                    $.get("game.html");
+
                 })
                 .fail(function() {
                     window.alert("test");
@@ -30,7 +29,7 @@ function init() {
                         alert("Username or password not available")
                     } else {
                         //code to show the game.html
-                        $.get("public/src/game.html");
+                        $.get("game.html");
                     }
                 })
                 .fail(function() {

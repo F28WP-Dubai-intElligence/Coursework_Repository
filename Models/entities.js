@@ -1,6 +1,6 @@
 class User {
-    constructor(name, email) {
-        // this.id = id;
+    constructor(id, name, email) {
+        this.id = id;
         this.pseudoname = name;
         this.email = email;
     }

@@ -9,19 +9,21 @@ const loginService = (username, password, callback) => {
             console.log("user does not exist");
             callback(true, null);
         } else {
-            console.log(`selected user ${rows[0].username}, ${rows[0].password}, ${rows[0].email}`);
-            user = new User(rows[0].username, rows[0].password, rows[0].email);
+            console.log(`selected user ${rows[0].id}, ${rows[0].username}, ${rows[0].password}, ${rows[0].email}`);
+            user = new User(rows[0].id, rows[0].username, rows[0].password, rows[0].email);
             callback(null, user);
         }
     });
 };
 
+
 const registerService = (username, password, email, callback) => {
-    userDAO.createUser(username, password, email, function(err, affectedRows) {
-        console.log(`Insertion  from DAO : ${affectedRows}`);
+
+    userDAO.createUser(username, password, email, function(err, affectedRows, insertId) {
+        console.log(`Insertion  from DAO : ${affectedRows}, ${insertId}`);
         if (affectedRows != 0) {
-            console.log(`new user ${username}, ${email}`);
-            user = new User(username, email);
+            console.log(`new user ${insertId}, ${username}, ${email}`);
+            user = new User(insertId, username, email);
             callback(null, user);
         } else {
             callback(true, null);
