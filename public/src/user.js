@@ -8,8 +8,8 @@ function init() {
             console.log(name + "'" + pass);
             $.post('/api/register', user, function(result) {
                     console.log(result);
-                    // location.replace('https://f28wp-dubai-intelligence.github.io/Coursework_Repository/public/src/game.html')
-                    $.get("https://f28wp-dubai-intelligence.github.io/Coursework_Repository/public/src/game.html");
+                    location.replace('game.html')
+                        // $.get("https://f28wp-dubai-intelligence.github.io/Coursework_Repository/public/src/game.html");
                 })
                 .fail(function() {
                     console.log("error loading user");
