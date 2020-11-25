@@ -104,25 +104,33 @@
 </head>
 
 <body onload="">
-    <div id="controlPanel">
-        <table>
-            <tr>
-                <td>
-                    <div class="menu-wrap">
-                        <input type="checkbox" class="toggler" />
-                        <div class="hamburger">
-                            <div></div>
-                        </div>
-                        <div class="menu">
-                            <div class="overlay"></div>
+    <audio id="mainbg">   
+    <source src="./assets/images/Quarkstar_-_Space_Fiction.mp3" />   
+    </audio>
+    <audio id="spotfx">   
+        <source src="" />   
+        </audio>
+    <audio id="prewarn">   
+            <source src="./assets/images/timerEnd.mp3" />   
+            </audio>
+    <table>
+        <tr>
+            <td>
+                <div class="menu-wrap">
+                    <input type="checkbox" class="toggler" />
+                    <div class="hamburger">
+                        <div></div>
+                    </div>
+                    <div class="menu">
+                        <div class="overlay"></div>
+                        <div>
                             <div>
-                                <div>
-                                    <ul>
-                                        <li>
-                                            <a class="btn restart" onclick="extra();">Restart</a>
-                                        </li>
-                                        <li>
-                                            <a href="index.html" class="btn homepage">Back to HomePage</a
+                                <ul>
+                                    <li>
+                                        <a class="btn restart" onclick="extra();">Restart</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.html" class="btn homepage">Back to HomePage</a
                                        >
                                  </li>
                                  <li>
@@ -170,82 +178,82 @@
                <h1>CHOOSE YOUR ROCKET</h1>
                <div class="rockets">
                                             <a onclick="init(1);"> <img class="rocketChoice" id = "shipch1" src="assets/images/rocket3.gif" /></a>
-                                            <a onclick="init(2);"> <img class="rocketChoice" id="shipch2" src="assets/images/rocket1.gif" /></a>
-                                            <a onclick="init(0);"> <img class="rocketChoice" id="shipch3" src="assets/images/rocket2.gif" /></a>
-                                </div>
-                            </div>
-
-
-                            <div id="divcountdown">
-                                <div id="mytimeleft"></div>
-                            </div>
-                            <div id="divcountdown2">
-                                <div id="mytimeleft2"></div>
-                            </div>
-                            <div id="boost">
-                                <div id="boostleft"></div>
-                            </div>
-                            <div id="score">0</div>
-                            <div id="spotScore">0</div>
-                            <img src="assets/images/blast.gif" alt="" id="blast" class="blast" />
-                            <img src="assets/images/shiptop 2.gif" alt="" id="shiptop" class="shiptop" />
-                            <img src="assets/images/shiptop 2.gif" alt="" id="shipspawn" class="shipspawn" />
-                            <div id="warning">
-                                <h1>WARNING!</h1>
-                                <h2>Fire Meteor Strike Imminent</h2>
-                            </div>
-                            <div id="allShips">
-                                <img id="ship2" src="assets/images/rocket2.gif" class="ship" />
-                                <img id="ship3" src="assets/images/rocket3.gif" class="ship" />
-                                <img id="ship3" src="assets/images/rocket1.gif" class="ship" />
-                            </div>
-                            <div id="meteor">
-                                <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
-                                <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
-                                <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
-                                <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
-                                <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
-                                <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
-                                <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
-                                <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
-                                <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
-                                <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
-                                <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
-                                <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
-                            </div>
-                            <div id="allRocks">
-                                <img id="rock" src="assets/images/spinningMeteor1.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor2.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor3.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor4.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor5.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor1.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor2.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor3.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor4.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor5.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor1.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor2.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor3.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor4.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor5.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor1.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor2.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor3.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor4.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor5.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor1.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor2.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor3.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor4.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor5.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor1.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor2.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor3.gif" class="rocks" />
-                                <img id="rock" src="assets/images/spinningMeteor4.gif" class="rocks" />
+                                        <a onclick="init(2);"> <img class="rocketChoice" id="shipch2" src="assets/images/rocket1.gif" /></a>
+                                        <a onclick="init(0);"> <img class="rocketChoice" id="shipch3" src="assets/images/rocket2.gif" /></a>
                             </div>
                         </div>
+
+
+                        <div id="divcountdown">
+                            <div id="mytimeleft"></div>
+                        </div>
+                        <div id="divcountdown2">
+                            <div id="mytimeleft2"></div>
+                        </div>
+                        <div id="boost">
+                            <div id="boostleft"></div>
+                        </div>
+                        <div id="score">0</div>
+                        <div id="spotScore">0</div>
+                        <img src="assets/images/blast.gif" alt="" id="blast" class="blast" />
+                        <img src="assets/images/shiptop 2.gif" alt="" id="shiptop" class="shiptop" />
+                        <img src="assets/images/shiptop 2.gif" alt="" id="shipspawn" class="shipspawn" />
+                        <div id="warning">
+                            <h1>WARNING!</h1>
+                            <h2>Fire Meteor Strike Imminent</h2>
+                        </div>
+                        <div id="allShips">
+                            <img id="ship2" src="assets/images/rocket2.gif" class="ship" />
+                            <img id="ship3" src="assets/images/rocket3.gif" class="ship" />
+                            <img id="ship3" src="assets/images/rocket1.gif" class="ship" />
+                        </div>
+                        <div id="meteor">
+                            <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
+                            <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
+                            <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
+                            <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
+                            <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
+                            <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
+                            <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
+                            <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
+                            <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
+                            <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
+                            <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
+                            <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
+                        </div>
+                        <div id="allRocks">
+                            <img id="rock" src="assets/images/spinningMeteor1.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor2.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor3.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor4.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor5.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor1.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor2.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor3.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor4.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor5.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor1.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor2.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor3.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor4.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor5.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor1.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor2.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor3.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor4.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor5.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor1.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor2.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor3.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor4.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor5.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor1.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor2.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor3.gif" class="rocks" />
+                            <img id="rock" src="assets/images/spinningMeteor4.gif" class="rocks" />
+                        </div>
                     </div>
+                </div>
 </body>
 
 </html>

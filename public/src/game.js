@@ -1,4 +1,8 @@
 function init(i) {
+    const mainbg = document.getElementById("mainbg");
+    const prewarn = document.getElementById("prewarn");
+    var spotfx = document.getElementById("spotfx");
+    mainbg.play();
     choice = true;
     if (choice = true) {
         $(".shipChoice").remove();
@@ -96,7 +100,7 @@ function init(i) {
 
     gameLoop();
     initBarCount();
-    startClock();
+    startClocks();
 
 }
 
@@ -141,6 +145,8 @@ function rockCollisionCheck() {
         if (cross(rock, ships[playerID]) && rock.style.visibility == "visible") {
             // rockID = 0;
             rock.style.visibility = "hidden";
+            spotfx.setAttribute("src", "./assets/images/debrisCollision.mp3");
+            spotfx.play();
             showBlast(ships[playerID].offsetTop, ships[playerID].offsetLeft);
             spotPoint(ships[playerID].offsetTop, ships[playerID].offsetLeft, -1, "red");
             restart();
@@ -155,7 +161,8 @@ function rockCollisionCheck() {
 function meteorCollisionCheck() {
     meteors.forEach(meteoroid => {
         if (cross(meteoroid, ships[playerID])) {
-            // rockID = 0;
+            spotfx.setAttribute("src", "./assets/images/burning.mp3");
+            spotfx.play();
             showBlast(ships[playerID].offsetTop, ships[playerID].offsetLeft);
             spotPoint(ships[playerID].offsetTop, ships[playerID].offsetLeft, -5, "red");
             restart();
@@ -168,6 +175,8 @@ function meteorCollisionCheck() {
 
 function crossTop() {
     if (ships[playerID].offsetTop <= Y_MIN) {
+        spotfx.setAttribute("src", "./assets/images/ship_cross.mp3");
+        spotfx.play();
         shipTopBlast(ships[playerID].offsetTop, ships[playerID].offsetLeft)
         spotPoint(ships[playerID].offsetTop, ships[playerID].offsetLeft, "+" + 5, "green");
         restart();

@@ -4,10 +4,16 @@ function timedOut() {
 
 }
 
+function warningSound() {
+    prewarn.play();
+
+}
+
 
 // set a timer
-function startClock() {
-    setTimeout(timedOut, 6000);
+function startClocks() {
+    setTimeout(warningSound, 52500);
+    setTimeout(timedOut, 60000);
 }
 // setTimeout(function() {
 //     trial.style.visibility = "visible";
