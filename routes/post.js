@@ -9,6 +9,10 @@ const myRouter = express.Router();
 myRouter.post('/api/register', userController.registerCtrl);
 //create a route for /api/login
 myRouter.post('/api/login', userController.loginCtrl);
+//create a route for /api/login
+myRouter.post('/api/leaderboard', userController.leaderScoreCtrl);
+
+myRouter.post('/api/leaderboardUpdate', userController.leaderCtrl);
 
 
 //export router

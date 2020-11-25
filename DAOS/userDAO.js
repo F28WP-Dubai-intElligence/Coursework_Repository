@@ -62,6 +62,17 @@ function findByUsername(username, callback) {
     });
 }
 
+function findByUsernameLeader(username, callback) {
+    const selectUser = (SQL `SELECT * from sql12378272.leaderboard where username like ${username};`);
+    getResult(selectUser, function(err, rows) {
+        if (!err) {
+            callback(null, rows);
+        } else {
+            console.log(err);
+        }
+    });
+}
+
 
 function findByEmail(email, callback) {
     const selectUser = (SQL `SELECT * from sql12378272.login where email like ${email};`);
@@ -74,8 +85,31 @@ function findByEmail(email, callback) {
     });
 }
 
+function updateScore(username, score, callback) {
+    const insertScore = (SQL `UPDATE sql12378272.leaderboard SET score=(${score}) WHERE username like ${username} ;`);
+    getResult(insertScore, function(err, result) {
+        if (!err) {
+            callback(null, result);
+        } else {
+            console.log(err);
+        }
+    });
+}
+
+function createScore(username, score, callback) {
+    const insertScore = (SQL `INSERT INTO sql12378272.leaderboard (username, score) VALUES (${username}, ${score}) ;`);
+    getResult(insertScore, function(err, result) {
+        if (!err) {
+            callback(null, result);
+        } else {
+            console.log(err);
+        }
+    });
+}
+
+
 function displayscores(callback) {
-    const selectPlayer = (SQL `SELECT * from sql12378272.leaderboard ORDER BY score desc;`);
+    const selectPlayer = (SQL `SELECT username,score FROM sql12378272.leaderboard ORDER BY score DESC LIMIT 5;`);
     getResult(selectPlayer, function(err, rows) {
         if (!err) {
             callback(null, rows);
@@ -119,16 +153,6 @@ function createUser(username, password, email, callback) {
     });
 }
 
-function createScoreBoard(username, score, callback) {
-    const insertScore = (SQL `INSERT INTO sql12378272.leaderboard (username, score) VALUES (${username}, ${score}) ;`);
-    getResult(insertScore, function(err, result) {
-        if (!err) {
-            callback(null, result.affectedRows, result.insertId);
-        } else {
-            console.log(err);
-        }
-    });
-}
 
 
 function deleteUser(id, callback) {
@@ -147,11 +171,13 @@ function deleteUser(id, callback) {
 module.exports = {
     find,
     findByUsername,
+    findByUsernameLeader,
     findByEmail,
     findById,
     createUser,
     deleteUser,
-    createScoreBoard,
+    createScore,
     displayscores,
+    updateScore,
     checkPass
 };

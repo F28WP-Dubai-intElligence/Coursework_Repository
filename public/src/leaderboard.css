@@ -1,28 +1,24 @@
-#container {
-    width: 600px;
-    height: auto;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Space Mono", monospace;
+    scroll-behavior: smooth;
 }
 
-
-/* .leaderboard {
-    background-image: url("../assets/images/planet2-removebg-preview.png"), url("../assets/images/scrolling_space.jpg");
-    background-position: 120% 70px, 0px 0px;
-    background-repeat: no-repeat, repeat-x, repeat-x;
-    animation: animate-background linear 50s infinite;
+h1 {
+    position: absolute;
+    color: white;
+    left: 25%;
+    top: 20%;
 }
-
-@keyframes animate-background {
-    from {
-        background-position: 120% 70px, 0px 0px;
-    }
-    to {
-        background-position: -20% 70px, -1000px 0px;
-    }
-} */
 
 .styled-table {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
     border-collapse: collapse;
-    margin: 200px 500px;
+    margin: 0 auto;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
@@ -30,7 +26,7 @@
 }
 
 .styled-table thead tr {
-    background-color: grey;
+    background-color: rgb(36, 10, 97);
     color: #ffffff;
     text-align: left;
 }
@@ -44,15 +40,19 @@
     border-bottom: 1px solid #dddddd;
 }
 
+.styled-table tbody tr:nth-of-type(odd) {
+    background-color: white;
+}
+
 .styled-table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid white;
+    border-bottom: 5px solid rgb(102, 63, 196);
 }
 
 .styled-table tbody tr.active-row {
     font-weight: bold;
-    color: white;
+    color: #009879;
 }

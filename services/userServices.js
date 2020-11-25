@@ -39,12 +39,10 @@ const registerService = (username, password, email, callback) => {
         userDAO.findByEmail(email, function(err, rowsmail) {
                 if (rowsuser.length != 0 || rowsmail.length != 0) {
                     //already in db
-                    success = 1;
                     callback(false, 1);
 
                 } else {
                     //not in db
-                    success = 2;
                     userDAO.createUser(username, password, email, function(err, affectedRows, insertId) {
                         console.log(`Insertion  from DAO : ${affectedRows}, ${insertId}`);
                         if (affectedRows != 0) {
@@ -66,21 +64,66 @@ const registerService = (username, password, email, callback) => {
 
 };
 
-const scoreService = (username, score, callback) => {
+const newLeaderService = (username, score, callback) => {
+    console.log("already in");
+    userDAO.findByUsernameLeader(username, function(err, result) {
+        if (result.length != 0) {
+            console.log("already in");
+            userDAO.updateScore(username, score, function(err, affectedRows) {
+                if (affectedRows != 0) {
+                    callback(null, 1);
+                } else {
+                    callback(true, 0);
+                }
+            });
 
-    userDAO.createScoreBoard(username, score, function(err, affectedRows) {
+        } else {
+            console.log("not in");
 
-        console.log(`Insertion  from DAO : ${affectedRows}`);
-        if (affectedRows != 0) {
-            console.log(`new user ${username}, ${score}`);
-            scores = new Score(username, score);
-            callback(null, scores);
+            userDAO.createScore(username, score, function(err, result) {
+                if (result.length != 0) {
+                    score = new Score(username, score);
+                    callback(null, 2);
+                } else {
+                    callback(true, 0);
+                }
+            });
+
+        }
+
+
+
+
+    });
+
+
+};
+
+// const scoreService = (username, score, callback) => {
+
+//     userDAO.createScoreBoard(username, score, function(err, affectedRows) {
+
+//         console.log(`Insertion  from DAO : ${affectedRows}`);
+//         if (affectedRows != 0) {
+//             console.log(`new user ${username}, ${score}`);
+//             scores = new Score(username, score);
+//             callback(null, scores);
+//         } else {
+//             callback(true, null);
+//         }
+//     });
+// };
+
+
+const scoreService = (callback) => {
+    userDAO.displayscores(function(err, scoreData) {
+        if (scoreData.rows != 0) {
+            callback(null, scoreData);
         } else {
             callback(true, null);
         }
     });
 };
-
 
 
 const searchService = function(callback) {
@@ -124,5 +167,6 @@ module.exports = {
     searchIDService,
     searchService,
     deleteService,
+    newLeaderService,
     scoreService
 };

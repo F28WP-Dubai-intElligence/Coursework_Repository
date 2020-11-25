@@ -46,6 +46,23 @@ const getUsers = (request, response) => {
     });
 };
 
+const leaderCtrl = (request, response) => {
+    let username = request.body.username;
+    let score = request.body.score;
+    const loginServices = require('../services/userServices');
+    loginServices.newLeaderService(username, score, function(err, rows) {
+        response.json(rows);
+    });
+};
+
+const leaderScoreCtrl = (request, response) => {
+    const loginServices = require('../services/userServices');
+    loginServices.scoreService(function(err, rows) {
+        response.json(rows);
+        response.end();
+    });
+};
+
 const getUserByID = (request, response) => {
     const loginServices = require('../services/userServices');
     let id = request.params.id;
@@ -59,5 +76,7 @@ module.exports = {
     loginCtrl,
     registerCtrl,
     getUsers,
+    leaderCtrl,
+    leaderScoreCtrl,
     getUserByID
 };

@@ -14,23 +14,23 @@ const testSelect = function() {
 
         }
 
-        const sqlTest = "SELECT * from sql12378272.login where username like 'kevin1231' and password like 'kevin12375764';";
-        connection.query(sqlTest, function(err, result) {
-            if (err) {
-                console.log('SQL error');
-            } else {
-                console.log(result);
-            }
-        });
-
-        // const sqlTest2 = "SELECT * from sql12378272.leaderboard ;";
+        // const sqlTest = "SELECT * from sql12378272.login where username like 'kevin1231';";
         // connection.query(sqlTest, function(err, result) {
         //     if (err) {
-
+        //         console.log('SQL error');
         //     } else {
         //         console.log(result);
         //     }
         // });
+
+        const sqlTest2 = "SELECT username,score FROM leaderboard ORDER BY score DESC LIMIT 5;";
+        connection.query(sqlTest2, function(err, result) {
+            if (err) {
+
+            } else {
+                console.log(result);
+            }
+        });
 
     });
 

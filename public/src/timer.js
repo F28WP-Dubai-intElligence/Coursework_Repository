@@ -1,15 +1,13 @@
 function timedOut() {
+    sessionStorage.setItem('currentScore', score.innerHTML);
     window.location.replace('gameover.html');
-    rocks.forEach(rock => {
-        rock.remove()
-    })
 
 }
 
 
 // set a timer
 function startClock() {
-    setTimeout(timedOut, 60000);
+    setTimeout(timedOut, 6000);
 }
 // setTimeout(function() {
 //     trial.style.visibility = "visible";
