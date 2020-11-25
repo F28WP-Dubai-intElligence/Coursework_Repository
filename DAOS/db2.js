@@ -23,6 +23,15 @@ const testSelect = function() {
             }
         });
 
+        // const sqlTest2 = "SELECT * from sql12378272.leaderboard ;";
+        // connection.query(sqlTest, function(err, result) {
+        //     if (err) {
+
+        //     } else {
+        //         console.log(result);
+        //     }
+        // });
+
     });
 
 };

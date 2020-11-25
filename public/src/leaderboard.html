@@ -10,7 +10,7 @@
 <body style="background-image: url('../src/assets/images/spacebg.jpeg');">
     <div class="leaderboard">
 
-        <table class="styled-table">
+        <table class="styled-table" id="leaderboardtable">
             <thead>
                 <tr>
                     <th>Username</th>
@@ -42,6 +42,19 @@
                 <!-- and so on... -->
             </tbody>
         </table>
+        <script>
+            var username = $("username").val();
+            var score = $(score).val();
+            for (i = 0; i <= 5; i++) {
+                displayscores(function(err, rowuser));
+                if (rowuser.length != 0) {
+                    $("#leaderboardtable").append("<tr>" + "<td> $('selectPlayer.username')" + "<td> $('selectPlayer.score')")
+                }
+
+
+
+            }
+        </script>
 
         <!-- <table style="width:100%">
             <tr>
