@@ -20,6 +20,7 @@
     },
     "homepage": "https://github.com/F28WP-Dubai-intElligence/Coursework_Repository#readme",
     "dependencies": {
+        "crypto": "^1.0.1",
         "express": "^4.17.1",
         "express-session": "^1.17.1",
         "morgan": "^1.10.0",

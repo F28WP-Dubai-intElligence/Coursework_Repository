@@ -1,3 +1,29 @@
+const crypto = require('crypto');
+
+const algorithm = 'aes-256-ctr';
+const secretKey = 'vOVH6sdmpNWjRRIqCc7rdxs01lwHzfr3';
+const iv = crypto.randomBytes(16);
+
+function encrypt(text) {
+
+    const cipher = crypto.createCipheriv(algorithm, secretKey, iv);
+
+    const encrypted = Buffer.concat([cipher.update(text), cipher.final()]);
+
+    return {
+        iv: iv.toString('hex'),
+        content: encrypted.toString('hex')
+    };
+};
+
+// const decrypt = (hash) => {
+
+//     const decipher = crypto.createDecipheriv(algorithm, secretKey, Buffer.from(hash.iv, 'hex'));
+
+//     const decrpyted = Buffer.concat([decipher.update(Buffer.from(hash.content, 'hex')), decipher.final()]);
+
+//     return decrpyted.toString();
+// };
 const loginCtrl = (request, response) => {
     const loginServices = require('../services/userServices');
     let username = request.body.username;
@@ -19,11 +45,13 @@ const registerCtrl = (request, response) => {
     const loginServices = require('../services/userServices');
 
     let username = request.body.username;
-    let password = request.body.password;
+    let encrypted = encrypt(request.body.password);
+    let password = encrypted.content;
+    let iv = encrypted.iv;
     let email = request.body.email;
 
     console.log(username + "," + password + "," + email);
-    loginServices.registerService(username, password, email, function(err, result) {
+    loginServices.registerService(username, password, iv, email, function(err, result) {
         console.log("User from login service :");
         if (err) {
             console.log("No user inserted!");

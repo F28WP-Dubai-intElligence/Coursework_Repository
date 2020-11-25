@@ -2,6 +2,11 @@
 var SQL = require('sql-template-strings');
 const mysql = require('mysql');
 
+const crypto = require('crypto');
+
+const algorithm = 'aes-256-ctr';
+const secretKey = 'vOVH6sdmpNWjRRIqCc7rdxs01lwHzfr3';
+
 var pool = mysql.createPool({
     connectionLimit: 100,
     host: "sql12.freemysqlhosting.net",
@@ -10,6 +15,15 @@ var pool = mysql.createPool({
     database: "sql12378272",
     debug: true
 });
+
+function decrypt(hash, iv) {
+
+    const decipher = crypto.createDecipheriv(algorithm, secretKey, Buffer.from(iv, 'hex'));
+
+    const decrpyted = Buffer.concat([decipher.update(Buffer.from(hash, 'hex')), decipher.final()]);
+
+    return decrpyted.toString();
+};
 
 function executeQuery(query, callback) {
     pool.getConnection(function(err, connection) {
@@ -131,10 +145,21 @@ function findById(id, callback) {
 }
 
 function checkPass(username, password, email, callback) {
-    const selectUser = (SQL `SELECT * from sql12378272.login where username like ${username} and password like ${password} and email like ${email};`);
+    const selectUser = (SQL `SELECT * from sql12378272.login where username like ${username} and email like ${email};`);
     getResult(selectUser, function(err, rows) {
         if (!err) {
-            callback(null, rows);
+            if (rows.length != 0) {
+                console.log(rows[0].iv.length);
+                if (decrypt(rows[0].password, rows[0].iv) === password) {
+                    callback(null, 1);
+                } else {
+                    callback(false, 3);
+                }
+
+            } else {
+                callback(false, 2);
+            }
+
         } else {
             console.log(err);
         }
@@ -142,8 +167,8 @@ function checkPass(username, password, email, callback) {
 }
 
 
-function createUser(username, password, email, callback) {
-    const insertUser = (SQL `INSERT INTO sql12378272.login (username, password, email) VALUES (${username}, ${password}, ${email}) ;`);
+function createUser(username, password, iv, email, callback) {
+    const insertUser = (SQL `INSERT INTO sql12378272.login (username, password, iv, email) VALUES (${username}, ${password}, ${iv}, ${email}) ;`);
     getResult(insertUser, function(err, result) {
         if (!err) {
             callback(null, result.affectedRows, result.insertId);

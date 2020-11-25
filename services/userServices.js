@@ -18,13 +18,13 @@ const { Score } = require('../models/entities');
 // };
 
 const loginService = (username, password, email, callback) => {
-    userDAO.checkPass(username, password, email, function(err, rows) {
-            if (rows.length != 0) {
+    userDAO.checkPass(username, password, email, function(err, result) {
+            if (!err) {
                 //already in db
-                callback(null, 1);
+                callback(null, result);
 
             } else {
-                callback(false, 2);
+                callback(false, result);
             }
         }
 
@@ -34,7 +34,7 @@ const loginService = (username, password, email, callback) => {
 };
 
 
-const registerService = (username, password, email, callback) => {
+const registerService = (username, password, iv, email, callback) => {
     userDAO.findByUsername(username, function(err, rowsuser) {
         userDAO.findByEmail(email, function(err, rowsmail) {
                 if (rowsuser.length != 0 || rowsmail.length != 0) {
@@ -43,7 +43,7 @@ const registerService = (username, password, email, callback) => {
 
                 } else {
                     //not in db
-                    userDAO.createUser(username, password, email, function(err, affectedRows, insertId) {
+                    userDAO.createUser(username, password, iv, email, function(err, affectedRows, insertId) {
                         console.log(`Insertion  from DAO : ${affectedRows}, ${insertId}`);
                         if (affectedRows != 0) {
                             console.log(`new user ${insertId}, ${username}, ${email}`);
