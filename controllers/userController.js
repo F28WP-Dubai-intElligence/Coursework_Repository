@@ -52,6 +52,7 @@ const leaderCtrl = (request, response) => {
     const loginServices = require('../services/userServices');
     loginServices.newLeaderService(username, score, function(err, rows) {
         response.json(rows);
+        response.end();
     });
 };
 

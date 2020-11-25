@@ -13,7 +13,7 @@ function warningSound() {
 // set a timer
 function startClocks() {
     setTimeout(warningSound, 52500);
-    setTimeout(timedOut, 6000);
+    setTimeout(timedOut, 12000);
 }
 // setTimeout(function() {
 //     trial.style.visibility = "visible";
