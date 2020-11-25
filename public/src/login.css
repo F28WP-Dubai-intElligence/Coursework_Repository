@@ -1,10 +1,10 @@
 body {
-    background-color: #F3EBF6;
+    background-color: black;
     font-family: 'Ubuntu', sans-serif;
 }
 
 .main {
-    background-color: #FFFFFF;
+    background-color: rgb(44, 43, 43);
     width: 400px;
     height: 400px;
     margin: 7em auto;
@@ -14,7 +14,7 @@ body {
 
 .sign {
     padding-top: 40px;
-    color: #8C55AA;
+    color: rgb(202, 241, 26);
     font-family: 'Ubuntu', sans-serif;
     font-weight: bold;
     font-size: 23px;
@@ -22,11 +22,11 @@ body {
 
 .un {
 width: 76%;
-color: rgb(38, 50, 56);
+color: rgb(36, 129, 175);
 font-weight: 700;
 font-size: 14px;
 letter-spacing: 1px;
-background: rgba(136, 126, 126, 0.04);
+background: rgba(100, 192, 81, 0.04);
 padding: 10px 20px;
 border: none;
 border-radius: 20px;
@@ -41,11 +41,11 @@ font-family: 'Ubuntu', sans-serif;
 }
 .email {
   width: 76%;
-  color: rgb(38, 50, 56);
+  color: rgb(36, 129, 175);
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 1px;
-  background: rgba(136, 126, 126, 0.04);
+  background: rgba(100, 192, 81, 0.04);
   padding: 10px 20px;
   border: none;
   border-radius: 20px;
@@ -65,11 +65,11 @@ form.form1 {
 
 .pass {
         width: 76%;
-color: rgb(38, 50, 56);
+color: rgb(36, 129, 175);
 font-weight: 700;
 font-size: 14px;
 letter-spacing: 1px;
-background: rgba(136, 126, 126, 0.04);
+background: rgba(100, 192, 81, 0.04);
 padding: 10px 20px;
 border: none;
 border-radius: 20px;
@@ -92,28 +92,44 @@ font-family: 'Ubuntu', sans-serif;
 .submit {
   cursor: pointer;
     border-radius: 5em;
-    color: #fff;
-    background: linear-gradient(to right, #9C27B0, #E040FB);
+    color: rgb(68, 214, 55);
+    background: linear-gradient(to right, rgb(138, 125, 209), rgb(39, 81, 221));
     border: 0;
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 10px;
     padding-top: 10px;
     font-family: 'Ubuntu', sans-serif;
-    margin-left: 35%;
+    margin-left: 20%;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+.submit2 {
+  cursor: pointer;
+    border-radius: 5em;
+    color: rgb(68, 214, 55);
+    background: linear-gradient(to right, rgb(138, 125, 209), rgb(39, 81, 221));
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 30%;
     font-size: 13px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
 
 .forgot {
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-    color: #E1BEE7;
+    color: yellow;
     padding-top: 15px;
 }
 
 a {
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-    color: #E1BEE7;
+    color: yellowgreen;
     text-decoration: none
 }
 
