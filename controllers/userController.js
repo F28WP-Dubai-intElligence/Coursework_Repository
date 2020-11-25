@@ -1,4 +1,4 @@
-const loginCtrl = (request, response, next) => {
+const loginCtrl = (request, response) => {
     const loginServices = require('../services/userServices');
     let username = request.body.username;
     let password = request.body.password;
@@ -12,11 +12,10 @@ const loginCtrl = (request, response, next) => {
             response.json({ outcome: result });
         }
         response.end();
-        next();
     });
 };
 
-const registerCtrl = (request, response, next) => {
+const registerCtrl = (request, response) => {
     const loginServices = require('../services/userServices');
 
     let username = request.body.username;
@@ -29,12 +28,14 @@ const registerCtrl = (request, response, next) => {
         if (err) {
             console.log("No user inserted!");
             response.json({ outcome: result });
+
+
         } else {
             console.log("Insertion went through!");
             response.json({ outcome: result });
+
         }
         response.end();
-        next();
     });
 };
 

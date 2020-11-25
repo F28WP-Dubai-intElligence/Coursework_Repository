@@ -1,26 +1,25 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: "Space Mono", monospace;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-family: "Space Mono", monospace;
+  scroll-behavior: smooth;
 }
 
 .intro {
-    background-image: url("assets/images/spacebg.jpeg");
-    height: 100vh;
+  background-image: url("assets/images/spacebg.jpeg");
+  height: 100vh;
 }
 
 section {
-    background-image: url("assets/images/spacebg.jpeg");
-    height: 100vh;
-    /* flex-direction: column;
+  background-image: url("assets/images/spacebg.jpeg");
+  height: 100vh;
+  /* flex-direction: column;
     text-align: left;
     height: 500vh;
     margin: 0 auto;
     padding: 100px 0; */
-    /* background-color: aqua; */
+  /* background-color: aqua; */
 }
-
 
 /* .instructions {
     background-image: url('../assets/images/spacebg.jpeg');
@@ -28,67 +27,66 @@ section {
 } */
 
 .container {
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .intro h1 {
-    color: white;
-    line-height: 200px;
-    margin-top: -100px;
-    position: absolute;
-    text-align: center;
-    top: 40%;
-    width: 100%;
-    font-size: 600%;
-    letter-spacing: 25px;
+  color: white;
+  line-height: 200px;
+  margin-top: -100px;
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  width: 100%;
+  font-size: 600%;
+  letter-spacing: 25px;
 }
 
 .intro h4 {
-    color: white;
+  color: white;
 }
 
 .button {
-    background-color: navy;
-    border: solid;
-    border-radius: 12px;
-    color: white;
-    width: 14%;
-    top: 50%;
-    padding: 15px 15px;
-    text-align: center;
-    display: inline-block;
-    font-size: 17px;
-    margin: 4px 2px;
-    cursor: pointer;
-    position: absolute;
-    text-decoration: none;
+  background-color: navy;
+  border: solid;
+  border-radius: 12px;
+  color: white;
+  width: 14%;
+  top: 50%;
+  padding: 15px 15px;
+  text-align: center;
+  display: inline-block;
+  font-size: 17px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position: absolute;
+  text-decoration: none;
 }
 
 .playgame {
-    background-color: white;
-    color: navy;
-    border-color: navy;
-    left: 43%;
+  background-color: white;
+  color: navy;
+  border-color: navy;
+  left: 43%;
 }
 
 .howto {
-    left: 19.3%;
+  left: 19.3%;
 }
 
 .leaderboard {
-    left: 65%;
+  left: 65%;
 }
 
 .intro a:hover {
-    background-color: white;
-    color: black;
-    transition: 0.6s;
+  background-color: white;
+  color: black;
+  transition: 0.6s;
 }
-
 
 /* .heading {
     background-color: blue;
@@ -102,48 +100,51 @@ section {
     font-size: 50%;
 } */
 
-
 /* .rules h4 {
     bottom: 700px;
 } */
 
 .heading {
-    /* background-color: lightgrey; */
-    width: 400px;
-    height: 500px;
-    /* border: 15px solid green; */
-    padding: 50px;
-    margin: 22px;
-    color: white;
-    text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc, 0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc, 0 10px 0 #ccc, 0 11px 0 #ccc, 0 12px 0 #ccc, 0 20px 30px rgba(0, 0, 0, 0.5);
-    font-size: 2cm;
+  /* background-color: lightgrey; */
+  width: 400px;
+  height: 500px;
+  /* border: 15px solid green; */
+  padding: 50px;
+  margin: 22px;
+  color: white;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+    0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc,
+    0 10px 0 #ccc, 0 11px 0 #ccc, 0 12px 0 #ccc, 0 20px 30px rgba(0, 0, 0, 0.5);
+  font-size: 2cm;
 }
 
 .Grules {
-    background-color: lightgrey;
-    width: 600px;
-    height: 500px;
-    /* border: 15px solid green; */
-    padding: 50px;
-    margin-left: 600px;
-    margin-top: -620px;
-    border-style: hidden;
-    position: relative;
-    top: 5%;
-    left: -1%;
+  background-color: lightgrey;
+  width: 600px;
+  height: 60%;
+  /* border: 15px solid green; */
+  padding: 50px;
+  margin-left: 600px;
+  margin-top: -620px;
+  border-style: hidden;
+  position: relative;
+  top: 5%;
+  left: -1%;
 }
 
 .Scoring {
-    background-color: darkgray;
+  position: absolute;
+  top: 100%;
+  background-color: darkgray;
 }
 
 img {
-    width: 170px;
+  width: 170px;
 }
 
 h3 a {
-    text-decoration: none;
-    color: navy;
-    font-size: 0.5cm;
-    margin-left: 1.5cm;
+  text-decoration: none;
+  color: navy;
+  font-size: 0.5cm;
+  margin-left: 1.5cm;
 }

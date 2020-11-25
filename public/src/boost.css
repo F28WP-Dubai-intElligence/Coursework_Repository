@@ -1,20 +1,26 @@
 #boost {
-    position: absolute;
-    width: 50%;
-    left: 74%;
-    height: 30px;
-    border: 2px black solid;
-    background: linear-gradient(to right, rgb(255, 17, 0), rgb(207, 121, 9), rgb(46, 207, 13));
-    transform: rotate(-90deg);
-    top: 50%;
-    border-radius: 25px;
-    z-index: 5;
+  position: absolute;
+  width: 40%;
+  left: 79%;
+  height: 30px;
+  border: 2px black solid;
+  background: linear-gradient(
+    to right,
+    rgb(255, 17, 0),
+    rgb(207, 121, 9),
+    rgb(46, 207, 13)
+  );
+  transform: rotate(-90deg);
+  top: 50%;
+  border-radius: 25px;
+  z-index: 5;
 }
 
 #boostleft {
-    float: right;
-    background: black;
-    height: 30px;
-    border-radius: 25px;
-    z-index: 5;
+  color: white;
+  float: right;
+  background: black;
+  height: 30px;
+  border-radius: 25px;
+  z-index: 5;
 }

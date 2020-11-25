@@ -33,7 +33,7 @@ function countdown() {
 function initBarCount() {
     var mytimeleft = document.getElementById("mytimeleft");
     var divcountdown = document.getElementById("divcountdown");
-    var startTimer = setInterval(barCount, 71);
+    var startTimer = setInterval(barCount, 78);
 
     function barCount() {
         if (mytimeleft.clientWidth < divcountdown.clientWidth) {
