@@ -37,7 +37,6 @@ section {
 
 .intro h1 {
     color: white;
-    left: 0;
     line-height: 200px;
     margin-top: -100px;
     position: absolute;
@@ -70,11 +69,18 @@ section {
 }
 
 .playgame {
-    left: 54%;
+    background-color: white;
+    color: navy;
+    border-color: navy;
+    left: 43%;
 }
 
 .howto {
-    left: 32%;
+    left: 19.3%;
+}
+
+.leaderboard {
+    left: 65%;
 }
 
 .intro a:hover {
