@@ -1,4 +1,5 @@
 function init(i) {
+
     const mainbg = document.getElementById("mainbg");
     const prewarn = document.getElementById("prewarn");
     var spotfx = document.getElementById("spotfx");

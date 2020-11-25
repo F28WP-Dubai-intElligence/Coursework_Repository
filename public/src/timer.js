@@ -1,5 +1,5 @@
 function timedOut() {
-    sessionStorage.setItem('currentScore', score.innerHTML);
+    setCookie("score", score.innerHTML, 30);
     window.location.replace('gameover.html');
 
 }
@@ -13,7 +13,7 @@ function warningSound() {
 // set a timer
 function startClocks() {
     setTimeout(warningSound, 52500);
-    setTimeout(timedOut, 60000);
+    setTimeout(timedOut, 6000);
 }
 // setTimeout(function() {
 //     trial.style.visibility = "visible";

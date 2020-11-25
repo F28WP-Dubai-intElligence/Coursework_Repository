@@ -11,7 +11,7 @@ function init() {
                         window.alert("The username/Email-ID is already in use");
 
                     } else if (result.outcome == 2) {
-                        sessionStorage.setItem('curUser', username);
+                        setCookie("username", username, 30);
                         window.location.replace('game.html');
                     }
                 })

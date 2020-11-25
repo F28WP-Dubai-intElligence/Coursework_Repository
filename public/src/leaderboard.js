@@ -4,9 +4,8 @@ function init() {
         // var score = $("#score").val();
         // var user = { username: username, score: score }; //username is attribute
         // console.log(name + "'" + pass);
-        // if (sessionStorage.getItem('curUser')!=null && )
-        var username = sessionStorage.getItem('curUser');
-        var score = sessionStorage.getItem('currentScore');
+        var username = getCookie("username");
+        var score = getCookie("score");
         var userScore = { username: username, score: score }; //username is attribute
         $.post('/api/leaderboardUpdate', userScore, function(resultUpd) {})
         $.post('/api/leaderboard', function(result) { //IF RESULT IS NULL NO GAME , IF RESULT IS USER THEN GET GAME;HTML
