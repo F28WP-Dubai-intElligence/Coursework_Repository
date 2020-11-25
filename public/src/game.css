@@ -210,6 +210,12 @@
     left: 75%;
 }
 
+#soundon {
+    position: absolute;
+    left: 2%;
+    height: 200px;
+}
+
 .arrowKeys {
     position: absolute;
     top: 80%;
