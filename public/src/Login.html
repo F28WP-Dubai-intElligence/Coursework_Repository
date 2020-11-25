@@ -1,41 +1,46 @@
 <html>
-	<head>
-		<link rel="stylesheet" href="login.css" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Sign in</title>
-		<script src="user.js"></script>
-		<script src="jquery-3.5.1.min.js"></script>
-		<script src="cookies.js"></script>
-	</head>
-	<body onload="init();">
-		<div class="main">
-			<p class="sign" align="center">Sign in</p>
-			<form id="form1" class="form1">
-				<input id="username" class="un" type="text" align="center" placeholder="Username" required />
-				<input class="email" type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" align="center" title="Please enter a valid email address" placeholder="Email ID" required />
-				<input class="pass" type="password" id="psw" name="psw" pattern="(?=.*\d).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" align="center" placeholder="Password" required />
-				<div style="width:400px;">
-					<div style="float: left; width: 130px">
-						<input id="register" class="submit" type="button" value="Register" />
-					</div>
-					<div style="float: right; width: 200px">
-						<input id="login" class="submit2" type="button" value="Login" />
-					</div>
-				</div>
-			</form>
-			<br>
-				<br>
-					<div id="message">
-						<h3>Password must contain the following:</h3>
-						<p id="number" class="invalid">At least one 
-							<b>number</b>
-						</p>
-						<p id="length" class="invalid">Minimum 
-							<b>8 characters</b>
-						</p>
-					</div>
-				</div>
-				<script>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital@1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="login.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Log-In Page</title>
+    <script src="user.js"></script>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="cookies.js"></script>
+</head>
+
+<body onload="init();">
+    <div class="main">
+        <p class="sign" align="center">Authorization Required to Enter Spaceship ...</p>
+        <form id="form1" class="form1">
+            <input id="username" class="un" type="text" align="center" placeholder="Username" required />
+            <input class="email" type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" align="center" title="Please enter a valid email address" placeholder="Email ID" required />
+            <input class="pass" type="password" id="psw" name="psw" pattern="(?=.*\d).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" align="center" placeholder="Password" required />
+            <div style="width:400px;">
+                <div style="float: left; width: 130px">
+                    <input id="register" class="submit" type="button" value="Register" />
+                </div>
+                <div style="float: right; width: 200px">
+                    <input id="login" class="submit2" type="button" value="Login" />
+                </div>
+            </div>
+        </form>
+        <br>
+        <br>
+        <div id="message">
+            <h3>Password must contain the following:</h3>
+            <p id="number" class="invalid">At least one
+                <b>number</b>
+            </p>
+            <p id="length" class="invalid">Minimum
+                <b>8 characters</b>
+            </p>
+        </div>
+    </div>
+    <p class="info" align="center">New users: Kindly click 'Register' after entering valid credentials.</p>
+    <p class="info" align="center">Existing users: Kindly click 'Log-In' after entering valid credentials.</p>
+    <script>
         var myInput = document.getElementById("psw");
         var number = document.getElementById("number");
         var length = document.getElementById("length");
@@ -73,5 +78,6 @@
             }
         };
     </script>
-			</body>
-		</html>
+</body>
+
+</html>
