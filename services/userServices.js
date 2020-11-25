@@ -67,29 +67,29 @@ const registerService = (username, password, email, callback) => {
 const newLeaderService = (username, score, callback) => {
     console.log("already in");
     userDAO.findByUsernameLeader(username, function(err, result) {
-        if (result.length != 0) {
-            console.log("already in");
-            userDAO.updateScore(username, score, function(err, affectedRows) {
-                if (affectedRows != 0) {
-                    callback(null, 1);
-                } else {
-                    callback(true, 0);
-                }
-            });
+        // if (result.length != 0) {
+        //     console.log("already in");
+        //     userDAO.updateScore(username, score, function(err, affectedRows) {
+        //         if (affectedRows != 0) {
+        //             callback(null, 1);
+        //         } else {
+        //             callback(true, 0);
+        //         }
+        //     });
 
-        } else {
-            console.log("not in");
+        // } else {
+        //     console.log("not in");
 
-            userDAO.createScore(username, score, function(err, result) {
-                if (result.length != 0) {
-                    score = new Score(username, score);
-                    callback(null, 2);
-                } else {
-                    callback(true, 0);
-                }
-            });
+        userDAO.createScore(username, score, function(err, result) {
+            if (result.length != 0) {
+                score = new Score(username, score);
+                callback(null, 2);
+            } else {
+                callback(true, 0);
+            }
+        });
 
-        }
+        // }
 
 
 
