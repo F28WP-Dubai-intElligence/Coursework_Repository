@@ -1,16 +1,16 @@
 const express = require('express');
 const path = require('path');
 const http = require('http');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 const socketio = require('socket.io');
 const app = express();
 const session = require('express-session');
 
 app.use(session({
-    secret:'my secrete',
-    cookie:{maxAge:60000},
-    resave:false,
-    saveUninitialized:false
+    secret: 'my secrete',
+    cookie: { maxAge: 60000 },
+    resave: false,
+    saveUninitialized: false
 }));
 
 
@@ -40,4 +40,3 @@ const server = app.listen(PORT, () => console.log(`Server running on port ${PORT
 const io = socketio(server);
 
 //listen to socket
-
