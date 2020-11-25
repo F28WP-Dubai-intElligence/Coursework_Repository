@@ -1,17 +1,17 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Space Mono', monospace;
+    font-family: "Space Mono", monospace;
     scroll-behavior: smooth;
 }
 
 .intro {
-    background-image: url('../assets/images/spacebg.jpeg');
+    background-image: url("assets/images/spacebg.jpeg");
     height: 100vh;
 }
 
 section {
-    background-image: url('../assets/images/spacebg.jpeg');
+    background-image: url("assets/images/spacebg.jpeg");
     height: 100vh;
     /* flex-direction: column;
     text-align: left;

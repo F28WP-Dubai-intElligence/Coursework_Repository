@@ -54,7 +54,7 @@
 
 .menu-wrap .hamburger>div::before,
 .menu-wrap .hamburger>div::after {
-    content: '';
+    content: "";
     position: absolute;
     z-index: 1;
     top: -10px;
@@ -108,7 +108,7 @@
     align-items: center;
     justify-content: center;
     /* background-image: url(../assets/images/scrolling_space.jpg); */
-    background-image: url("../assets/images/planet2-removebg-preview.png"), url("../assets/images/scrolling_space.jpg");
+    background-image: url("assets/images/planet2-removebg-preview.png"), url("assets/images/scrolling_space.jpg");
     background-position: 120% 70px, 0px 0px;
     background-repeat: no-repeat, repeat-x, repeat-x;
     animation: animate-background linear 50s infinite;
@@ -118,7 +118,7 @@
     width: 100%;
     height: 99vh;
     background-color: #000;
-    opacity: .5;
+    opacity: 0.5;
     position: absolute;
 }
 
@@ -156,7 +156,7 @@
     color: white;
     font-size: 1.5rem;
     padding: 1rem;
-    font-family: 'Space Mono', monospace;
+    font-family: "Space Mono", monospace;
     letter-spacing: 0.07cm;
 }
 

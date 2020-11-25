@@ -152,11 +152,6 @@ module.exports = {
     createUser,
     deleteUser,
     createScoreBoard,
-<<<<<<< HEAD
-    displayscores
-
-=======
-    findByUsername2
+    displayscores,
     checkPass
->>>>>>> a1c613d971591d48a56d28ef41279c3ca4fa7859
 };
