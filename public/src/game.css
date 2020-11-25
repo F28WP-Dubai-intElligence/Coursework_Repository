@@ -1,7 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
-    font-family: 'Space Mono', monospace;
+    font-family: "Space Mono", monospace;
     /* box-sizing: border-box; */
     /* overflow: hidden; */
 }
@@ -88,7 +88,7 @@
     height: 100vh;
     margin: 0px auto;
     background-color: #000;
-    background-image: url("assets/images/planet2-removebg-preview.png"), url("assets/images/brightSpace.png");
+    background-image: url("../src/assets/images/planet2-removebg-preview.png"), url("assets/images/brightSpace.png");
     background-position: 120% 70px, 0px 0px;
     background-repeat: no-repeat, repeat-x, repeat-x;
     animation: animate-background linear 50s infinite;
@@ -177,4 +177,40 @@
     background-size: cover;
     background-color: black;
     opacity: 0%;
+}
+
+.shipChoice h1 {
+    color: white;
+    left: 0;
+    /* line-height: 200px; */
+    margin-top: -200px;
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    width: 100%;
+    font-size: 500%;
+    letter-spacing: 25px;
+}
+
+.rocketChoice {
+    position: absolute;
+    width: 7%;
+    top: 60%;
+}
+
+#shipch1 {
+    left: 15%;
+}
+
+#shipch2 {
+    left: 45%;
+}
+
+#shipch3 {
+    left: 75%;
+}
+
+.rockets a:hover {
+    opacity: 0.4;
+    transition: 0.6s;
 }
