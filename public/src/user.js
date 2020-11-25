@@ -12,7 +12,7 @@ function init() {
 
                     } else if (result.outcome == 2) {
                         sessionStorage.setItem('curUser', username);
-                        window.location.replace('public/src/game.html');
+                        window.location.replace('game.html');
                     }
                 })
                 .fail(function() {
