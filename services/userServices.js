@@ -21,7 +21,7 @@ const loginService = (username, password, email, callback) => {
     userDAO.checkPass(username, password, email, function(err, result) {
             if (!err) {
                 //already in db
-                callback(null, result);
+                callback(nll, result);
 
             } else {
                 callback(false, result);
