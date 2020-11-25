@@ -76,7 +76,7 @@ function findByEmail(email, callback) {
     });
 }
 
-function findByUsername2(username, callback) {
+function displayscores(callback) {
     const selectPlayer = (SQL `SELECT * from sql12378272.leaderboard ORDER BY score desc;`);
     getResult(selectPlayer, function(err, rows) {
         if (!err) {
@@ -142,6 +142,6 @@ module.exports = {
     createUser,
     deleteUser,
     createScoreBoard,
-    findByUsername2
+    displayscores
 
 };
