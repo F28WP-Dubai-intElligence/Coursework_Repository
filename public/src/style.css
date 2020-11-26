@@ -134,9 +134,10 @@ section {
 
 .Scoring {
   position: absolute;
-  top: 100%;
+  padding: 20px;
+  top: 90%;
   left: -0.25%;
-  width: 600px;
+  width: 563px;
   background-color: orange;
 }
 
