@@ -14,7 +14,7 @@ Game is based off a scenario, where few people are stuck in space . The space is
 
 ###### OBJECTIVE:
 
-Space Race has a very simple objective. Tt is a multiplayer rocket game.
+Space Race has a very simple objective. It is a multiplayer rocket game.
 The idea is to get to the top of the map having avoided the space debris/asteroids to gain points and avoid losing points to hitting the floating debris.
 
 ###### LOGIC:
