@@ -231,13 +231,24 @@ h1 {
     letter-spacing: 10px;
 }
 
+h1 #curscore {
+    position: absolute;
+    left: 20%;
+}
+
+#gameover {
+    position: absolute;
+    top: 15%;
+    left: 24%;
+}
+
 #lbtext {
-    top: 35%;
+    top: 45%;
 }
 
 .styled-table {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 25%;
     width: 50%;
     border-collapse: collapse;

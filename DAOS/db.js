@@ -2,7 +2,7 @@ const createDb = function() {
     const mysql = require('mysql');
     const connection = mysql.createConnection({
         host: "sql12.freemysqlhosting.net",
-        user: "sql12378272",
+        user: "sql12378272@ec2-52-8-112-233.us-west-1.compute.amazonaws.com",
         password: "DLzSueTczD",
         database: "sql12378272"
     });
