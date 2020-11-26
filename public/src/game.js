@@ -21,7 +21,7 @@ function init(rocketID) {
 
     }
     playerID = rocketID;
-    console.log("playerid " + playerID);
+    // console.log("playerid " + playerID);
     latestPlayer = 0;
 
     secondsRemaining = 60;
@@ -60,7 +60,6 @@ function init(rocketID) {
     spotScore = document.getElementById("spotScore");
     // rocks[1] = document.querySelectorAll(".rock2");
     ships = document.querySelectorAll(".ship");
-    console.log(ships.length);
 
     countdown();
 
@@ -199,7 +198,7 @@ function crossTop() {
         restart();
         let shipScore = score.innerHTML;
         shipScore = Number(shipScore) + 5;
-        console.log(shipScore);
+        // console.log(shipScore);
         score.innerHTML = shipScore;
     }
 }
@@ -232,7 +231,7 @@ function showBlast(y, x) {
 
 //function that shows the points gained/lost on the spot
 function spotPoint(y, x, p, c) {
-    console.log("points" + x, y);
+    // console.log("points" + x, y);
     if (spotFade != 0) {
         clearInterval(timerId);
     }

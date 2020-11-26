@@ -15,15 +15,6 @@ function encrypt(text) {
         content: encrypted.toString('hex')
     };
 };
-
-// const decrypt = (hash) => {
-
-//     const decipher = crypto.createDecipheriv(algorithm, secretKey, Buffer.from(hash.iv, 'hex'));
-
-//     const decrpyted = Buffer.concat([decipher.update(Buffer.from(hash.content, 'hex')), decipher.final()]);
-
-//     return decrpyted.toString();
-// };
 const loginCtrl = (request, response) => {
     const loginServices = require('../services/userServices');
     let username = request.body.username;

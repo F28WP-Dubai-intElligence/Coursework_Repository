@@ -12,7 +12,7 @@ function init() {
         $.post('/api/leaderboardUpdate', userScore, function(resultUpd) {})
         setTimeout(function() {
             $.post('/api/leaderboard', function(result) {
-                    console.log(result[0]);
+                    // console.log(result[0]);
                     var i = 0;
                     while (i < result.length) {
                         $("#" + i + "user").html(result[i].username);
