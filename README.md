@@ -6,6 +6,8 @@
 
 **CLICK HERE TO PLAY THE GAME!**
 
+[LET'S GO ->](https://intelligence-space-race.herokuapp.com/)
+
 **_SETTING:_**
 
 Game is based off a scenario, where few people are stuck in space . The space is in utter chaos with killer asteroids coming from all directions making it nearly impossible to get through without getting hit by an aseteroid.
