@@ -9,10 +9,10 @@ const secretKey = 'vOVH6sdmpNWjRRIqCc7rdxs01lwHzfr3';
 
 var pool = mysql.createPool({
     connectionLimit: 100,
-    host: "sql12.freemysqlhosting.net",
-    user: "sql12378272",
-    password: "DLzSueTczD",
-    database: "sql12378272",
+    host: "us-cdbr-east-02.cleardb.com",
+    user: "bb3d62c22aa361",
+    password: "f9e7ee1f",
+    database: "heroku_e534da4fe4548bf",
     debug: true
 });
 
@@ -55,7 +55,7 @@ function getResult(query, callback) {
 }
 
 function find(callback) {
-    const selectUsers = "SELECT * from sql12378272.login; ";
+    const selectUsers = "SELECT * from login; ";
     getResult(selectUsers, function(err, rows) {
         if (!err) {
             callback(null, rows);
@@ -66,7 +66,7 @@ function find(callback) {
 }
 
 function findByUsername(username, callback) {
-    const selectUser = (SQL `SELECT * from sql12378272.login where username like ${username};`);
+    const selectUser = (SQL `SELECT * from login where username like ${username};`);
     getResult(selectUser, function(err, rows) {
         if (!err) {
             callback(null, rows);
@@ -77,7 +77,7 @@ function findByUsername(username, callback) {
 }
 
 function findByUsernameLeader(username, callback) {
-    const selectUser = (SQL `SELECT * from sql12378272.leaderboard where username like ${username};`);
+    const selectUser = (SQL `SELECT * from leaderboard where username like ${username};`);
     getResult(selectUser, function(err, rows) {
         if (!err) {
             callback(null, rows);
@@ -89,7 +89,7 @@ function findByUsernameLeader(username, callback) {
 
 
 function findByEmail(email, callback) {
-    const selectUser = (SQL `SELECT * from sql12378272.login where email like ${email};`);
+    const selectUser = (SQL `SELECT * from login where email like ${email};`);
     getResult(selectUser, function(err, rows) {
         if (!err) {
             callback(null, rows);
@@ -100,7 +100,7 @@ function findByEmail(email, callback) {
 }
 
 function updateScore(username, score, callback) {
-    const insertScore = (SQL `UPDATE sql12378272.leaderboard SET score=(${score}) WHERE username like ${username} ;`);
+    const insertScore = (SQL `UPDATE leaderboard SET score=(${score}) WHERE username like ${username} ;`);
     getResult(insertScore, function(err, result) {
         if (!err) {
             callback(null, result);
@@ -111,7 +111,7 @@ function updateScore(username, score, callback) {
 }
 
 function createScore(username, score, callback) {
-    const insertScore = (SQL `INSERT INTO sql12378272.leaderboard (username, score) VALUES (${username}, ${score}) ;`);
+    const insertScore = (SQL `INSERT INTO leaderboard (username, score) VALUES (${username}, ${score}) ;`);
     getResult(insertScore, function(err, result) {
         if (!err) {
             callback(null, result);
@@ -123,7 +123,7 @@ function createScore(username, score, callback) {
 
 
 function displayscores(callback) {
-    const selectPlayer = (SQL `SELECT username,score FROM sql12378272.leaderboard ORDER BY score DESC LIMIT 5;`);
+    const selectPlayer = (SQL `SELECT username,score FROM leaderboard ORDER BY score DESC LIMIT 5;`);
     getResult(selectPlayer, function(err, rows) {
         if (!err) {
             callback(null, rows);
@@ -134,7 +134,7 @@ function displayscores(callback) {
 }
 
 function findById(id, callback) {
-    const selectUser = (SQL `SELECT * from sql12378272.login where id = ${id};`);
+    const selectUser = (SQL `SELECT * from login where id = ${id};`);
     getResult(selectUser, function(err, rows) {
         if (!err) {
             callback(null, rows);
@@ -145,7 +145,7 @@ function findById(id, callback) {
 }
 
 function checkPass(username, password, email, callback) {
-    const selectUser = (SQL `SELECT * from sql12378272.login where username like ${username} and email like ${email};`);
+    const selectUser = (SQL `SELECT * from login where username like ${username} and email like ${email};`);
     getResult(selectUser, function(err, rows) {
         if (!err) {
             if (rows.length != 0) {
@@ -168,7 +168,7 @@ function checkPass(username, password, email, callback) {
 
 
 function createUser(username, password, iv, email, callback) {
-    const insertUser = (SQL `INSERT INTO sql12378272.login (username, password, iv, email) VALUES (${username}, ${password}, ${iv}, ${email}) ;`);
+    const insertUser = (SQL `INSERT INTO login (username, password, iv, email) VALUES (${username}, ${password}, ${iv}, ${email}) ;`);
     getResult(insertUser, function(err, result) {
         if (!err) {
             callback(null, result.affectedRows, result.insertId);
@@ -181,7 +181,7 @@ function createUser(username, password, iv, email, callback) {
 
 
 function deleteUser(id, callback) {
-    const insertUser = (SQL `DELETE from sql12378272.login where id = ${id};`);
+    const insertUser = (SQL `DELETE from login where id = ${id};`);
     getResult(selectUser, function(err, result) {
         if (!err) {
             console.log("Number of users inserted: " + result.affectedRows);

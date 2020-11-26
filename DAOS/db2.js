@@ -3,10 +3,10 @@
 // const testSelect = function() {
 //     const mysql = require('mysql');
 //     const connection = mysql.createConnection({
-//         host: "sql12.freemysqlhosting.net",
-//         user: "sql12378272",
-//         password: "DLzSueTczD",
-//         database: "sql12378272"
+//         host: "us-cdbr-east-02.cleardb.com",
+// user: "bb3d62c22aa361",
+// password: "f9e7ee1f",
+// database: "heroku_e534da4fe4548bf",
 //     });
 
 //     connection.connect(function(err) {
