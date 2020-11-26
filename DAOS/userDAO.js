@@ -16,6 +16,18 @@ var pool = mysql.createPool({
     debug: true
 });
 
+// Attempt to catch disconnects 
+pool.on('connection', function(connection) {
+    console.log('Connection established');
+    // Below never get called
+    connection.on('error', function(err) {
+        console.error(new Date(), 'MySQL error', err.code);
+    });
+    connection.on('close', function(err) {
+        console.error(new Date(), 'MySQL close', err);
+    });
+});
+
 function decrypt(hash, iv) {
 
     const decipher = crypto.createDecipheriv(algorithm, secretKey, Buffer.from(iv, 'hex'));
