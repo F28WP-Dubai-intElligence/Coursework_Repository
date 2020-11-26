@@ -30,4 +30,7 @@ function init() {
 
 
     })
+    setCookie("score", "", 30);
+    setCookie("username", "", 30);
+
 };
