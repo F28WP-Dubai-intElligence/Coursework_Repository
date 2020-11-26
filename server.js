@@ -1,3 +1,7 @@
+// THIS IS THE JAVASCRIPT FILE FOR FUNCTIONS RELATED TO INTIALIZING AND RUNNING THE SERVER SIDE COMMUNICATIONS
+
+
+// constants that link to the modules installed
 const express = require('express');
 const path = require('path');
 const http = require('http');
@@ -30,9 +34,6 @@ app.get('/', (req, res) => {
 
 const myRouter = require('./routes/post');
 app.use(myRouter);
-
-const createDB = require('./DAOS/db');
-//createDB();
 
 // Start server
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`))

@@ -1,3 +1,11 @@
+// THIS IS THE JAVASCRIPT FILE FOR FUNCTIONS RELATED TO THE IMPLEMENATION OF THE SPACESHIP
+
+// IT IMPLEMENTS THE FOLLOWING:
+// 1. sets the new positions for the ship continuously
+// 2. intializes the ship to the correct position
+
+
+// function that sets the ship to the specified position
 function setNewPosition(element, dx, dy) {
 
     // // Get current positions
@@ -18,25 +26,7 @@ function setNewPosition(element, dx, dy) {
 
 }
 
-function shipInit() {
-    console.log(playerID);
-    let ship_Y_INIT = board.offsetTop + 0.9 * boardHeight;
-    let ship_X_INIT = boardWidth - (boardWidth / 2);
-    ships[playerID].style.width = 1000 + "px";
-    ships[playerID].style.left = ship_X_INIT + "px";
-    ships[playerID].style.top = ship_Y_INIT + "px";
-    shipspawn.src = "assets/images/shiptop 2.gif";
-    shipspawn.style.visibility = "visible";
-    shipspawn.style.top = ship_Y_INIT - 20 + 'px';
-    shipspawn.style.left = ship_X_INIT - 30 + 'px';
-    setTimeout(function() {
-        shipspawn.style.visibility = "hidden";
-    }, 700);
-
-
-}
-
-
+//function that initalizes the ship position on the board
 function shipInit() {
     let ship_Y_INIT = board.offsetTop + 0.9 * boardHeight;
     let ship_X_INIT = boardWidth - (boardWidth / 2);
@@ -49,5 +39,6 @@ function shipInit() {
     setTimeout(function() {
         shipspawn.style.visibility = "hidden";
     }, 700);
+
 
 }

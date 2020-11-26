@@ -1,3 +1,11 @@
+// THIS IS THE JAVASCRIPT FILE FOR THE BOOST FUNCTIONALITY OF THE GAME
+//IT IMPLEMENTS THE FOLLOWING:
+
+// 1. function to constantly update the boostbar
+
+
+
+//this function updates the boost bar found on the right side of the game.
 function boostUpdate() {
     var boostBarLeft = document.getElementById("boostleft");
     var boostBar = document.getElementById("boost");

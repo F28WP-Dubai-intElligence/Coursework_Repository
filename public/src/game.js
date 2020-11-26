@@ -1,5 +1,16 @@
-function init(i) {
+// THIS IS THE MAIN JAVASCRIPT FILE FOR THE GAME
+//IT IMPLEMENTS THE FOLLOWING:
 
+// 1. a constant game loop 
+// 2. constant check for collisions between space ship and debris
+// 3. showing respective animations
+
+
+
+//function that runs every time the game is initialized
+function init(rocketID) {
+
+    // loading in sounds
     const mainbg = document.getElementById("mainbg");
     const prewarn = document.getElementById("prewarn");
     var spotfx = document.getElementById("spotfx");
@@ -9,7 +20,7 @@ function init(i) {
         $(".shipChoice").remove();
 
     }
-    playerID = i;
+    playerID = rocketID;
     console.log("playerid " + playerID);
     latestPlayer = 0;
 
@@ -105,10 +116,12 @@ function init(i) {
 
 }
 
+//just a named function to reload the current page
 function refresh() {
     location.reload();
 }
 
+//game loop that keeps runnning 
 
 function gameLoop() // update loop for game
 {
@@ -139,6 +152,7 @@ function gameLoop() // update loop for game
     boostUpdate();
 }
 
+//function that checks if the ship has collided with any rock
 
 function rockCollisionCheck() {
     rocks.forEach(rock => {
@@ -159,6 +173,7 @@ function rockCollisionCheck() {
     });
 }
 
+//function that checks if the ship collided with any fire meteors
 function meteorCollisionCheck() {
     meteors.forEach(meteoroid => {
         if (cross(meteoroid, ships[playerID])) {
@@ -174,6 +189,7 @@ function meteorCollisionCheck() {
     });
 }
 
+//function to check if the ship crossed the top
 function crossTop() {
     if (ships[playerID].offsetTop <= Y_MIN) {
         spotfx.setAttribute("src", "./assets/images/ship_cross.mp3");
@@ -188,6 +204,7 @@ function crossTop() {
     }
 }
 
+//function to show animations when the ship crosses the top
 function shipTopBlast(y, x) {
     shipTop.src = "assets/images/shiptop 2.gif";
     shipTop.style.visibility = "visible";
@@ -198,6 +215,7 @@ function shipTopBlast(y, x) {
     }, 700);
 }
 
+//function to show animations when the ship collides
 function showBlast(y, x) {
     if (blastCount != 0) {
         clearTimeout(blastTimeout);
@@ -212,6 +230,7 @@ function showBlast(y, x) {
     }, 900);
 }
 
+//function that shows the points gained/lost on the spot
 function spotPoint(y, x, p, c) {
     console.log("points" + x, y);
     if (spotFade != 0) {
@@ -244,7 +263,7 @@ function spotPoint(y, x, p, c) {
     }
 
 }
-
+//main driver function for checking collisions
 function cross(element1, element2) {
     e1Left = element1.offsetLeft; //i1x
     e1Top = element1.offsetTop; //i1y
@@ -265,6 +284,7 @@ function cross(element1, element2) {
 
 }
 
+//function that is invoked every time the game restarts
 function restart() {
     // startTime = new Date();
     //init directions and movement
@@ -286,21 +306,3 @@ function restart() {
     gameLoop();
 
 }
-
-
-
-// function updateBoards() {
-//     let boardScreens = boardWidth / noOfPlayers;
-//     let leftbound = 0;
-//     let i = 0;
-//     while (i < noOfPlayers) {
-//         max_x = leftbound + boardScreens;
-//         min_x = leftbound;
-//         min_y = board.offsetTop;
-//         max_y = board.offsetTop + 0.9 * boardHeight;
-//         boardDivisions[i] = { X_MAX: max_x, X_MIN: min_x, Y_MIN: min_y, Y_MAX: max_y };
-//         leftbound += boardScreens;
-//         i++;
-//     }
-
-// }

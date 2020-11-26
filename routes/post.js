@@ -1,3 +1,6 @@
+// THIS JS FILE THAT HANDLES THE VARIOUS ROUTES REQUESTED
+
+
 const express = require('express');
 //const app = express();
 const userController = require('../controllers/userController');

@@ -1,14 +1,22 @@
+// THIS IS THE JAVASCRIPT FILE FOR IMPLEMENTING ALL THE FUNCTIONS THAT HANDLE THE VARIOUS 
+// INPUTS GIVEN BY THE USER ON THE KEYBAORD
+
+// IT IMPLEMENTS THE FOLLOWING:
+// 1. a keyhandler function which constantly checks and updates the keys pressed down
+// 2. depending on key pressed animations are handled
+
+
+
+// the main function that checks for the key held down and execute the appropriate movement on screen
 function keyHandler() {
 
     if (keyState[KEYRIGHT]) {
         X_ship_Direction = 1;
         ship_Move_X = 1;
-        // ships[playerID].setAttribute("src", shipGif[playerID]);
     }
     if (keyState[KEYLEFT]) {
         X_ship_Direction = -1;
         ship_Move_X = 1;
-        // ships[playerID].setAttribute("src", shipGif[playerID]);
     }
 
     if (keyState[KEYUP]) {
@@ -19,12 +27,10 @@ function keyHandler() {
         test = true;
         Y_ship_Direction = -1;
         ship_Move_Y = 1;
-        // ships[playerID].setAttribute("src", shipGif[playerID]);
     }
     if (keyState[KEYDOWN]) {
         Y_ship_Direction = 1;
         ship_Move_Y = 1;
-        // ships[playerID].setAttribute("src", shipGif[playerID]);
     }
 
     if (!keyState[KEYLEFT] && !keyState[KEYRIGHT] && !keyState[KEYUP] && !keyState[KEYDOWN]) {
@@ -46,6 +52,7 @@ function keyHandler() {
     }
 }
 
+//function that is executed for the keydown handler
 function keyDOWN(e) {
     keyState[e.keyCode] = true;
     switch (e.keyCode) {
@@ -61,6 +68,7 @@ function keyDOWN(e) {
     }
 }
 
+//function that is executed for the keyup handler
 function keyUP(e) {
     keyState[e.keyCode] = false;
 }

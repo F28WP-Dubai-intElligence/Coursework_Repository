@@ -1,3 +1,11 @@
+// THIS IS THE JAVASCRIPT FILE FOR FUNCTIONS RELATED TO THE FIRE METEORS IMPLEMENTATION
+
+// IT IMPLEMENTS THE FOLLOWING:
+// 1. a constructor funciton to store the meteor data
+// 2. functions that randomly assign vales to simulate random motion of meteors
+// 3. functions that invoke and display the warning for the meteor strikes
+
+//constructor function to store the respective values for each meteor
 function Meteor(meteorpic, left, top, vx, vy) {
     this.element = meteorpic;
     this.x = left;
@@ -36,31 +44,27 @@ function Meteor(meteorpic, left, top, vx, vy) {
     }
 }
 
-// function meteorLeft() {
-//     min = Math.ceil(0);
-//     max = Math.floor(max);
-//     return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive 
-
-// }
-
+//function to assign a random value for the position from top value of the meteor
 function meteorTop() {
     return Math.random() * (0.3 - (-0.2)) - 0.2;
 }
 
+//function to assign a random value for the x axis velocity value of the meteor
 function meteorXVel() {
     return Math.random() * (-10 - (-30)) - 30;
 }
 
+//function to assign a random value for the position from left value of the meteor
 function meteorLeft() {
     return Math.random() * (200);
 }
 
+//function to assign a random value for the y axis velocity value of the meteor
 function meteorYVel() {
     return Math.random() * (10);
 }
 
-
-
+// function that calls the strike at the right time and adds the meteors to the screen
 function callStrike() {
     strikeTime = setTimeout(addMeteors, 30000);
 
@@ -78,6 +82,7 @@ function callStrike() {
     }
 }
 
+//function that invokes the warnings that are displayed before the metoers strike
 function strikeWarning() {
     visibleTime = setTimeout(showWarning, 25000);
     hiddenTime = setTimeout(hideWarning, 30000)

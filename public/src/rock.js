@@ -1,15 +1,25 @@
+// THIS IS THE JAVASCRIPT FILE FOR FUNCTIONS RELATED TO THE ROCKS IMPLEMENTATION
+
+// IT IMPLEMENTS THE FOLLOWING:
+// 1. a constructor funciton to store the rock data
+// 2. functions that randomly assign vales to simulate random motion of rock
+// 3. function to add rocks on to the screen
+// 4. function to show warnings for rocks that are out of bounds to the top of the screen
+
+
+// function to assign a random value for the position from left value of the rock
+
 function randomleft() {
-    // console.log("board i x max" + boardDivisions[i].X_MAX)
-    // var x = Math.floor((Math.random() * boardDivisions[i].X_MAX));
-    // return x;
     return Math.floor(Math.random() * (X_MAX - X_MIN) + X_MIN);
 }
 
+// function to assign a random value for the position from top value of the rock
 function randomtop() {
     var x = Math.floor(((Y_MIN + 70) + (Math.random() * (Y_MAX - Y_MIN - 200))));
     return x;
 }
 
+// function to assign a random velocity for the rock
 function randomvel() {
     var random = [];
     min = Math.ceil(rockMaxSpeed);
@@ -21,6 +31,7 @@ function randomvel() {
     return random[posorneg];
 }
 
+// constructor function to store the respective values for each rock and controls their random movement
 function Rock(rockpic, left, top, vx, vy, id) {
     this.element = rockpic;
     this.x = left;
@@ -40,7 +51,6 @@ function Rock(rockpic, left, top, vx, vy, id) {
 
     var name = "warn" + this.id;
     if ($(name).length == 0) {
-        // console.log($(name).length);
         name = document.createElement("div");
         board.appendChild(name);
         name.innerHTML = "!";
@@ -58,9 +68,6 @@ function Rock(rockpic, left, top, vx, vy, id) {
         move = setInterval(frame, 100);
 
         function frame() {
-            //meteor boundaries
-            // let i = 0;
-            // while (i < noOfPlayers) {
             if (that.x >= X_MAX + 100 || that.x <= X_MIN - 100) {
                 that.dx = that.dx * -1;
                 that.element.style.visibility = "visible";
@@ -80,8 +87,6 @@ function Rock(rockpic, left, top, vx, vy, id) {
             if (that.y >= Y_MIN - 50) {
                 name.style.visibility = "hidden";
             }
-            // i++;
-            // }
             that.x = that.x + that.dx;
             that.y = that.y + that.dy;
             that.element.style.left = that.x + 'px';
@@ -90,14 +95,10 @@ function Rock(rockpic, left, top, vx, vy, id) {
     }
 }
 
+// function that adds the rocks to screen
 function addRocks() {
-    // rocks[0] = document.querySelectorAll(".rock1");
-    // rocks[1] = document.querySelectorAll(".rock2");
-
     rocks.forEach(rock => {
-        // console.log(rockID);
         rockData[rockID] = { top: randomtop(), left: randomleft(), xvel: randomvel(), yvel: randomvel() };
-        // console.log(rockData[rockID].top);
         var rock1 = new Rock(rock, rockData[rockID].left, rockData[rockID].top, rockData[rockID].xvel, rockData[rockID].yvel, rockID);
         rock1.initr();
         rockID++;
@@ -105,6 +106,7 @@ function addRocks() {
 
 }
 
+// blinker function tot make the warning signs blink
 function blinker() {
     $('.blinking').fadeOut(500);
     $('.blinking').fadeIn(500);

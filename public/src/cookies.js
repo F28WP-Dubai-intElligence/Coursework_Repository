@@ -1,3 +1,9 @@
+// THIS IS THE JAVASCRIPT FILE FOR IMPLEMENTING COOKIES ON THE WEBPAGE
+//IT IMPLEMENTS THE FOLLOWING:
+
+// 1. functions to create cookies and obtain information back from the cookies
+
+
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));

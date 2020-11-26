@@ -1,3 +1,12 @@
+// THIS IS THE JAVASCRIPT FILE FOR IMPLEMENTING FUNCTIONS THAT HANDLE THE SERVER SIDE/DB COMMUNICATIONS REGARDING THE LOGIN PAGE
+
+// IT IMPLEMENTS THE FOLLOWING:
+// 1. function to handle various outcomes of new user registration
+// 2. function to handle various outcomes of existing user login
+
+
+
+// functiont that is invoked every time the login page is accessed to handle login and registration
 function init() {
     $(document).ready(function() {
         $("#register").click(function(e) {
@@ -59,11 +68,13 @@ function init() {
     });
 }
 
+// function that validates the input given for Email ID using regEX patten
 function validateEmail(elementValue) {
     var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailPattern.test(elementValue);
 }
 
+// function that validates the input given for password using regEX patten
 function validatePassword(elementValue) {
     var passwordPattern = /(?=.*\d).{8,}/;
     return passwordPattern.test(elementValue)

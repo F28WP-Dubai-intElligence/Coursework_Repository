@@ -2,21 +2,6 @@ const { User } = require('../models/entities');
 const userDAO = require('../daos/userDAO');
 const { Score } = require('../models/entities');
 
-// const loginService = (username, password, callback) => {
-//     //check if the user is in the DB
-//     userDAO.findByUsername(username, function(err, rows) {
-//         if (rows.length == 0) {
-//             //the user is not in the DB
-//             console.log("user does not exist");
-//             callback(true, null);
-//         } else {
-//             console.log(`selected user ${rows[0].id}, ${rows[0].username}, ${rows[0].password}, ${rows[0].email}`);
-//             user = new User(rows[0].id, rows[0].username, rows[0].password, rows[0].email);
-//             callback(null, user);
-//         }
-//     });
-// };
-
 const loginService = (username, password, email, callback) => {
     userDAO.checkPass(username, password, email, function(err, result) {
             if (!err) {
@@ -67,19 +52,6 @@ const registerService = (username, password, iv, email, callback) => {
 const newLeaderService = (username, score, callback) => {
     console.log("already in");
     userDAO.findByUsernameLeader(username, function(err, result) {
-        // if (result.length != 0) {
-        //     console.log("already in");
-        //     userDAO.updateScore(username, score, function(err, affectedRows) {
-        //         if (affectedRows != 0) {
-        //             callback(null, 1);
-        //         } else {
-        //             callback(true, 0);
-        //         }
-        //     });
-
-        // } else {
-        //     console.log("not in");
-
         userDAO.createScore(username, score, function(err, result) {
             if (result.length != 0) {
                 score = new Score(username, score);
@@ -88,31 +60,10 @@ const newLeaderService = (username, score, callback) => {
                 callback(true, 0);
             }
         });
-
-        // }
-
-
-
-
     });
 
 
 };
-
-// const scoreService = (username, score, callback) => {
-
-//     userDAO.createScoreBoard(username, score, function(err, affectedRows) {
-
-//         console.log(`Insertion  from DAO : ${affectedRows}`);
-//         if (affectedRows != 0) {
-//             console.log(`new user ${username}, ${score}`);
-//             scores = new Score(username, score);
-//             callback(null, scores);
-//         } else {
-//             callback(true, null);
-//         }
-//     });
-// };
 
 
 const scoreService = (callback) => {
