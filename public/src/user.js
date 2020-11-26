@@ -26,7 +26,6 @@ function init() {
                         }
                     })
                     .fail(function() {
-                        window.alert(result);
                         console.log("error loading user");
                     });
             } else if (validatePassword(pass) === false && validateEmail(email) === true) {
