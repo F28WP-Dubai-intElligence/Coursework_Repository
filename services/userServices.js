@@ -1,6 +1,6 @@
-const { User } = require('../models/entities');
-const userDAO = require('../daos/userDAO');
-const { Score } = require('../models/entities');
+const { User } = require('../Models/entities');
+const userDAO = require('../DAOS/userDAO');
+const { Score } = require('../Models/entities');
 
 const loginService = (username, password, email, callback) => {
     userDAO.checkPass(username, password, email, function(err, result) {
