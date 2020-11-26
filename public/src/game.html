@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <!-- LINKING ALL NEEDED SCRIPTS -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital@1&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="game.css" media="all" />
     <link rel="stylesheet" type="text/css" href="boost.css" media="all" />
@@ -21,7 +22,7 @@
     <script src="meteor.js"></script>
     <script src="cookies.js"></script>
     <script>
-        var username1 = "";
+        // DECLARING VARIABLES SO THAT THEY LOAD ON 
 
         var keyState = {};
 
@@ -105,16 +106,20 @@
 </head>
 
 <body onload="">
+    <!-- loading the main bg sound -->
     <audio id="mainbg">   
     <source src="./assets/images/Quarkstar_-_Space_Fiction.mp3" />   
     </audio>
+    <!-- loading specific spoot sound effects -->
     <audio id="spotfx">   
         <source src="" />   
         </audio>
+    <!-- audio to warn timer end -->
     <audio id="prewarn">   
             <source src="./assets/images/timerEnd.mp3" />   
             </audio>
     <table>
+        <!-- hamburger menu implementation -->
         <tr>
             <td>
                 <div class="menu-wrap">
@@ -149,6 +154,7 @@
       </div>
       <div id="banner">
         <div id="board">
+            <!-- rocket choice for player -->
             <div class="shipChoice">
                <h1>CHOOSE YOUR ROCKET</h1>
                <div class="rockets">
@@ -158,8 +164,7 @@
                                         <a onclick="init(0);"> <img class="rocketChoice" id="shipch3" src="assets/images/rocket2.gif" /></a>
                             </div>
                         </div>
-
-
+                        <!-- countdown timer -->
                         <div id="divcountdown">
                             <div id="mytimeleft">TIMER</div>
                         </div>
@@ -168,6 +173,7 @@
                         </div>
                         <div id="score">0</div>
                         <div id="spotScore">0</div>
+                        <!-- loading the various animation gifs -->
                         <img src="assets/images/blast.gif" alt="" id="blast" class="blast" />
                         <img src="assets/images/shiptop 2.gif" alt="" id="shiptop" class="shiptop" />
                         <img src="assets/images/shiptop 2.gif" alt="" id="shipspawn" class="shipspawn" />
@@ -175,11 +181,13 @@
                             <h1>WARNING!</h1>
                             <h2>Fire Meteor Strike Imminent</h2>
                         </div>
+                        <!-- loading the ship images -->
                         <div id="allShips">
                             <img id="ship2" src="assets/images/rocket2.gif" class="ship" />
                             <img id="ship3" src="assets/images/rocket3.gif" class="ship" />
                             <img id="ship3" src="assets/images/rocket1.gif" class="ship" />
                         </div>
+                        <!-- loading meteor images -->
                         <div id="meteor">
                             <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
                             <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
@@ -194,6 +202,7 @@
                             <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
                             <img id="meteor" src="assets/images/fireball.gif" class="meteor" />
                         </div>
+                        <!-- loading all rock images -->
                         <div id="allRocks">
                             <img id="rock" src="assets/images/spinningMeteor1.gif" class="rocks" />
                             <img id="rock" src="assets/images/spinningMeteor2.gif" class="rocks" />

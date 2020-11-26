@@ -2,14 +2,11 @@
     margin: 0px;
     padding: 0px;
     font-family: "Space Mono", monospace;
-    /* box-sizing: border-box; */
-    /* overflow: hidden; */
 }
 
 #rock {
     position: absolute;
     left: -200px;
-    /*top: 240px;*/
     width: 38px;
     height: 38px;
     background-repeat: no-repeat;
@@ -24,7 +21,6 @@
     top: -999px;
     left: -999px;
     position: absolute;
-    /*top: 240px;*/
     z-index: 10;
 }
 
@@ -93,7 +89,6 @@
     background-repeat: no-repeat, repeat-x, repeat-x;
     animation: animate-background linear 50s infinite;
     position: fixed;
-    /* position: relative; */
 }
 
 #board {
@@ -130,18 +125,6 @@
 #warning h1 {
     text-decoration: underline;
 }
-
-
-/* .trial {
-    background-color: lightgrey;
-    width: 100px;
-    height: 100px;
-    border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
-    visibility: none;
-    display: none;
-} */
 
 .blast {
     left: 50%;
@@ -182,7 +165,6 @@
 .shipChoice h1 {
     color: white;
     left: 0;
-    /* line-height: 200px; */
     margin-top: -200px;
     position: absolute;
     text-align: center;

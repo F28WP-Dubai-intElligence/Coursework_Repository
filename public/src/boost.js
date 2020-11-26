@@ -13,7 +13,6 @@ function boostUpdate() {
 
     function boostupdater() {
         if (boostLeft > 0) {
-            // boostBarLeft.style.width = boostBarLeft.clientWidth - ((totalBoost - boostLeft) / boostBarLeft.clientWidth) + "px";
             boostUsed = totalBoost - boostLeft;
             boostBarLeft.style.width = ((boostBar.clientWidth / 250) * boostUsed) + "px";
         } else {
