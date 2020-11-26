@@ -119,7 +119,7 @@ section {
 }
 
 .Grules {
-  background-color: blanchedalmond;
+  background-color: purple;
   width: 500px;
   height: 60%;
   /* border: 15px solid green; */
@@ -134,8 +134,11 @@ section {
 
 .Scoring {
   position: absolute;
-  top: 100%;
-  background-color: darkgray;
+  padding: 20px;
+  top: 90%;
+  left: -0.25%;
+  width: 563px;
+  background-color: orange;
 }
 
 img {
