@@ -27,7 +27,6 @@
         "mysql": "github:mysqljs/mysql",
         "mysql-upgrade": "^0.1.2",
         "nodemon": "^2.0.6",
-        "serve-favicon": "^2.5.0",
         "socket.io": "^3.0.3",
         "sql-template-strings": "^2.2.2"
     }
