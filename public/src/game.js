@@ -112,6 +112,7 @@ function init(rocketID) {
     gameLoop();
     initBarCount();
     startClocks();
+    setCookie("score", "", 30);
 
 }
 
@@ -287,6 +288,7 @@ function cross(element1, element2) {
 function restart() {
     // startTime = new Date();
     //init directions and movement
+    setCookie("score", "", 30);
 
     clearTimeout(myTime);
     ship_Direction = 1;

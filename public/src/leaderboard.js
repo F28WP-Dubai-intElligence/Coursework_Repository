@@ -5,12 +5,15 @@
 
 // the function that runs everytime the leaderboard.html or gameover.html files are open since both need the leaderboard to be displayed
 function init() {
-    $(document).ready(function() {
-        var username = getCookie("username");
-        var score = getCookie("score");
-        var userScore = { username: username, score: score };
-        $.post('/api/leaderboardUpdate', userScore, function(resultUpd) {})
 
+    $(document).ready(function() {
+        if (getCookie("score") != "") {
+            var username = getCookie("username");
+            var score = getCookie("score");
+            setCookie("score", "", 30);
+            var userScore = { username: username, score: score };
+            $.post('/api/leaderboardUpdate', userScore, function(resultUpd) {})
+        }
         setTimeout(function() {
             $.post('/api/leaderboard', function(result) {
                     // console.log(result[0]);
@@ -30,6 +33,5 @@ function init() {
         }, 2000)
 
     })
-
 
 };

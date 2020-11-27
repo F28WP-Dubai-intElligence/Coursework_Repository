@@ -48,6 +48,7 @@ function init() {
                             window.alert("Invalid username/Email-ID combination!");
 
                         } else if (result.outcome == 1) {
+                            setCookie("username", username, 30);
                             window.location.replace('game.html');
                         } else {
                             window.alert("Incorrect Password!");
