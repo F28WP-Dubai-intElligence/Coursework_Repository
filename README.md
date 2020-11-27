@@ -4,9 +4,23 @@
 
 ![Game Image](public/src/ezgif.com-video-to-gif.gif)
 
+**CLICK BELOW TO WATCH THE TRAILER FOR THE GAME!**
+
+[LET'S WATCH IT ->](https://youtu.be/lEU63Q3cV7Q)
+
 **CLICK HERE TO PLAY THE GAME!**
 
 [LET'S GO ->](https://intelligence-space-race.herokuapp.com/)
+
+**INSTRUCTIONS TO BUILD:**
+
+- Ensure that `Node.js` is installed on your system.
+- Install the folder as a Zip by clicking on the Code button above and click "Download ZIP".
+- Open terminal and CD until you reach the game directory.
+- Enter `npm install` into the terminal.
+- Enter `npm run dev` to view the game on localhost.
+- If any module is shown as missing, enter `npm install <name_of_the_missing_module>`.
+- Enter localhost:3000 on a browser to view the game.
 
 **_SETTING:_**
 

@@ -222,15 +222,15 @@
 
 h1 {
     color: white;
-    left: 0;
+    left: 0%;
     line-height: 200px;
     margin-top: -100px;
     position: absolute;
     text-align: center;
     top: 10%;
     width: 100%;
-    font-size: 300%;
-    letter-spacing: 10px;
+    font-size: 200%;
+    letter-spacing: 1px;
 }
 
 h1 #curscore {
