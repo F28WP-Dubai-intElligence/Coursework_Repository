@@ -4,6 +4,10 @@
 
 ![Game Image](public/src/ezgif.com-video-to-gif.gif)
 
+**CLICK BELOW TO WATCH THE TRAILER FOR THE GAME!**
+
+[LET'S WATCH IT ->](https://youtu.be/lEU63Q3cV7Q)
+
 **CLICK HERE TO PLAY THE GAME!**
 
 [LET'S GO ->](https://intelligence-space-race.herokuapp.com/)
